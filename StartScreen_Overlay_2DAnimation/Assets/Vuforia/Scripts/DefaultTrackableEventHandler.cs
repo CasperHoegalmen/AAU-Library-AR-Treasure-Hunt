@@ -6,6 +6,7 @@ All Rights Reserved.
 Confidential and Proprietary - Protected under copyright and other laws.
 ==============================================================================*/
 
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using Vuforia;
@@ -24,6 +25,9 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
     //public Transform overlayIconeOneTransparent;
     //public GameObject companion, companionDifferent;
     //public GameObject navigationArrow;
+
+    public static DefaultTrackableEventHandler main;
+    public Boolean startMinigame = false;
 
     // public UnityEngine.UI.Image overlayIconeOne;
     public bool isFound;
@@ -107,19 +111,19 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         // overlayIconeOne = GetComponent<UnityEngine.UI.Image>();
         // var tempColor = overlayIconeOne.color;
         // tempColor.a = 0.3f;
-        
-      /*  if (isFound)
-        {
-            overlayIconOneOpaque.gameObject.SetActive(false);
-            overlayIconeOneTransparent.gameObject.SetActive(true);
 
-            companion.SetActive(false);
-            companionDifferent.SetActive(true);
+        /*  if (isFound)
+          {
+              overlayIconOneOpaque.gameObject.SetActive(false);
+              overlayIconeOneTransparent.gameObject.SetActive(true);
 
-            // overlayIconeOne.color = tempColor;
-            isFound = false;
-        }
-        */
+              companion.SetActive(false);
+              companionDifferent.SetActive(true);
+
+              // overlayIconeOne.color = tempColor;
+              isFound = false;
+          }
+          */
 
         //companion.GetComponent<SpriteRenderer>().enabled = true;
         //companion.GetComponent<Animator>().enabled = true;
@@ -127,6 +131,8 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         //companion.transform.position = transform.position;
 
         //navigationArrow.SetActive(true);
+
+        startMinigame = true;
     }
 
 
@@ -152,22 +158,25 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         // var tempColor = overlayIconeOne.color;
         // tempColor.a = 1f;
 
-       
-      /*  if (isFound)
-        {
-            overlayIconOneOpaque.gameObject.SetActive(true);
-            overlayIconeOneTransparent.gameObject.SetActive(false);
 
-            companion.SetActive(true);
-            companionDifferent.SetActive(false);
+        /*  if (isFound)
+          {
+              overlayIconOneOpaque.gameObject.SetActive(true);
+              overlayIconeOneTransparent.gameObject.SetActive(false);
 
-            // overlayIconeOne.color = tempColor;
-        }
-        
-    */
+              companion.SetActive(true);
+              companionDifferent.SetActive(false);
+
+              // overlayIconeOne.color = tempColor;
+          }
+
+      */
         //navigationArrow.SetActive(false);
 
+        startMinigame = false;
+
     }
+
 
     #endregion // PROTECTED_METHODS
 }
