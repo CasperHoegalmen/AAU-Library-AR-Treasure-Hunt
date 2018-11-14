@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="potionStaircase" size="150.000000 139.264984" />
+    <ImageTarget name="potionMagnifier" size="150.000000 139.264984" />
+    <ImageTarget name="potionJul" size="150.000000 139.264984" />
+    <ImageTarget name="potionArcade" size="150.000000 139.264984" />
+    <ImageTarget name="arcadeGrayScale" size="150.000000 152.430038" />
+    <ImageTarget name="potionGrayScale" size="150.000000 188.053574" />
+  </Tracking>
+</QCARConfig>

@@ -20,9 +20,10 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
 {
     #region PROTECTED_MEMBER_VARIABLES
 
-    public Transform overlayIconOneOpaque;
-    public Transform overlayIconeOneTransparent;
-    public GameObject companion, companionDifferent;
+    //public Transform overlayIconOneOpaque;
+    //public Transform overlayIconeOneTransparent;
+    //public GameObject companion, companionDifferent;
+    //public GameObject navigationArrow;
 
     // public UnityEngine.UI.Image overlayIconeOne;
     public bool isFound;
@@ -107,7 +108,7 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         // var tempColor = overlayIconeOne.color;
         // tempColor.a = 0.3f;
         
-        if (isFound)
+      /*  if (isFound)
         {
             overlayIconOneOpaque.gameObject.SetActive(false);
             overlayIconeOneTransparent.gameObject.SetActive(true);
@@ -118,11 +119,14 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
             // overlayIconeOne.color = tempColor;
             isFound = false;
         }
+        */
 
         //companion.GetComponent<SpriteRenderer>().enabled = true;
         //companion.GetComponent<Animator>().enabled = true;
 
         //companion.transform.position = transform.position;
+
+        //navigationArrow.SetActive(true);
     }
 
 
@@ -149,7 +153,7 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         // tempColor.a = 1f;
 
        
-        if (isFound)
+      /*  if (isFound)
         {
             overlayIconOneOpaque.gameObject.SetActive(true);
             overlayIconeOneTransparent.gameObject.SetActive(false);
@@ -160,6 +164,9 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
             // overlayIconeOne.color = tempColor;
         }
         
+    */
+        //navigationArrow.SetActive(false);
+
     }
 
     #endregion // PROTECTED_METHODS

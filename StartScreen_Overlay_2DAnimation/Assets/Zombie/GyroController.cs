@@ -29,9 +29,10 @@ public class GyroController : MonoBehaviour
             gyro = Input.gyro;
             gyro.enabled = true;
 
-            objectToRotate.transform.rotation = Quaternion.Euler(90f, 90f, 0f);
-            rot = new Quaternion(0, 0, 1, 0);
+            //objectToRotate.transform.rotation = Quaternion.Euler(90f, 90f, 0f);
+            //rot = new Quaternion(0, 0, 1, 0);
 
+            
             return true;
         }
 
@@ -41,7 +42,11 @@ public class GyroController : MonoBehaviour
 
     private void Update()
     {
-        if (gyroEnabled)
+
+
+        objectToRotate.transform.rotation = Quaternion.Euler(0, -Input.compass.trueHeading, 0);
+
+        //if (gyroEnabled)
         {
             transform.localRotation = gyro.attitude * rot;
         }
