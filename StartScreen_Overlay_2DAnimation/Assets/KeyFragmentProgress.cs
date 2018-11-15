@@ -25,7 +25,7 @@ public class KeyFragmentProgress : MonoBehaviour {
             keyFragmentOne.color += new Color(0, 0, 0, opaqueAlpha);
             
         }
-        if(keyFragmentCounter == 2) //Add Boolean for second Game here
+        if(GameObject.Find("Zombie").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == true) //Add Boolean for second Game here
         {
             keyFragmentTwo.gameObject.SetActive(true);
             keyFragmentTwo.color += new Color(0, 0, 0, opaqueAlpha);

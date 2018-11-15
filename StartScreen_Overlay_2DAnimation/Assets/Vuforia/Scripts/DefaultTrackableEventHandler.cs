@@ -27,7 +27,8 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
     //public GameObject navigationArrow;
 
     public static DefaultTrackableEventHandler main;
-    public Boolean startMinigame = false;
+    public Boolean startMinigameArcade = false;
+    public Boolean startMinigameCulprit = false;
 
     // public UnityEngine.UI.Image overlayIconeOne;
     public bool isFound;
@@ -132,7 +133,8 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
 
         //navigationArrow.SetActive(true);
 
-        startMinigame = true;
+        startMinigameArcade = true;
+        startMinigameCulprit = true;
     }
 
 
@@ -173,7 +175,8 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
       */
         //navigationArrow.SetActive(false);
 
-        startMinigame = false;
+        startMinigameArcade = false;
+        startMinigameCulprit = false;
 
     }
 

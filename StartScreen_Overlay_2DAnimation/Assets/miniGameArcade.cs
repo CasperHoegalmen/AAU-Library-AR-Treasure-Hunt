@@ -32,7 +32,7 @@ public class MiniGameArcade : MonoBehaviour
     {
 
 
-        if (GameObject.Find("ImageTarget").GetComponent<DefaultTrackableEventHandler>().startMinigame == true && isButtonPressed == false && isArcadeMiniGameCompleted == false)
+        if (GameObject.Find("ImageTarget1").GetComponent<DefaultTrackableEventHandler>().startMinigameArcade == true && isButtonPressed == false && isArcadeMiniGameCompleted == false)
         {
             miniGameUIButton1.gameObject.SetActive(true);
             miniGameUIButton2.gameObject.SetActive(true);
@@ -45,13 +45,13 @@ public class MiniGameArcade : MonoBehaviour
 
         }
 
-        if (GameObject.Find("ImageTarget").GetComponent<DefaultTrackableEventHandler>().startMinigame == true && isButtonPressed == false && isArcadeMiniGameCompleted == true)
+        if (GameObject.Find("ImageTarget1").GetComponent<DefaultTrackableEventHandler>().startMinigameArcade == true && isButtonPressed == false && isArcadeMiniGameCompleted == true)
         {
             miniGameUIFinishedMessage.SetActive(true);
         }
 
 
-        if (GameObject.Find("ImageTarget").GetComponent<DefaultTrackableEventHandler>().startMinigame == false)
+        if (GameObject.Find("ImageTarget1").GetComponent<DefaultTrackableEventHandler>().startMinigameArcade == false)
         {
             miniGameUIButton1.gameObject.SetActive(false);
             miniGameUIButton2.gameObject.SetActive(false);
