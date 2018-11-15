@@ -1,34 +1,138 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System;
 
-public class miniGameArcade : MonoBehaviour {
+public class MiniGameArcade : MonoBehaviour
+{
 
-    public GameObject miniGameUIButton1;
-    public GameObject miniGameUIButton2;
-    public GameObject miniGameUIButton3;
-    public GameObject miniGameUIText;
+    public Button miniGameUIButton1, miniGameUIButton2, miniGameUIButton3, restartGameUIButton;
+    public GameObject miniGameUIQuestionText, miniGameUIWrongAnswerText, miniGameUIRightAnswerText, miniGameUIFinishedMessage;
+    public Boolean isButtonPressed, isArcadeMiniGameCompleted;
+
 
     // Use this for initialization
-    void Start () {
-        
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    void Start()
+    {
+        miniGameUIButton1.gameObject.SetActive(false);
+        miniGameUIButton2.gameObject.SetActive(false);
+        miniGameUIButton3.gameObject.SetActive(false);
+        restartGameUIButton.gameObject.SetActive(false);
+        miniGameUIQuestionText.SetActive(false);
+        miniGameUIWrongAnswerText.SetActive(false);
+        miniGameUIRightAnswerText.SetActive(false);
+        miniGameUIFinishedMessage.SetActive(false);
+        isButtonPressed = false;
+        isArcadeMiniGameCompleted = false;
+    }
 
-        miniGameUIButton1.SetActive(false);
-        miniGameUIButton2.SetActive(false);
-        miniGameUIButton3.SetActive(false);
-        miniGameUIText.SetActive(false);
+    // Update is called once per frame
+    void Update()
+    {
 
-        if (GameObject.Find("ImageTarget").GetComponent<DefaultTrackableEventHandler>().startMinigame == true)
+
+        if (GameObject.Find("ImageTarget").GetComponent<DefaultTrackableEventHandler>().startMinigame == true && isButtonPressed == false && isArcadeMiniGameCompleted == false)
         {
-            miniGameUIButton1.SetActive(true);
-            miniGameUIButton2.SetActive(true);
-            miniGameUIButton3.SetActive(true);
-            miniGameUIText.SetActive(true);
+            miniGameUIButton1.gameObject.SetActive(true);
+            miniGameUIButton2.gameObject.SetActive(true);
+            miniGameUIButton3.gameObject.SetActive(true);
+            miniGameUIQuestionText.SetActive(true);
+
+            miniGameUIButton1.onClick.AddListener(wrongButton1);
+            miniGameUIButton2.onClick.AddListener(wrongButton2);
+            miniGameUIButton3.onClick.AddListener(correctButton);
+
         }
-	}
+
+        if (GameObject.Find("ImageTarget").GetComponent<DefaultTrackableEventHandler>().startMinigame == true && isButtonPressed == false && isArcadeMiniGameCompleted == true)
+        {
+            miniGameUIFinishedMessage.SetActive(true);
+        }
+
+
+        if (GameObject.Find("ImageTarget").GetComponent<DefaultTrackableEventHandler>().startMinigame == false)
+        {
+            miniGameUIButton1.gameObject.SetActive(false);
+            miniGameUIButton2.gameObject.SetActive(false);
+            miniGameUIButton3.gameObject.SetActive(false);
+            miniGameUIQuestionText.SetActive(false);
+            miniGameUIFinishedMessage.SetActive(false);
+        }
+
+    }
+
+
+
+    void correctButton()
+    {
+        isArcadeMiniGameCompleted = true;
+
+        miniGameUIButton1.gameObject.SetActive(false);
+        miniGameUIButton2.gameObject.SetActive(false);
+        miniGameUIButton3.gameObject.SetActive(true);
+
+        miniGameUIButton3.GetComponent<Image>().color = Color.green;
+
+        miniGameUIQuestionText.SetActive(false);
+
+    }
+
+    void wrongButton1()
+    {
+        //Deactivate the Two Answers you didn't choose
+        //Show the chosen Button in Red
+        //"Press On the Screen to try again"
+        //Restart Game
+
+        isButtonPressed = true;
+
+        miniGameUIButton1.gameObject.SetActive(true);
+        miniGameUIButton2.gameObject.SetActive(false);
+        miniGameUIButton3.gameObject.SetActive(false);
+
+        miniGameUIButton1.GetComponent<Image>().color = Color.red;
+
+        miniGameUIQuestionText.SetActive(false);
+        miniGameUIWrongAnswerText.SetActive(true);
+
+        restartGameUIButton.gameObject.SetActive(true);
+        restartGameUIButton.onClick.AddListener(restartGame);
+
+    }
+
+    void wrongButton2()
+    {
+        isButtonPressed = true;
+
+        miniGameUIButton1.gameObject.SetActive(false);
+        miniGameUIButton2.gameObject.SetActive(true);
+        miniGameUIButton3.gameObject.SetActive(false);
+
+        miniGameUIButton2.GetComponent<Image>().color = Color.red;
+
+        miniGameUIQuestionText.SetActive(false);
+        miniGameUIWrongAnswerText.SetActive(true);
+
+        restartGameUIButton.gameObject.SetActive(true);
+        restartGameUIButton.onClick.AddListener(restartGame);
+    }
+
+    void restartGame()
+    {
+        miniGameUIButton1.GetComponent<Image>().color = Color.white;
+        miniGameUIButton2.GetComponent<Image>().color = Color.white;
+
+        miniGameUIButton1.gameObject.SetActive(true);
+        miniGameUIButton2.gameObject.SetActive(true);
+        miniGameUIButton3.gameObject.SetActive(true);
+
+        miniGameUIQuestionText.SetActive(true);
+        miniGameUIWrongAnswerText.SetActive(false);
+        miniGameUIRightAnswerText.SetActive(false);
+
+        restartGameUIButton.gameObject.SetActive(false);
+
+        isButtonPressed = false;
+    }
 }
