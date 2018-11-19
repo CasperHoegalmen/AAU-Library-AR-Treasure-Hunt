@@ -1352,10 +1352,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a917f0af64a6423093132dab321c15f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  overlayIconOneOpaque: {fileID: 0}
-  overlayIconeOneTransparent: {fileID: 0}
-  companion: {fileID: 0}
-  companionDifferent: {fileID: 0}
+  startMinigameArcade: 0
+  startMinigameCulprit: 0
+  textBubbleScript: {fileID: 0}
   isFound: 1
 --- !u!137 &137077833139797796
 SkinnedMeshRenderer:
