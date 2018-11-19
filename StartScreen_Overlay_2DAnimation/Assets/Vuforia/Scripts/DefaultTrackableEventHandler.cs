@@ -135,7 +135,7 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         //navigationArrow.SetActive(true);
 
         //startMinigameArcade = true;
-        //startMinigameCulprit = true;
+        startMinigameCulprit = true;
 
         textBubbleScript.GetComponent<textBubble>().arkade[0].current = true;
        
