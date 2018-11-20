@@ -113,6 +113,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &5857817 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1687598642723496, guid: bd6c70682fbf6964b93e2c7232035b9e,
+    type: 2}
+  m_PrefabInternal: {fileID: 935154732}
 --- !u!21 &21314370
 Material:
   serializedVersion: 6
@@ -134,7 +139,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 97fd4da8277148eb835f92635e6c0e2b, type: 3}
+        m_Texture: {fileID: 2800000, guid: 6e2bbd7d6c9c4cc4bac964ff95ab6dd9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -813,11 +818,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0e1ac8de6fe6db4eb575660d9e4c765, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  talking: {fileID: 1986776164}
-  talking2: {fileID: 1618740464}
-  speechBubble1: {fileID: 695408337}
-  speechBubble2: {fileID: 371959498}
+  talking: {fileID: 1619728083}
+  talking2: {fileID: 399498863}
+  speechBubble1: {fileID: 5857817}
+  speechBubble2: {fileID: 1278262636}
   companion: {fileID: 507228839}
+  animationBool: 0
   button: {fileID: 189525253}
 --- !u!222 &189525256
 CanvasRenderer:
@@ -1468,11 +1474,12 @@ MonoBehaviour:
   miniGameCulpritUIFinishedMessage: {fileID: 263691256}
   isButtonPressed: 0
   isCulpritMiniGameCompleted: 0
---- !u!1 &371959498 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1957504088899716, guid: 30312bf073cdc6c449ca4fc11446d644,
+--- !u!114 &399498863 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114500953355059088, guid: 30312bf073cdc6c449ca4fc11446d644,
     type: 2}
   m_PrefabInternal: {fileID: 789367121}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &438784105
 GameObject:
   m_ObjectHideFlags: 0
@@ -1738,33 +1745,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!21 &511679846
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 'potionMagnifierMaterial
-
-    43942'
-  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 9aa134abe2a74e57806ab119590724f6, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors:
-    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
 --- !u!1 &529667282
 GameObject:
   m_ObjectHideFlags: 0
@@ -1893,6 +1873,7 @@ MonoBehaviour:
   keyFragmentOne: {fileID: 1177965969}
   keyFragmentTwo: {fileID: 893966032}
   keyFragmentThree: {fileID: 691161971}
+  keyFragmentFour: {fileID: 0}
   keyFragmentCounter: 0
   opaqueAlpha: 175
 --- !u!1 &566977277
@@ -2254,11 +2235,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 691161969}
   m_CullTransparentMesh: 0
---- !u!1 &695408337 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1156702537220240, guid: bd6c70682fbf6964b93e2c7232035b9e,
-    type: 2}
-  m_PrefabInternal: {fileID: 935154732}
 --- !u!1001 &731544677
 Prefab:
   m_ObjectHideFlags: 0
@@ -2272,11 +2248,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8c801f3e38e05f043911897bee63d4e2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.234
+      value: 0.12333
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8c801f3e38e05f043911897bee63d4e2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.01
+      value: 0.0088477
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8c801f3e38e05f043911897bee63d4e2, type: 3}
       propertyPath: m_LocalRotation.x
@@ -2336,15 +2312,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8c801f3e38e05f043911897bee63d4e2, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 1.2996
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8c801f3e38e05f043911897bee63d4e2, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 1.2996
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8c801f3e38e05f043911897bee63d4e2, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 1.2996
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 8c801f3e38e05f043911897bee63d4e2, type: 3}
+      propertyPath: m_Name
+      value: chest
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c801f3e38e05f043911897bee63d4e2, type: 3}
@@ -2766,6 +2746,31 @@ Prefab:
     - target: {fileID: 1957504088899716, guid: 30312bf073cdc6c449ca4fc11446d644, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224204200154628710, guid: 30312bf073cdc6c449ca4fc11446d644,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 224271304674068994, guid: 30312bf073cdc6c449ca4fc11446d644,
+        type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224271304674068994, guid: 30312bf073cdc6c449ca4fc11446d644,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224271304674068994, guid: 30312bf073cdc6c449ca4fc11446d644,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 224271304674068994, guid: 30312bf073cdc6c449ca4fc11446d644,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30312bf073cdc6c449ca4fc11446d644, type: 2}
@@ -3394,6 +3399,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startMinigameArcade: 0
   startMinigameCulprit: 0
+  startMinigameChest: 0
   textBubbleScript: {fileID: 189525251}
   isFound: 0
 --- !u!114 &918906676
@@ -3627,6 +3633,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startMinigameArcade: 0
   startMinigameCulprit: 0
+  startMinigameChest: 0
   textBubbleScript: {fileID: 0}
   isFound: 0
 --- !u!114 &928400439
@@ -3640,14 +3647,14 @@ MonoBehaviour:
   m_Script: {fileID: -1631628248, guid: bab6fa851cf5a1a4bba3cec5f191cb8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mTrackableName: Astronaut
+  mTrackableName: treasure
   mPreserveChildSize: 0
   mInitializedInEditor: 1
-  mDataSetPath: Vuforia/VuforiaMars_Images.xml
-  mAspectRatio: 1.7272727
+  mDataSetPath: Vuforia/TargetImages.xml
+  mAspectRatio: 1
   mImageTargetType: 0
-  mWidth: 17.92445
-  mHeight: 30.960413
+  mWidth: 150
+  mHeight: 150
 --- !u!4 &928400440
 Transform:
   m_ObjectHideFlags: 0
@@ -3656,7 +3663,7 @@ Transform:
   m_GameObject: {fileID: 928400434}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -909, y: 110.5, z: -25.049}
-  m_LocalScale: {x: 30.960413, y: 30.960413, z: 30.960413}
+  m_LocalScale: {x: 150, y: 150, z: 150}
   m_Children:
   - {fileID: 1289114449}
   - {fileID: 1854494872}
@@ -3783,6 +3790,31 @@ Prefab:
     - target: {fileID: 1156702537220240, guid: bd6c70682fbf6964b93e2c7232035b9e, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224478404788480732, guid: bd6c70682fbf6964b93e2c7232035b9e,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 224849142296130688, guid: bd6c70682fbf6964b93e2c7232035b9e,
+        type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224849142296130688, guid: bd6c70682fbf6964b93e2c7232035b9e,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224849142296130688, guid: bd6c70682fbf6964b93e2c7232035b9e,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 224849142296130688, guid: bd6c70682fbf6964b93e2c7232035b9e,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd6c70682fbf6964b93e2c7232035b9e, type: 2}
@@ -5511,13 +5543,40 @@ Transform:
   m_Father: {fileID: 532024631}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &1196782483
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 'potionMagnifierMaterial
+
+    43942'
+  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: b74c596cc70e481eaf5dc5df7b24834d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors:
+    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
 --- !u!21 &1209182465
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: 'AstronautMaterial
+  m_Name: 'treasureMaterial
 
     43762'
   m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
@@ -5532,7 +5591,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 77fb44a366db5cb41b8c06649271f8e6, type: 3}
+        m_Texture: {fileID: 2800000, guid: 2ec9e53fac284b1098b7f48c844f4471, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -5702,6 +5761,11 @@ Transform:
   m_Father: {fileID: 233880756}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -81.73801}
+--- !u!1 &1278262636 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1820879150753620, guid: 30312bf073cdc6c449ca4fc11446d644,
+    type: 2}
+  m_PrefabInternal: {fileID: 789367121}
 --- !u!1 &1284440769
 GameObject:
   m_ObjectHideFlags: 0
@@ -5859,6 +5923,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chest: {fileID: 1289114444}
+  idleToShake: 0
+  shakeToOpen: 0
+  openToClose: 0
+--- !u!114 &1289114446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1289114444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34995fd9e032b5044b9cb559e3cfdf4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1289114449 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 8c801f3e38e05f043911897bee63d4e2,
@@ -6432,7 +6510,7 @@ Mesh:
     vertexCount: 4
     localAABB:
       m_Center: {x: 0, y: 0, z: 0}
-      m_Extent: {x: 0.28947368, y: 0, z: 0.5}
+      m_Extent: {x: 0.5, y: 0, z: 0.5}
   m_Shapes:
     vertices: []
     shapes: []
@@ -6508,7 +6586,7 @@ Mesh:
       format: 0
       dimension: 0
     m_DataSize: 128
-    _typelessdata: e53594be00000000000000bf000000000000803f000000000000000000000000e53594be000000000000003f000000000000803f00000000000000000000803fe535943e00000000000000bf000000000000803f000000000000803f00000000e535943e000000000000003f000000000000803f000000000000803f0000803f
+    _typelessdata: 000000bf00000000000000bf000000000000803f000000000000000000000000000000bf000000000000003f000000000000803f00000000000000000000803f0000003f00000000000000bf000000000000803f000000000000803f000000000000003f000000000000003f000000000000803f000000000000803f0000803f
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0
@@ -6570,11 +6648,11 @@ Mesh:
   m_MeshMetrics[0]: 1
   m_MeshMetrics[1]: 1
   m_MeshOptimized: 0
---- !u!114 &1618740464 stripped
+--- !u!114 &1619728083 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114052704630657754, guid: 30312bf073cdc6c449ca4fc11446d644,
+  m_CorrespondingSourceObject: {fileID: 114208958496771330, guid: bd6c70682fbf6964b93e2c7232035b9e,
     type: 2}
-  m_PrefabInternal: {fileID: 789367121}
+  m_PrefabInternal: {fileID: 935154732}
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1633874673
 GameObject:
@@ -6839,7 +6917,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 511679846}
+  - {fileID: 1196782483}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6883,6 +6961,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startMinigameArcade: 0
   startMinigameCulprit: 0
+  startMinigameChest: 0
   textBubbleScript: {fileID: 0}
   isFound: 0
 --- !u!114 &1731368690
@@ -6903,7 +6982,7 @@ MonoBehaviour:
   mAspectRatio: 0.92843324
   mImageTargetType: 0
   mWidth: 150
-  mHeight: 139.26498
+  mHeight: 150
 --- !u!4 &1731368691
 Transform:
   m_ObjectHideFlags: 0
@@ -7532,12 +7611,6 @@ Transform:
   m_Father: {fileID: 438784106}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1986776164 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114082523045964478, guid: bd6c70682fbf6964b93e2c7232035b9e,
-    type: 2}
-  m_PrefabInternal: {fileID: 935154732}
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1999051338
 GameObject:
   m_ObjectHideFlags: 0

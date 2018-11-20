@@ -10,6 +10,7 @@ public class textBubble : MonoBehaviour {
     public GameObject speechBubble1; //Rawimage object
     public GameObject speechBubble2; //Rawimage object
     public GameObject companion;
+    public bool animationBool;
     
 
     public struct interaction { //Struct with all info for each interaction
@@ -48,7 +49,7 @@ public class textBubble : MonoBehaviour {
     void Update()
     {
 
-        companion.GetComponent<Animator>().Play("Talking_Animation", -1, 0f);
+        
         stopDisplayText(arkade);
         stopDisplayText(intro);
         
@@ -113,9 +114,15 @@ public class textBubble : MonoBehaviour {
         {
             if (inter.bubbleOwner == 0)
             {
+                if (animationBool == true)
+                {
+                    companion.GetComponent<Animator>().Play("Talking_Animation", -1, 0f);
+                }
+
                 speechBubble1.SetActive(true);
                 talking.text = inter.talk[pressCount];
-                companion.GetComponent<Animator>().Play("Talking_Animation", -1, 0f);
+                animationBool = false;
+
             }
             else
                 speechBubble2.SetActive(true);
@@ -363,5 +370,6 @@ public class textBubble : MonoBehaviour {
     void button_onClick()
     {
         pressCount++;
+        animationBool = true;
     }
 }

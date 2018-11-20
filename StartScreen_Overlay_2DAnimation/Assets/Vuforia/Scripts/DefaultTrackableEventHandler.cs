@@ -29,6 +29,7 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
     public static DefaultTrackableEventHandler main;
     public Boolean startMinigameArcade = false;
     public Boolean startMinigameCulprit = false;
+    public Boolean startMinigameChest = false;  
     public GameObject textBubbleScript;
 
     // public UnityEngine.UI.Image overlayIconeOne;
@@ -134,11 +135,26 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
 
         //navigationArrow.SetActive(true);
 
+        //textBubbleScript.GetComponent<textBubble>().arkade[0].current = true;
+
         //startMinigameArcade = true;
         startMinigameCulprit = true;
 
-        textBubbleScript.GetComponent<textBubble>().arkade[0].current = true;
-       
+        startMinigameChest = true;
+
+        /*
+         if (GameObject.Find("arcadeMachine").GetComponent<MiniGameArcade>().isArcadeMiniGameCompleted == true &&
+    GameObject.Find("arcadeMachine").GetComponent<MiniGameArcade>().isArcadeMiniGameCompleted == true &&
+        GameObject.Find("arcadeMachine").GetComponent<MiniGameArcade>().isArcadeMiniGameCompleted == true &&
+        GameObject.Find("arcadeMachine").GetComponent<MiniGameArcade>().isArcadeMiniGameCompleted == true)
+        {
+            //trigger for open chest
+        }
+        else
+        {
+            //trigger for closed chest
+        }
+        */
     }
 
 
@@ -181,6 +197,7 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
 
         startMinigameArcade = false;
         startMinigameCulprit = false;
+        startMinigameChest = false;
 
     }
 
