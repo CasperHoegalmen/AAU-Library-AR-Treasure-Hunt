@@ -27,10 +27,11 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
     //public GameObject navigationArrow;
 
     public static DefaultTrackableEventHandler main;
-    public Boolean startMinigameArcade = false;
-    public Boolean startMinigameCulprit = false;
-    public Boolean startMinigameChest = false;  
-    public GameObject textBubbleScript;
+    public bool startMinigameArcade = false;
+    public bool startMinigameCulprit = false;
+    public bool startMinigameChest = false;
+
+    public bool isMiniGameGinerCompleted = false;
 
     // public UnityEngine.UI.Image overlayIconeOne;
     public bool isFound;
@@ -111,50 +112,59 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         foreach (var component in canvasComponents)
             component.enabled = true;
 
-        // overlayIconeOne = GetComponent<UnityEngine.UI.Image>();
-        // var tempColor = overlayIconeOne.color;
-        // tempColor.a = 0.3f;
 
-        /*  if (isFound)
-          {
-              overlayIconOneOpaque.gameObject.SetActive(false);
-              overlayIconeOneTransparent.gameObject.SetActive(true);
+        if (GameObject.Find("Chest").GetComponent<MiniGameChest>().isChestGameCompleted == false &&
+            GameObject.Find("BubbleButton").GetComponent<textBubble>().intro.current == false &&
+            isMiniGameGinerCompleted == false &&
+            GameObject.Find("Zombie").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == false &&
+            GameObject.Find("arcadeMachine").GetComponent<MiniGameArcade>().isArcadeMiniGameCompleted == false)
+        {
+            startMinigameChest = true; //Starts The Mini Game for The Chest in MiniGameChest.cs
+            isMiniGameGinerCompleted = true;
+            
+        }
 
-              companion.SetActive(false);
-              companionDifferent.SetActive(true);
 
-              // overlayIconeOne.color = tempColor;
-              isFound = false;
-          }
-          */
-
-        //companion.GetComponent<SpriteRenderer>().enabled = true;
-        //companion.GetComponent<Animator>().enabled = true;
-
-        //companion.transform.position = transform.position;
-
-        //navigationArrow.SetActive(true);
-
-        //textBubbleScript.GetComponent<textBubble>().arkade[0].current = true;
-
-        //startMinigameArcade = true;
-        startMinigameCulprit = true;
-
-        startMinigameChest = true;
 
         /*
-         if (GameObject.Find("arcadeMachine").GetComponent<MiniGameArcade>().isArcadeMiniGameCompleted == true &&
-    GameObject.Find("arcadeMachine").GetComponent<MiniGameArcade>().isArcadeMiniGameCompleted == true &&
-        GameObject.Find("arcadeMachine").GetComponent<MiniGameArcade>().isArcadeMiniGameCompleted == true &&
-        GameObject.Find("arcadeMachine").GetComponent<MiniGameArcade>().isArcadeMiniGameCompleted == true)
+        if(GameObject.Find("BubbleButton").GetComponent<textBubble>().introContinued.current == false &&
+            GameObject.Find("Chest").GetComponent<MiniGameChest>().isChestGameCompleted == true &&
+            GameObject.Find("Zombie").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == false &&
+            GameObject.Find("arcadeMachine").GetComponent<MiniGameArcade>().isArcadeMiniGameCompleted == false)
         {
-            //trigger for open chest
-        }
-        else
-        {
-            //trigger for closed chest
+            startMiniGameGingerbread = true; //Starts the mini Game for the Gingerbread in MiniGameGingerbread.cs
         }
         */
+
+
+        if (GameObject.Find("BubbleButton").GetComponent<textBubble>().arkade2[1].current == false &&
+            GameObject.Find("Chest").GetComponent<MiniGameChest>().isChestGameCompleted == true &&
+            isMiniGameGinerCompleted == true &&
+            GameObject.Find("Zombie").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == false &&
+            GameObject.Find("arcadeMachine").GetComponent<MiniGameArcade>().isArcadeMiniGameCompleted == false)
+        {
+            startMinigameCulprit = true; //Starts the mini Game for the Culprit in MiniGameCulprit.cs
+            GameObject.Find("BubbleButton").GetComponent<textBubble>().pressCount = 0;
+            GameObject.Find("BubbleButton").GetComponent<textBubble>().crime[0].current = true; //Maybe Set this based on previous condition
+        }
+
+
+
+        if (GameObject.Find("BubbleButton").GetComponent<textBubble>().arkade2[1].current == false &&
+            GameObject.Find("Chest").GetComponent<MiniGameChest>().isChestGameCompleted == true &&
+            isMiniGameGinerCompleted == true &&
+            GameObject.Find("Zombie").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == true &&
+            GameObject.Find("arcadeMachine").GetComponent<MiniGameArcade>().isArcadeMiniGameCompleted == false)
+        {
+            startMinigameArcade = true; //Starts the mini Game for the Arcade in MiniGameArcade.cs
+            GameObject.Find("BubbleButton").GetComponent<textBubble>().pressCount = 0;
+            GameObject.Find("BubbleButton").GetComponent<textBubble>().arkade[1].current = true; //Maybe Set this based on previous condition
+        }
+
+
+
+
+
     }
 
 

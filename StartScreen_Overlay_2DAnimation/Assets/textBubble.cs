@@ -10,49 +10,99 @@ public class textBubble : MonoBehaviour {
     public GameObject speechBubble1; //Rawimage object
     public GameObject speechBubble2; //Rawimage object
     public GameObject companion;
-    public bool animationBool;
     
 
     public struct interaction { //Struct with all info for each interaction
-        public bool current;
-        public bool finished;
+        public bool current; //Is this the current interaction? Functions will largely only run on object if this is set to TRUE.
         public string[] talk; // What does each bubble say
+        public int[] animNum; //Corresponding animation to the talk (array length should always be equal to talk.length)
+        public bool[] animFin; //Has the animation already been played? If FALSE: No, if TRUE: Yes. Animations will only play once.
         public int bubbleCount; //How many bubbles are in this interaction
-        public int bubbleOwner; //Who does the interaction belong to?
+        public int bubbleOwner; //Who is speaking in this interaction? 0 = Companion.
     }
 
-    public interaction intro; 
-    public interaction introContinued;
-    public interaction[] arkade = new interaction[7];
-    public interaction[] arkade2 = new interaction[2];
-    public interaction[] crime = new interaction[3];
-    public interaction[] crime2 = new interaction[1];
-    public interaction[] zone = new interaction[6];
-    public interaction[] zone2 = new interaction[2];
+    public interaction intro; //Starting talk
+    public interaction introContinued; //Starting talk after first object scan
+    public interaction[] arkade = new interaction[7]; //Arkade Grandmaster intro talk.
+    public interaction[] arkade2 = new interaction[2]; //Arkade Grandmaster post-question talk
+    public interaction[] crime = new interaction[3]; //Crime Grandmaster intro talk.
+    public interaction[] crime2 = new interaction[1]; //Crime Grandmaster post-question talk
+    public interaction[] zone = new interaction[6]; //Zone Grandmaster intro talk.
+    public interaction[] zone2 = new interaction[2]; //Zone2 Grandmaster post-question talk
     public interaction outro;
 
-    public interaction arkadeHelp;
-    public interaction crimeHelp;
-    public interaction zoneHelp;
+    public interaction arkadeHelp; //Arkade help poster talk
+    public interaction crimeHelp; //Crime help poster talk
+    public interaction zoneHelp; //Zone help poster talk
 
-    int pressCount = 0; //Number of times button has been pressed in current interaction
+    public int pressCount = 0; //Number of times button has been pressed in current interaction
     public Button button; //Button for progressing interaction
 
 	// Use this for initialization
 	void Start () { 
-        interactionSetup(); //initialize text into different interactions
-        intro.current = true;
+        interactionSetup(); //Set up variables into different interactions
+        intro.current = true; 
         speechBubble1.SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
+        allStopDisplay();
+        allDisplayText();  
+        playCompAnimation(intro);
+        Debug.Log(intro.current);
+        Debug.Log(introContinued.current);
+    }
 
-        
-        stopDisplayText(arkade);
-        stopDisplayText(intro);
-        
+    public void displayText(interaction[] interArray) //Display text in the owner's corresponding textbubble     
+    {         for(int i = 0; i < interArray.Length; i++)
+        {
+            if (interArray[i].current == true)
+            {
+                if (interArray[i].bubbleOwner == 0)
+                {
+                    speechBubble1.SetActive(true);
+                    talking.text = interArray[i].talk[pressCount];
+                }
+                else
+                    speechBubble2.SetActive(true);
+                talking2.text = interArray[i].talk[pressCount];
+            }
+        }
+    }
+
+    public void displayText(interaction inter) //displayText overload for single interactions
+    {
+        if(inter.current == true)
+        {
+            if (inter.bubbleOwner == 0)
+            {
+                speechBubble1.SetActive(true);
+                talking.text = inter.talk[pressCount];
+                Debug.Log(pressCount);
+            }
+            else
+                speechBubble2.SetActive(true);
+                talking2.text = inter.talk[pressCount];
+        }
+    }
+
+    public bool stopDisplayText(interaction inter)
+    {
+            if (pressCount >= inter.bubbleCount && inter.current == true)
+            {
+                    pressCount = 0;
+                    speechBubble1.SetActive(false);
+                    speechBubble2.SetActive(false);
+
+               return false;
+            }
+        return true;
+    } //Check if pressCount is above the number of speechbubbles in the interaction and if 'TRUE' set that interaction.current to false and both speechbubbles to inactive.
+
+    public void allDisplayText()
+    {
         displayText(intro);
         displayText(introContinued);
         displayText(arkade);
@@ -65,110 +115,96 @@ public class textBubble : MonoBehaviour {
         displayText(crimeHelp);
         displayText(zoneHelp);
         displayText(outro);
+    }  //Run displayText on each interaction in the program.
 
-
-        /* if (GameObject.Find("ImageTarget").GetComponent<DefaultTrackableEventHandler>().oneFound == true)
-        {
-            currentInter = intro;
-            speechBubble1.SetActive(true);
-        }
-        */
-/*
-
-        if (GameObject.Find("ImageTarget").GetComponent<DefaultTrackableEventHandler>().oneFound == true)
-        {
-            speechBubble1.SetActive(true);
-        }
-
-        if (GameObject.Find("ImageTarget2").GetComponent<DefaultEventHandler2>().twoFound == true)
-        {
-            speechBubble1.SetActive(true);
-        }
-        */
-
-    }
-
-    public void displayText(interaction[] interArray) //Display text in corresponding text bubble.
+    public void allStopDisplay() 
     {
-        for(int i = 0; i < interArray.Length; i++)
+        if (intro.current == true)
         {
-            if(interArray[i].current == true)
-            {
-                if (interArray[i].bubbleOwner == 0)
-                {
-                    speechBubble1.SetActive(true);
-                    talking.text = interArray[i].talk[pressCount];
-                }
-                else
-                    speechBubble2.SetActive(true);
-                    talking2.text = interArray[i].talk[pressCount];
-            }
-           
+            intro.current = stopDisplayText(intro);
         }
-       
-    }
 
-    public void displayText(interaction inter) //Display text overload for single interactions
-    {
-        if(inter.current == true)
+        if (introContinued.current == true)
         {
-            if (inter.bubbleOwner == 0)
-            {
-                if (animationBool == true)
-                {
-                    companion.GetComponent<Animator>().Play("Talking_Animation", -1, 0f);
-                }
-
-                speechBubble1.SetActive(true);
-                talking.text = inter.talk[pressCount];
-                animationBool = false;
-
-            }
-            else
-                speechBubble2.SetActive(true);
-                talking2.text = inter.talk[pressCount];
+            introContinued.current = stopDisplayText(introContinued);
         }
-    }
 
-    public void stopDisplayText(interaction[] interArray)
-    {
-        for (int i = 0; i < interArray.Length; i++)
+        if (outro.current == true)
         {
-            if(interArray[i].current == true)
-            {
-                if (pressCount >= interArray[i].bubbleCount)
+            outro.current = stopDisplayText(outro);
+        }
+
+        if (arkadeHelp.current == true)
+        {
+            arkadeHelp.current = stopDisplayText(arkadeHelp);
+        }
+
+        if (crimeHelp.current == true)
+        {
+            crimeHelp.current = stopDisplayText(crimeHelp);
+        }
+
+        if(zoneHelp.current == true)
+        {
+            zoneHelp.current = stopDisplayText(zoneHelp);
+        }
+
+
+        for (int i = 0; i < arkade.Length; i++)
+            if (arkade[i].current == true) {
                 {
-                    interArray[i].current = false;
-                    pressCount = 0;
-                    speechBubble1.SetActive(false);
-                    speechBubble2.SetActive(false);
-                    Debug.Log(interArray.Length);
-                    Debug.Log(i);
-                    if (interArray.Length-1 > i)
+                    arkade[i].current = stopDisplayText(arkade[i]);
+                    if (arkade.Length > i && arkade[i].current == false)
                     {
-                        interArray[i + 1].current = true;
+                        arkade[i + 1].current = true;
                     }
                 }
             }
 
-        }
-    }
-
-    public void stopDisplayText(interaction interArray)
-    {
- 
-            if (interArray.current == true)
-            {
-                if (pressCount >= interArray.bubbleCount)
+        for (int i = 0; i < arkade2.Length; i++)
+            if (arkade2[i].current == true) {
                 {
-                    interArray.current = false;
-                    pressCount = 0;
-                    speechBubble1.SetActive(false);
-                    speechBubble2.SetActive(false);
+                    arkade2[i].current = stopDisplayText(arkade2[i]);
+                    if (arkade2.Length > i && arkade2[i].current == false)
+                    {
+                        arkade2[i + 1].current = true;
+                    }
                 }
             }
 
-        }
+        for (int i = 0; i < crime.Length; i++)
+            if (crime[i].current == true) {
+                {
+                    crime[i].current = stopDisplayText(crime[i]);
+                    if (crime.Length > i && crime[i].current == false)
+                    {
+                        crime[i + 1].current = true;
+                    }
+                }
+            }
+
+        for (int i = 0; i < crime2.Length; i++)
+            if (crime2[i].current == true) {
+                {
+                    crime2[i].current = stopDisplayText(crime2[i]);
+                }
+            }
+
+        for (int i = 0; i < zone.Length; i++)
+            if (zone[i].current == true) {
+                {
+                    zone[i].current = stopDisplayText(zone[i]);
+                }
+            }
+
+        for (int i = 0; i < zone2.Length; i++)
+            if (zone2[i].current == true) {
+                {
+                    zone2[i].current = stopDisplayText(zone2[i]);
+                }
+            }
+        
+} //Run stopDisplayText on all interactions whose current is equals to TRUE.
 
     public void interactionSetup()
     {
@@ -196,8 +232,9 @@ public class textBubble : MonoBehaviour {
         zoneHelp.talk[3] = "Skal vi ikke checke det ud?";
 
         intro.bubbleCount = 10;
-        intro.bubbleOwner = 0;
+        intro.animNum = new int[10] { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
         intro.talk = new string[10];
+        intro.animFin = new bool[10];
         intro.talk[0] = "Jamen halli-hallo";
         intro.talk[1] = "Mit navn er Bib";
         intro.talk[2] = "Bibliotekar";
@@ -358,7 +395,7 @@ public class textBubble : MonoBehaviour {
         outro.talk[2] = "Så kan du få din del af skatten.";
         outro.talk[3] = "Tusind tak for hjælpen!";
 
-    }
+    } //Function for inputting each interaction struct with its relevant information. All struct set-up should happen here.
 
     void Awake()
     {
@@ -370,6 +407,23 @@ public class textBubble : MonoBehaviour {
     void button_onClick()
     {
         pressCount++;
-        animationBool = true;
+    }
+
+    public void playCompAnimation(interaction inter) //Function for different companion animations. 
+    {
+        for (int i = 0; i < inter.talk.Length; i++) //Go through each talk in the interaction
+        {
+            if (inter.current == true) //But only if the interaction is the current one.
+            {
+                if (inter.animFin[pressCount] == false) //If this talk's animation hasn't already played
+                {
+                    if (inter.animNum[pressCount] == 1) //If this talk's animation number is equal to 1, play the talking animation.
+                    {
+                        companion.GetComponent<Animator>().Play("Talking_Animation", -1, 0f);
+                        inter.animFin[i] = true;
+                    }
+                }
+            }
+        }
     }
 }

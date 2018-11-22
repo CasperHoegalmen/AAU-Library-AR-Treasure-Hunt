@@ -22,7 +22,7 @@ public class KeyFragmentProgress : MonoBehaviour {
 
 
         
-        if (GameObject.Find("chest").GetComponent<ChestAnimationController>().idleToShake == true)
+        if (GameObject.Find("Chest").GetComponent<ChestAnimationController>().idleToShake == true)
         {
             keyFragmentOne.gameObject.SetActive(true);
             keyFragmentOne.color += new Color(0, 0, 0, opaqueAlpha);

@@ -32,8 +32,14 @@ public class MiniGameCulprit : MonoBehaviour
     {
 
 
-        if (GameObject.Find("ImageTarget2").GetComponent<DefaultTrackableEventHandler>().startMinigameCulprit == true && isButtonPressed == false && isCulpritMiniGameCompleted == false)
+        if (GameObject.Find("BubbleButton").GetComponent<textBubble>().crime[0].current == false &&
+            GameObject.Find("BubbleButton").GetComponent<textBubble>().crime[1].current == false &&
+            GameObject.Find("BubbleButton").GetComponent<textBubble>().crime[2].current == false &&
+            GameObject.Find("ImageTarget2").GetComponent<DefaultTrackableEventHandler>().startMinigameCulprit == true && 
+            isButtonPressed == false && 
+            isCulpritMiniGameCompleted == false)
         {
+
             miniGameCulpritUIButton1.gameObject.SetActive(true);
             miniGameCulpritUIButton2.gameObject.SetActive(true);
             miniGameCulpritUIButton3.gameObject.SetActive(true);
@@ -75,6 +81,8 @@ public class MiniGameCulprit : MonoBehaviour
         miniGameCulpritUIButton3.GetComponent<Image>().color = Color.green;
 
         miniGameCulpritUIQuestionText.SetActive(false);
+
+        GameObject.Find("BubbleButton").GetComponent<textBubble>().crime2[0].current = true;
 
     }
 

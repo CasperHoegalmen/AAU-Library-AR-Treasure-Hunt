@@ -32,7 +32,16 @@ public class MiniGameArcade : MonoBehaviour
     {
 
 
-        if (GameObject.Find("ImageTarget1").GetComponent<DefaultTrackableEventHandler>().startMinigameArcade == true && isButtonPressed == false && isArcadeMiniGameCompleted == false)
+        if (GameObject.Find("BubbleButton").GetComponent<textBubble>().arkade[0].current == false &&
+            GameObject.Find("BubbleButton").GetComponent<textBubble>().arkade[1].current == false &&
+            GameObject.Find("BubbleButton").GetComponent<textBubble>().arkade[2].current == false &&
+            GameObject.Find("BubbleButton").GetComponent<textBubble>().arkade[3].current == false &&
+            GameObject.Find("BubbleButton").GetComponent<textBubble>().arkade[4].current == false &&
+            GameObject.Find("BubbleButton").GetComponent<textBubble>().arkade[5].current == false &&
+            GameObject.Find("BubbleButton").GetComponent<textBubble>().arkade[6].current == false &&
+            GameObject.Find("arcadeMachine").GetComponent<DefaultTrackableEventHandler>().startMinigameArcade == true &&  
+            isButtonPressed == false && 
+            isArcadeMiniGameCompleted == false)
         {
             miniGameUIButton1.gameObject.SetActive(true);
             miniGameUIButton2.gameObject.SetActive(true);
@@ -75,6 +84,8 @@ public class MiniGameArcade : MonoBehaviour
         miniGameUIButton3.GetComponent<Image>().color = Color.green;
 
         miniGameUIQuestionText.SetActive(false);
+
+        GameObject.Find("BubbleButton").GetComponent<textBubble>().arkade2[0].current = true;
 
     }
 
