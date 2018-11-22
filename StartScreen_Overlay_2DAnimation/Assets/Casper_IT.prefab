@@ -1354,7 +1354,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startMinigameArcade: 0
   startMinigameCulprit: 0
-  textBubbleScript: {fileID: 0}
+  startMinigameChest: 0
+  isMiniGameGinerCompleted: 0
   isFound: 1
 --- !u!137 &137077833139797796
 SkinnedMeshRenderer:
