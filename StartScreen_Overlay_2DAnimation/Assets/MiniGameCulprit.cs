@@ -35,7 +35,7 @@ public class MiniGameCulprit : MonoBehaviour
         if (GameObject.Find("BubbleButton").GetComponent<textBubble>().crime[0].current == false &&
             GameObject.Find("BubbleButton").GetComponent<textBubble>().crime[1].current == false &&
             GameObject.Find("BubbleButton").GetComponent<textBubble>().crime[2].current == false &&
-            GameObject.Find("ImageTarget2").GetComponent<DefaultTrackableEventHandler>().startMinigameCulprit == true && 
+            GameObject.Find("ImageTargetCulprit").GetComponent<CulpritDefaultTrackableEventHandler>().startMinigameCulprit == true && 
             isButtonPressed == false && 
             isCulpritMiniGameCompleted == false)
         {
@@ -51,13 +51,13 @@ public class MiniGameCulprit : MonoBehaviour
 
         }
 
-        if (GameObject.Find("ImageTarget2").GetComponent<DefaultTrackableEventHandler>().startMinigameCulprit == true && isButtonPressed == false && isCulpritMiniGameCompleted == true)
+        if (GameObject.Find("ImageTargetCulprit").GetComponent<CulpritDefaultTrackableEventHandler>().startMinigameCulprit == true && isButtonPressed == false && isCulpritMiniGameCompleted == true)
         {
             miniGameCulpritUIFinishedMessage.SetActive(true);
         }
 
 
-        if (GameObject.Find("ImageTarget2").GetComponent<DefaultTrackableEventHandler>().startMinigameCulprit == false)
+        if (GameObject.Find("ImageTargetCulprit").GetComponent<CulpritDefaultTrackableEventHandler>().startMinigameCulprit == false)
         {
             miniGameCulpritUIButton1.gameObject.SetActive(false);
             miniGameCulpritUIButton2.gameObject.SetActive(false);

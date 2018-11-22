@@ -51,8 +51,9 @@ public class textBubble : MonoBehaviour {
         allStopDisplay();
         allDisplayText();  
         playCompAnimation(intro);
-        Debug.Log(intro.current);
-        Debug.Log(introContinued.current);
+
+        Debug.Log(GameObject.Find("ImageTargetGinger").GetComponent<DefaultTrackableEventHandler>().startMinigameGingerbread);
+        Debug.Log(GameObject.Find("ImageTargetGinger").GetComponent<MiniGameGingerbread>().isGingerbreadMiniGamePartiallyCompleted);
     }
 
     public void displayText(interaction[] interArray) //Display text in the owner's corresponding textbubble     
@@ -80,7 +81,7 @@ public class textBubble : MonoBehaviour {
             {
                 speechBubble1.SetActive(true);
                 talking.text = inter.talk[pressCount];
-                Debug.Log(pressCount);
+                //Debug.Log(pressCount);
             }
             else
                 speechBubble2.SetActive(true);
@@ -194,6 +195,11 @@ public class textBubble : MonoBehaviour {
             if (zone[i].current == true) {
                 {
                     zone[i].current = stopDisplayText(zone[i]);
+                    if (zone.Length > i && zone[i].current == false)
+                    {
+                        zone[i + 1].current = true;
+                    }
+                    
                 }
             }
 
@@ -201,6 +207,10 @@ public class textBubble : MonoBehaviour {
             if (zone2[i].current == true) {
                 {
                     zone2[i].current = stopDisplayText(zone2[i]);
+                    if (zone2.Length > i && zone2[i].current == false)
+                    {
+                        zone2[i + 1].current = true;
+                    }
                 }
             }
         
@@ -386,7 +396,7 @@ public class textBubble : MonoBehaviour {
         zone2[1].talk[0] = "Jamen det er jo fantastisk!";
         zone2[1].talk[1] = "Vi har fundet alle nøgledelene!";
         zone2[1].talk[2] = "Lad os gå tilbage til kisten.";
-        zone2[1].talk[3] = "Det er tid til vores beløning";
+        zone2[1].talk[3] = "Det er tid til vores beløning"; //Needs to be switched with the text from Arcade 2!!
 
         outro.bubbleCount = 4;
         outro.talk = new string[4];

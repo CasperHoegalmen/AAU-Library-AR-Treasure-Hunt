@@ -29,22 +29,22 @@ public class KeyFragmentProgress : MonoBehaviour {
         }
         
 
-        /*
-        if (GameObject.Find("gingerbread").GetComponent<MiniGameGingerbread>().isGingerbreadMiniGameCompleted == true)
+        
+        if (GameObject.Find("ImageTargetGinger").GetComponent<MiniGameGingerbread>().isGingerbreadMiniGameCompleted == true)
         {
             keyFragmentTwo.gameObject.SetActive(true);
             keyFragmentTwo.color += new Color(0, 0, 0, opaqueAlpha);  
         }
-        */
+        
 
-        if(GameObject.Find("arcadeMachine").GetComponent<MiniGameArcade>().isArcadeMiniGameCompleted == true)
+        if(GameObject.Find("Zombie").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == true)
         {
             keyFragmentThree.gameObject.SetActive(true);
             keyFragmentThree.color += new Color(0, 0, 0, opaqueAlpha);
         }
 
         
-        if(GameObject.Find("Zombie").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == true) 
+        if(GameObject.Find("ArcadeMachine").GetComponent<MiniGameArcade>().isArcadeMiniGameCompleted == true) 
         {
             keyFragmentFour.gameObject.SetActive(true);
             keyFragmentFour.color += new Color(0, 0, 0, opaqueAlpha);

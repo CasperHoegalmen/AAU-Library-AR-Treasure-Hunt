@@ -1,4 +1,4 @@
-/*==============================================================================
+﻿/*==============================================================================
 Copyright (c) 2017 PTC Inc. All Rights Reserved.
 
 Copyright (c) 2010-2014 Qualcomm Connected Experiences, Inc.
@@ -17,7 +17,7 @@ using Vuforia;
 /// Changes made to this file could be overwritten when upgrading the Vuforia version. 
 /// When implementing custom event handler behavior, consider inheriting from this class instead.
 /// </summary>
-public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandler
+public class PotionCulpritDefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandler
 {
     #region PROTECTED_MEMBER_VARIABLES
 
@@ -27,11 +27,9 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
     //public GameObject navigationArrow;
 
     public static DefaultTrackableEventHandler main;
-    public bool startMinigameArcade = false;
-    public bool startMinigameCulprit = false;
-    public bool startMinigameGingerbread = false;
-    public bool startMinigameChest = false;
-    public bool startMinigameEnding = false;
+
+
+    
 
 
     // public UnityEngine.UI.Image overlayIconeOne;
@@ -114,36 +112,6 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
             component.enabled = true;
 
 
-        if (GameObject.Find("Chest").GetComponent<MiniGameChest>().isChestGameCompleted == false &&
-            GameObject.Find("ImageTargetGinger").GetComponent<MiniGameGingerbread>().isGingerbreadMiniGameCompleted == false &&
-            GameObject.Find("Zombie").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == false &&
-            GameObject.Find("ArcadeMachine").GetComponent<MiniGameArcade>().isArcadeMiniGameCompleted == false)
-        {
-            startMinigameChest = true; //Starts The Mini Game for The Chest in MiniGameChest.cs 
-        }
-
-
-
-
-        if (GameObject.Find("ImageTargetGinger").GetComponent<MiniGameGingerbread>().isGingerbreadMiniGamePartiallyCompleted == false &&
-            GameObject.Find("Chest").GetComponent<MiniGameChest>().isChestGameCompleted == true &&
-            GameObject.Find("ImageTargetGinger").GetComponent<MiniGameGingerbread>().isGingerbreadMiniGameCompleted == false &&
-            GameObject.Find("Zombie").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == false &&
-            GameObject.Find("ArcadeMachine").GetComponent<MiniGameArcade>().isArcadeMiniGameCompleted == false)
-        {
-            startMinigameGingerbread = true; //Starts the mini Game for the Gingerbread in MiniGameGingerbread.cs
-            GameObject.Find("BubbleButton").GetComponent<textBubble>().pressCount = 0;
-            GameObject.Find("BubbleButton").GetComponent<textBubble>().zone[0].current = true;
-        }
-
-
-        
-        if (GameObject.Find("ImageTargetGinger").GetComponent<MiniGameGingerbread>().isGingerbreadMiniGamePartiallyCompleted == true &&
-            GameObject.Find("ImageTargetGinger").GetComponent<MiniGameGingerbread>().isGingerbreadMiniGameCompleted == false)
-        {
-            GameObject.Find("ImageTargetGinger").GetComponent<MiniGameGingerbread>().gingerbreadButtonFound = true;
-        }
-        
 
 
         if (GameObject.Find("Chest").GetComponent<MiniGameChest>().isChestGameCompleted == true &&
@@ -151,24 +119,12 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         GameObject.Find("Zombie").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == false &&
         GameObject.Find("ArcadeMachine").GetComponent<MiniGameArcade>().isArcadeMiniGameCompleted == false)
         {
-            startMinigameCulprit = true; //Starts the mini Game for the Culprit in MiniGameCulprit.cs
             GameObject.Find("BubbleButton").GetComponent<textBubble>().pressCount = 0;
-            GameObject.Find("BubbleButton").GetComponent<textBubble>().crime[0].current = true; //Maybe Set this based on previous condition
+            GameObject.Find("BubbleButton").GetComponent<textBubble>().crimeHelp.current = true;
+            //HOW DO I BREAK?!
         }
 
-
-
-        if (GameObject.Find("Chest").GetComponent<MiniGameChest>().isChestGameCompleted == true &&
-            GameObject.Find("ImageTargetGinger").GetComponent<MiniGameGingerbread>().isGingerbreadMiniGameCompleted == true &&
-            GameObject.Find("Zombie").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == true &&
-            GameObject.Find("ArcadeMachine").GetComponent<MiniGameArcade>().isArcadeMiniGameCompleted == false)
-        {
-            startMinigameArcade = true; //Starts the mini Game for the Arcade in MiniGameArcade.cs
-            GameObject.Find("BubbleButton").GetComponent<textBubble>().pressCount = 0;
-            GameObject.Find("BubbleButton").GetComponent<textBubble>().arkade[1].current = true; //Maybe Set this based on previous condition
-        }
-
-
+        /*
         if (GameObject.Find("Chest").GetComponent<MiniGameChest>().isChestGameCompleted == true &&
            GameObject.Find("ImageTargetGinger").GetComponent<MiniGameGingerbread>().isGingerbreadMiniGameCompleted == true &&
            GameObject.Find("Zombie").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == true &&
@@ -178,6 +134,7 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
             GameObject.Find("BubbleButton").GetComponent<textBubble>().pressCount = 0;
             GameObject.Find("BubbleButton").GetComponent<textBubble>().outro.current = true; //Maybe Set this based on previous condition
         }
+        */
 
 
 
@@ -220,10 +177,6 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
 
       */
         //navigationArrow.SetActive(false);
-
-        startMinigameArcade = false;
-        startMinigameCulprit = false;
-        startMinigameChest = false;
 
     }
 

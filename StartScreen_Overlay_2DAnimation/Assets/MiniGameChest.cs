@@ -17,7 +17,7 @@ public class MiniGameChest : MonoBehaviour
     {
 
         if (isChestGameCompleted == false && 
-            GameObject.Find("ImageTargetChest").GetComponent<DefaultTrackableEventHandler>().startMinigameChest == true)
+            GameObject.Find("ImageTargetChest").GetComponent<ChestDefaultTrackableEventHandler>().startMinigameChest == true)
         {
             GameObject.Find("Chest").GetComponent<ChestAnimationController>().idleToShake = true;
             GameObject.Find("BubbleButton").GetComponent<textBubble>().pressCount = 0;
