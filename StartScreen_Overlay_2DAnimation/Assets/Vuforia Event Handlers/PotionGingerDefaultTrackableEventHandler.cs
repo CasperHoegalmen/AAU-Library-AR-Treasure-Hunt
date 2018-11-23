@@ -115,8 +115,7 @@ public class PotionGingerDefaultTrackableEventHandler : MonoBehaviour, ITrackabl
             GameObject.Find("ArcadeMachine").GetComponent<MiniGameArcade>().isArcadeMiniGameCompleted == false)
         {
             GameObject.Find("BubbleButton").GetComponent<textBubble>().pressCount = 0;
-            GameObject.Find("BubbleButton").GetComponent<textBubble>().zoneHelp.current = true;
-            //HOW DO I BREAK?!?!?!
+            GameObject.Find("BubbleButton").GetComponent<textBubble>().zone[0].current = true;
         }
     }
 

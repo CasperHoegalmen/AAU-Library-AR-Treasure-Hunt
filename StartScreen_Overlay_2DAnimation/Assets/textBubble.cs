@@ -187,14 +187,15 @@ public class textBubble : MonoBehaviour
             if (arkade[i].current == true)
             {
                 arkade[i].current = stopDisplayText(arkade[i]);
-
+               
                 if (i == 6 && arkade[6].current == false)
                 {
                     //arkade2[0].current = true;
                     break;
                 }
 
-                if (arkade.Length > i && arkade[i].current == false)
+                if (GameObject.Find("ImageTargetArcade").GetComponent<ArcadeDefaultTrackableEventHandler>().notTheArcadePotion == true &&
+                    arkade.Length > i && arkade[i].current == false)
                 {
                     //Debug.Log("The number i is........................... " + i + " and its value is " + arkade[i + 1].current);
                     arkade[i + 1].current = true;
@@ -226,14 +227,15 @@ public class textBubble : MonoBehaviour
             if (zone[i].current == true)
             {
                 zone[i].current = stopDisplayText(zone[i]);
-
+                
                 if (i == 6 && zone[6].current == false)
                 {
                     //zone2[0].current = true;
                     break;
                 }
 
-                if (zone.Length > i && zone[i].current == false)
+                if (GameObject.Find("ImageTargetGinger").GetComponent<GingerDefaultTrackableEventHandler>().notTheGingerPotion == true &&
+                    zone.Length > i && zone[i].current == false)
                 {
                     zone[i + 1].current = true;
                 }
@@ -271,7 +273,8 @@ public class textBubble : MonoBehaviour
                     break;
                 }
 
-                if (crime.Length > i && crime[i].current == false)
+                if (GameObject.Find("ImageTargetCulprit").GetComponent<CulpritDefaultTrackableEventHandler>().notTheCulpritPotion == true &&
+                    crime.Length > i && crime[i].current == false)
                 {
                     crime[i + 1].current = true;
                 }

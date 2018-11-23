@@ -29,6 +29,7 @@ public class GingerDefaultTrackableEventHandler : MonoBehaviour, ITrackableEvent
     public static DefaultTrackableEventHandler main;
 
     public bool startMinigameGingerbread = false;
+    public bool notTheGingerPotion = false;
 
 
 
@@ -117,6 +118,7 @@ public class GingerDefaultTrackableEventHandler : MonoBehaviour, ITrackableEvent
             GameObject.Find("Zombie").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == false &&
             GameObject.Find("ArcadeMachine").GetComponent<MiniGameArcade>().isArcadeMiniGameCompleted == false)
         {
+            notTheGingerPotion = true;
             startMinigameGingerbread = true; //Starts the mini Game for the Gingerbread in MiniGameGingerbread.cs
             if(GameObject.Find("ImageTargetGinger").GetComponent<MiniGameGingerbread>().isGingerbreadMiniGamePartiallyCompleted == false)
             {
@@ -168,6 +170,7 @@ public class GingerDefaultTrackableEventHandler : MonoBehaviour, ITrackableEvent
         //navigationArrow.SetActive(false);
 
         startMinigameGingerbread = false;
+        notTheGingerPotion = false;
 
     }
 

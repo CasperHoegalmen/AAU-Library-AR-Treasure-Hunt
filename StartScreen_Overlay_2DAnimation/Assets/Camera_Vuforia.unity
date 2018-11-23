@@ -359,6 +359,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startMinigameGingerbread: 0
+  notTheGingerPotion: 0
   isFound: 0
 --- !u!114 &34306557
 MonoBehaviour:
@@ -1296,7 +1297,7 @@ Material:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: 'potionMagnifierMaterial
+  m_Name: 'OxygenMaterial
 
     14920'
   m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
@@ -1311,7 +1312,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: cec7dd005cf4459ca6c06fe54c4a0ece, type: 3}
+        m_Texture: {fileID: 2800000, guid: cc6daa766aade3b4cbaeeac788249a2e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -1471,14 +1472,14 @@ MonoBehaviour:
   m_Script: {fileID: -1631628248, guid: bab6fa851cf5a1a4bba3cec5f191cb8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mTrackableName: potionMagnifier
+  mTrackableName: Oxygen
   mPreserveChildSize: 0
   mInitializedInEditor: 1
-  mDataSetPath: Vuforia/TargetImages.xml
-  mAspectRatio: 0.92843324
+  mDataSetPath: Vuforia/VuforiaMars_Images.xml
+  mAspectRatio: 1.7272727
   mImageTargetType: 0
-  mWidth: 150
-  mHeight: 139.26498
+  mWidth: 150.30138
+  mHeight: 259.61148
 --- !u!4 &212155232
 Transform:
   m_ObjectHideFlags: 0
@@ -1487,7 +1488,7 @@ Transform:
   m_GameObject: {fileID: 212155226}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2217, y: 0, z: 710}
-  m_LocalScale: {x: 150, y: 150, z: 150}
+  m_LocalScale: {x: 259.61148, y: 259.61148, z: 259.61148}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 11
@@ -3077,14 +3078,14 @@ MonoBehaviour:
   m_Script: {fileID: -1631628248, guid: bab6fa851cf5a1a4bba3cec5f191cb8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mTrackableName: Drone
+  mTrackableName: Fissure
   mPreserveChildSize: 0
   mInitializedInEditor: 1
   mDataSetPath: Vuforia/VuforiaMars_Images.xml
   mAspectRatio: 1.7272727
   mImageTargetType: 0
-  mWidth: 84.50846
-  mHeight: 145.96916
+  mWidth: 122.6369
+  mHeight: 211.82738
 --- !u!4 &710434754
 Transform:
   m_ObjectHideFlags: 0
@@ -3093,7 +3094,7 @@ Transform:
   m_GameObject: {fileID: 710434748}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -591, y: 0, z: 710}
-  m_LocalScale: {x: 145.96916, y: 145.96916, z: 145.96916}
+  m_LocalScale: {x: 211.82738, y: 211.82738, z: 211.82738}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
@@ -6740,7 +6741,7 @@ Material:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: 'potionJulMaterial
+  m_Name: 'DroneMaterial
 
     15428'
   m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
@@ -6755,7 +6756,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 0409036dad9a4553a116c28c8ebd5471, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3b3cf30ab7479fc45a6362fc4cb5e995, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -8159,7 +8160,7 @@ Mesh:
     vertexCount: 4
     localAABB:
       m_Center: {x: 0, y: 0, z: 0}
-      m_Extent: {x: 0.5, y: 0, z: 0.46421662}
+      m_Extent: {x: 0.28947368, y: 0, z: 0.5}
   m_Shapes:
     vertices: []
     shapes: []
@@ -8235,7 +8236,7 @@ Mesh:
       format: 0
       dimension: 0
     m_DataSize: 128
-    _typelessdata: 000000bf00000000cdadedbe000000000000803f000000000000000000000000000000bf00000000cdaded3e000000000000803f00000000000000000000803f0000003f00000000cdadedbe000000000000803f000000000000803f000000000000003f00000000cdaded3e000000000000803f000000000000803f0000803f
+    _typelessdata: e53594be00000000000000bf000000000000803f000000000000000000000000e53594be000000000000003f000000000000803f00000000000000000000803fe535943e00000000000000bf000000000000803f000000000000803f00000000e535943e000000000000003f000000000000803f000000000000803f0000803f
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0
@@ -8533,7 +8534,7 @@ Material:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: 'DroneMaterial
+  m_Name: 'FissureMaterial
 
     15026'
   m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
@@ -8548,7 +8549,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 3b3cf30ab7479fc45a6362fc4cb5e995, type: 3}
+        m_Texture: {fileID: 2800000, guid: a35a2d04e4ca5f643a173fb3a98d5fd1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -9058,6 +9059,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startMinigameCulprit: 0
+  notTheCulpritPotion: 0
   isFound: 0
 --- !u!114 &1731368690
 MonoBehaviour:
@@ -10050,14 +10052,14 @@ MonoBehaviour:
   m_Script: {fileID: -1631628248, guid: bab6fa851cf5a1a4bba3cec5f191cb8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mTrackableName: potionJul
+  mTrackableName: Drone
   mPreserveChildSize: 0
   mInitializedInEditor: 1
-  mDataSetPath: Vuforia/TargetImages.xml
-  mAspectRatio: 0.92843324
+  mDataSetPath: Vuforia/VuforiaMars_Images.xml
+  mAspectRatio: 1.7272727
   mImageTargetType: 0
-  mWidth: 150
-  mHeight: 139.26498
+  mWidth: 176.1165
+  mHeight: 304.20123
 --- !u!4 &2026043030
 Transform:
   m_ObjectHideFlags: 0
@@ -10066,7 +10068,7 @@ Transform:
   m_GameObject: {fileID: 2026043024}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3256, y: 0, z: 710}
-  m_LocalScale: {x: 150, y: 150, z: 150}
+  m_LocalScale: {x: 304.20123, y: 304.20123, z: 304.20123}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 12
@@ -10098,7 +10100,7 @@ Mesh:
     vertexCount: 4
     localAABB:
       m_Center: {x: 0, y: 0, z: 0}
-      m_Extent: {x: 0.5, y: 0, z: 0.46421662}
+      m_Extent: {x: 0.28947368, y: 0, z: 0.5}
   m_Shapes:
     vertices: []
     shapes: []
@@ -10174,7 +10176,7 @@ Mesh:
       format: 0
       dimension: 0
     m_DataSize: 128
-    _typelessdata: 000000bf00000000cdadedbe000000000000803f000000000000000000000000000000bf00000000cdaded3e000000000000803f00000000000000000000803f0000003f00000000cdadedbe000000000000803f000000000000803f000000000000003f00000000cdaded3e000000000000803f000000000000803f0000803f
+    _typelessdata: e53594be00000000000000bf000000000000803f000000000000000000000000e53594be000000000000003f000000000000803f00000000000000000000803fe535943e00000000000000bf000000000000803f000000000000803f00000000e535943e000000000000003f000000000000803f000000000000803f0000803f
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0

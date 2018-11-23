@@ -29,6 +29,7 @@ public class CulpritDefaultTrackableEventHandler : MonoBehaviour, ITrackableEven
     public static DefaultTrackableEventHandler main;
 
     public bool startMinigameCulprit = false;
+    public bool notTheCulpritPotion = false;
 
 
     // public UnityEngine.UI.Image overlayIconeOne;
@@ -116,6 +117,7 @@ public class CulpritDefaultTrackableEventHandler : MonoBehaviour, ITrackableEven
         GameObject.Find("Zombie").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == false &&
         GameObject.Find("ArcadeMachine").GetComponent<MiniGameArcade>().isArcadeMiniGameCompleted == false)
         {
+            notTheCulpritPotion = true;
             startMinigameCulprit = true; //Starts the mini Game for the Culprit in MiniGameCulprit.cs
             GameObject.Find("BubbleButton").GetComponent<textBubble>().pressCount = 0;
             GameObject.Find("BubbleButton").GetComponent<textBubble>().crime[1].current = true; //Maybe Set this based on previous condition
@@ -164,6 +166,7 @@ public class CulpritDefaultTrackableEventHandler : MonoBehaviour, ITrackableEven
 
         
         startMinigameCulprit = false;
+        notTheCulpritPotion = false;
         
 
     }
