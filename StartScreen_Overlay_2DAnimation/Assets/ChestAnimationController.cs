@@ -16,6 +16,7 @@ public class ChestAnimationController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (idleToShake == true)
         {
             chest.GetComponent<Animator>().SetBool("isIdle", true);

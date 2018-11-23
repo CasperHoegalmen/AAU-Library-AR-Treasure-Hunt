@@ -112,7 +112,7 @@ public class ChestDefaultTrackableEventHandler : MonoBehaviour, ITrackableEventH
         foreach (var component in canvasComponents)
             component.enabled = true;
 
-
+        
         if (GameObject.Find("Chest").GetComponent<MiniGameChest>().isChestGameCompleted == false &&
             GameObject.Find("ImageTargetGinger").GetComponent<MiniGameGingerbread>().isGingerbreadMiniGameCompleted == false &&
             GameObject.Find("Zombie").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == false &&
@@ -120,6 +120,7 @@ public class ChestDefaultTrackableEventHandler : MonoBehaviour, ITrackableEventH
         {
             startMinigameChest = true; //Starts The Mini Game for The Chest in MiniGameChest.cs 
         }
+        
 
         if (GameObject.Find("Chest").GetComponent<MiniGameChest>().isChestGameCompleted == true &&
             GameObject.Find("ImageTargetGinger").GetComponent<MiniGameGingerbread>().isGingerbreadMiniGameCompleted == true &&

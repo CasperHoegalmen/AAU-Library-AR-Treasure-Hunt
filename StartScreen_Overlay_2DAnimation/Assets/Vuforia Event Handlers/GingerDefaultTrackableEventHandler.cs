@@ -121,7 +121,7 @@ public class GingerDefaultTrackableEventHandler : MonoBehaviour, ITrackableEvent
             if(GameObject.Find("ImageTargetGinger").GetComponent<MiniGameGingerbread>().isGingerbreadMiniGamePartiallyCompleted == false)
             {
                 GameObject.Find("BubbleButton").GetComponent<textBubble>().pressCount = 0;
-                GameObject.Find("BubbleButton").GetComponent<textBubble>().zone[0].current = true;
+                GameObject.Find("BubbleButton").GetComponent<textBubble>().zone[1].current = true;
             } 
         }
 

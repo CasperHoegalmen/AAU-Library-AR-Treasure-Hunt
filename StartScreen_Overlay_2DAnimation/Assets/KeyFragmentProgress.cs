@@ -20,9 +20,7 @@ public class KeyFragmentProgress : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-
-        
-        if (GameObject.Find("Chest").GetComponent<ChestAnimationController>().idleToShake == true)
+        if (GameObject.Find("Chest").GetComponent<MiniGameChest>().isChestGameCompleted == true)
         {
             keyFragmentOne.gameObject.SetActive(true);
             keyFragmentOne.color += new Color(0, 0, 0, opaqueAlpha);
