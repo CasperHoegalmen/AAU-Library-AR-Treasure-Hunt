@@ -116,13 +116,6 @@ public class PotionArcadeDefaultTrackableEventHandler : MonoBehaviour, ITrackabl
         {
             GameObject.Find("BubbleButton").GetComponent<textBubble>().pressCount = 0;
             GameObject.Find("BubbleButton").GetComponent<textBubble>().arkade[0].current = true;
-            if(GameObject.Find("BubbleButton").GetComponent<textBubble>().pressCount == 3)
-            {
-                //HOW DO I BREAAAKK?!
-                GameObject.Find("BubbleButton").GetComponent<textBubble>().arkade[0].current = false;
-                GameObject.Find("BubbleButton").GetComponent<textBubble>().arkade[1].current = false;
-                GameObject.Find("BubbleButton").GetComponent<textBubble>().pressCount = 0;
-            }
         }
 
 

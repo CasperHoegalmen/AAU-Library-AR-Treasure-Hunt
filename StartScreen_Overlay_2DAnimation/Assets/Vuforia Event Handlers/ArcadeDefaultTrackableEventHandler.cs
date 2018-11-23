@@ -28,6 +28,7 @@ public class ArcadeDefaultTrackableEventHandler : MonoBehaviour, ITrackableEvent
 
     public static DefaultTrackableEventHandler main;
     public bool startMinigameArcade = false;
+    public bool notTheArcadePotion = false;
    
 
     // public UnityEngine.UI.Image overlayIconeOne;
@@ -114,6 +115,7 @@ public class ArcadeDefaultTrackableEventHandler : MonoBehaviour, ITrackableEvent
             GameObject.Find("Zombie").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == true &&
             GameObject.Find("ArcadeMachine").GetComponent<MiniGameArcade>().isArcadeMiniGameCompleted == false)
         {
+            notTheArcadePotion = true;
             startMinigameArcade = true; //Starts the mini Game for the Arcade in MiniGameArcade.cs
             GameObject.Find("BubbleButton").GetComponent<textBubble>().pressCount = 0;
             GameObject.Find("BubbleButton").GetComponent<textBubble>().arkade[1].current = true; //Maybe Set this based on previous condition

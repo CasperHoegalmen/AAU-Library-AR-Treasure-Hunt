@@ -17,8 +17,6 @@ public class MiniGameEnding : MonoBehaviour {
         {
             GameObject.Find("Chest").GetComponent<ChestAnimationController>().idleToShake = true;
             GameObject.Find("Chest").GetComponent<ChestAnimationController>().shakeToOpen = true;
-            GameObject.Find("BubbleButton").GetComponent<textBubble>().pressCount = 0;
-            GameObject.Find("BubbleButton").GetComponent<textBubble>().outro.current = true;
             isGameCompleted = true;
         }
 		

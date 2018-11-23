@@ -155,6 +155,20 @@ public class textBubble : MonoBehaviour {
             if (arkade[i].current == true) {
                 {
                     arkade[i].current = stopDisplayText(arkade[i]);
+
+                    if (GameObject.Find("ImageTargetArcade").GetComponent<ArcadeDefaultTrackableEventHandler>().notTheArcadePotion == true &&
+                    arkade.Length > i && arkade[i].current == false)
+                    {
+                            arkade[i + 1].current = true;
+                    }
+                }
+            }
+
+        for (int i = 0; i < arkade.Length; i++)
+            if (arkade[i].current == true)
+            {
+                {
+                    arkade[i].current = stopDisplayText(arkade[i]);
                     if (arkade.Length > i && arkade[i].current == false)
                     {
                         arkade[i + 1].current = true;

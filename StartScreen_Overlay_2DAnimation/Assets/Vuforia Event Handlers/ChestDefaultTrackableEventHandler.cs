@@ -126,6 +126,8 @@ public class ChestDefaultTrackableEventHandler : MonoBehaviour, ITrackableEventH
             GameObject.Find("Zombie").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == true &&
             GameObject.Find("ArcadeMachine").GetComponent<MiniGameArcade>().isArcadeMiniGameCompleted == true)
         {
+            GameObject.Find("BubbleButton").GetComponent<textBubble>().pressCount = 0;
+            GameObject.Find("BubbleButton").GetComponent<textBubble>().outro.current = true;
             startMinigameEnding = true;
         }
 
@@ -184,6 +186,9 @@ public class ChestDefaultTrackableEventHandler : MonoBehaviour, ITrackableEventH
         //navigationArrow.SetActive(false);
 
         startMinigameChest = false;
+
+        GameObject.Find("Chest").GetComponent<ChestAnimationController>().idleToShake = false;
+        GameObject.Find("Chest").GetComponent<ChestAnimationController>().shakeToOpen = false;
 
     }
 
