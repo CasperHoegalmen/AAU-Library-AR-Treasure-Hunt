@@ -264,7 +264,7 @@ public class textBubble : MonoBehaviour
             {
                 arkade[i].current = stopDisplayText(arkade[i]);
 
-                if (i == 6 && arkade[6].current == false)
+                if (i == 4 && arkade[4].current == false)
                 {
                     //arkade2[0].current = true;
                     break;
@@ -452,7 +452,7 @@ public class textBubble : MonoBehaviour
         arkade[1].audArray[2] = pixel3;
         arkade[1].talk[0] = "Jamen hvem kommer her til min bule?";
         arkade[1].talk[1] = "Bib og en kammerat?";
-        arkade[1].talk[2] = "Har i lyst til et spil Flight Commander?";
+        arkade[1].talk[2] = "Har i lyst til et spil Pac-Man?";
 
         arkade[2].bubbleCount = 4;
         arkade[2].talk = new string[4];
@@ -514,6 +514,12 @@ public class textBubble : MonoBehaviour
         arkade2[1].talk = new string[4];
         arkade2[1].animNum = new int[4] { 1, 1, 1, 1 };
         arkade2[1].animFin = new bool[4];
+        arkade2[1].audFin = new bool[4];
+        arkade2[1].audArray = new AudioSource[4];
+        arkade2[1].audArray[0] = zonefour;
+        arkade2[1].audArray[1] = zonefour2;
+        arkade2[1].audArray[2] = zonefour3;
+        arkade2[1].audArray[3] = zonefour4;
         arkade2[1].talk[0] = "Fantastisk!";
         arkade2[1].talk[1] = "Vi har fundet alle nøgledelene!";
         arkade2[1].talk[2] = "Lad os gå tilbage til kisten.";
@@ -730,8 +736,8 @@ public class textBubble : MonoBehaviour
         zone2[1].audFin = new bool[3];
         zone2[1].audArray = new AudioSource[3];
         zone2[1].audArray[0] = zonefour;
-        zone2[1].audArray[1] = zonefour2;
-        zone2[1].audArray[2] = zonefour3;
+        zone2[1].audArray[1] = arcadethree2;
+        zone2[1].audArray[2] = arcadethree3;
         zone2[1].talk[0] = "Jamen det er jo fantastisk!";
         zone2[1].talk[1] = "Lad os hoppe tilbage den vej vi kom fra.";
         zone2[1].talk[2] = "Måske vi finder en trylledrik på vejen som kan lede os videre.";

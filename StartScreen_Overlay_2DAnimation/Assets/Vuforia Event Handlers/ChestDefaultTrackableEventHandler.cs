@@ -114,7 +114,7 @@ public class ChestDefaultTrackableEventHandler : MonoBehaviour, ITrackableEventH
         
         if (GameObject.Find("Treasure").GetComponent<MiniGameChest>().isChestGameCompleted == false &&
             GameObject.Find("ImageTargetGinger").GetComponent<MiniGameGingerbread>().isGingerbreadMiniGameCompleted == false &&
-            GameObject.Find("Zombie").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == false &&
+            GameObject.Find("Detective").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == false &&
             GameObject.Find("ArcadeMachine").GetComponent<MiniGameArcade>().isArcadeMiniGameCompleted == false)
         {
             startMinigameChest = true; //Starts The Mini Game for The Chest in MiniGameChest.cs 
@@ -123,7 +123,7 @@ public class ChestDefaultTrackableEventHandler : MonoBehaviour, ITrackableEventH
 
         if (GameObject.Find("Treasure").GetComponent<MiniGameChest>().isChestGameCompleted == true &&
             GameObject.Find("ImageTargetGinger").GetComponent<MiniGameGingerbread>().isGingerbreadMiniGameCompleted == true &&
-            GameObject.Find("Zombie").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == true &&
+            GameObject.Find("Detective").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == true &&
             GameObject.Find("ArcadeMachine").GetComponent<MiniGameArcade>().isArcadeMiniGameCompleted == true)
         {
             GameObject.Find("BubbleButton").GetComponent<textBubble>().pressCount = 0;
@@ -134,7 +134,7 @@ public class ChestDefaultTrackableEventHandler : MonoBehaviour, ITrackableEventH
         /*
         if (GameObject.Find("Treasure").GetComponent<MiniGameChest>().isChestGameCompleted == true &&
            GameObject.Find("ImageTargetGinger").GetComponent<MiniGameGingerbread>().isGingerbreadMiniGameCompleted == true &&
-           GameObject.Find("Zombie").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == true &&
+           GameObject.Find("Detective").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == true &&
            GameObject.Find("ArcadeMachine").GetComponent<MiniGameArcade>().isArcadeMiniGameCompleted == true)
         {
             startMinigameEnding = true; //Starts the ending sequence (Animation + Text) in MiniGameEnding.cs

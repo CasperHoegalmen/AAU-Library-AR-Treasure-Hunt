@@ -114,7 +114,7 @@ public class CulpritDefaultTrackableEventHandler : MonoBehaviour, ITrackableEven
 
         if (GameObject.Find("Treasure").GetComponent<MiniGameChest>().isChestGameCompleted == true &&
         GameObject.Find("ImageTargetGinger").GetComponent<MiniGameGingerbread>().isGingerbreadMiniGameCompleted == true &&
-        GameObject.Find("Zombie").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == false &&
+        GameObject.Find("Detective").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == false &&
         GameObject.Find("ArcadeMachine").GetComponent<MiniGameArcade>().isArcadeMiniGameCompleted == false)
         {
             notTheCulpritPotion = true;

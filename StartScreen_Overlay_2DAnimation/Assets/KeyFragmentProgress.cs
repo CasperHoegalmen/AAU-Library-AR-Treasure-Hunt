@@ -35,7 +35,7 @@ public class KeyFragmentProgress : MonoBehaviour {
         }
         
 
-        if(GameObject.Find("Zombie").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == true)
+        if(GameObject.Find("Detective").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == true)
         {
             keyFragmentThree.gameObject.SetActive(true);
             keyFragmentThree.color += new Color(0, 0, 0, opaqueAlpha);

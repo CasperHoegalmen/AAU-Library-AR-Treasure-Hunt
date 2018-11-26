@@ -115,7 +115,7 @@ public class PotionChestDefaultTrackableEventHandler : MonoBehaviour, ITrackable
 
         if (GameObject.Find("Treasure").GetComponent<MiniGameChest>().isChestGameCompleted == false &&
             GameObject.Find("ImageTargetGinger").GetComponent<MiniGameGingerbread>().isGingerbreadMiniGameCompleted == false &&
-            GameObject.Find("Zombie").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == false &&
+            GameObject.Find("Detective").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == false &&
             GameObject.Find("ArcadeMachine").GetComponent<MiniGameArcade>().isArcadeMiniGameCompleted == false)
         {
             //MISSING TEXT!
@@ -125,7 +125,7 @@ public class PotionChestDefaultTrackableEventHandler : MonoBehaviour, ITrackable
             /*
             if (GameObject.Find("Treasure").GetComponent<MiniGameChest>().isChestGameCompleted == true &&
                 GameObject.Find("ImageTargetGinger").GetComponent<MiniGameGingerbread>().isGingerbreadMiniGameCompleted == true &&
-                GameObject.Find("Zombie").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == true &&
+                GameObject.Find("Detective").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == true &&
                 GameObject.Find("ArcadeMachine").GetComponent<MiniGameArcade>().isArcadeMiniGameCompleted == true)
             {
                 startMinigameEnding = true;
@@ -135,7 +135,7 @@ public class PotionChestDefaultTrackableEventHandler : MonoBehaviour, ITrackable
             /*
             if (GameObject.Find("Treasure").GetComponent<MiniGameChest>().isChestGameCompleted == true &&
                GameObject.Find("ImageTargetGinger").GetComponent<MiniGameGingerbread>().isGingerbreadMiniGameCompleted == true &&
-               GameObject.Find("Zombie").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == true &&
+               GameObject.Find("Detective").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == true &&
                GameObject.Find("ArcadeMachine").GetComponent<MiniGameArcade>().isArcadeMiniGameCompleted == true)
             {
                 startMinigameEnding = true; //Starts the ending sequence (Animation + Text) in MiniGameEnding.cs

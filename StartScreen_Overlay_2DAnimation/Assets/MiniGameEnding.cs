@@ -15,8 +15,8 @@ public class MiniGameEnding : MonoBehaviour {
 	void Update () {
         if(GameObject.Find("ImageTargetChest").GetComponent<ChestDefaultTrackableEventHandler>().startMinigameEnding == true)
         {
-            GameObject.Find("Chest").GetComponent<ChestAnimationController>().idleToShake = true;
-            GameObject.Find("Chest").GetComponent<ChestAnimationController>().shakeToOpen = true;
+            GameObject.Find("Treasure").GetComponent<ChestAnimationController>().idleToShake = true;
+            GameObject.Find("Treasure").GetComponent<ChestAnimationController>().shakeToOpen = true;
             isGameCompleted = true;
         }
 		
