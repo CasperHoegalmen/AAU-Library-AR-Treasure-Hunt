@@ -30,7 +30,6 @@ public class ChestDefaultTrackableEventHandler : MonoBehaviour, ITrackableEventH
 
     public bool startMinigameChest = false;
     public bool startMinigameEnding = false;
-    
 
 
     // public UnityEngine.UI.Image overlayIconeOne;
@@ -113,7 +112,7 @@ public class ChestDefaultTrackableEventHandler : MonoBehaviour, ITrackableEventH
             component.enabled = true;
 
         
-        if (GameObject.Find("Chest").GetComponent<MiniGameChest>().isChestGameCompleted == false &&
+        if (GameObject.Find("Treasure").GetComponent<MiniGameChest>().isChestGameCompleted == false &&
             GameObject.Find("ImageTargetGinger").GetComponent<MiniGameGingerbread>().isGingerbreadMiniGameCompleted == false &&
             GameObject.Find("Zombie").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == false &&
             GameObject.Find("ArcadeMachine").GetComponent<MiniGameArcade>().isArcadeMiniGameCompleted == false)
@@ -122,7 +121,7 @@ public class ChestDefaultTrackableEventHandler : MonoBehaviour, ITrackableEventH
         }
         
 
-        if (GameObject.Find("Chest").GetComponent<MiniGameChest>().isChestGameCompleted == true &&
+        if (GameObject.Find("Treasure").GetComponent<MiniGameChest>().isChestGameCompleted == true &&
             GameObject.Find("ImageTargetGinger").GetComponent<MiniGameGingerbread>().isGingerbreadMiniGameCompleted == true &&
             GameObject.Find("Zombie").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == true &&
             GameObject.Find("ArcadeMachine").GetComponent<MiniGameArcade>().isArcadeMiniGameCompleted == true)
@@ -133,7 +132,7 @@ public class ChestDefaultTrackableEventHandler : MonoBehaviour, ITrackableEventH
         }
 
         /*
-        if (GameObject.Find("Chest").GetComponent<MiniGameChest>().isChestGameCompleted == true &&
+        if (GameObject.Find("Treasure").GetComponent<MiniGameChest>().isChestGameCompleted == true &&
            GameObject.Find("ImageTargetGinger").GetComponent<MiniGameGingerbread>().isGingerbreadMiniGameCompleted == true &&
            GameObject.Find("Zombie").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == true &&
            GameObject.Find("ArcadeMachine").GetComponent<MiniGameArcade>().isArcadeMiniGameCompleted == true)
@@ -188,8 +187,8 @@ public class ChestDefaultTrackableEventHandler : MonoBehaviour, ITrackableEventH
 
         startMinigameChest = false;
 
-        GameObject.Find("Chest").GetComponent<ChestAnimationController>().idleToShake = false;
-        GameObject.Find("Chest").GetComponent<ChestAnimationController>().shakeToOpen = false;
+        GameObject.Find("Treasure").GetComponent<ChestAnimationController>().idleToShake = false;
+        GameObject.Find("Treasure").GetComponent<ChestAnimationController>().shakeToOpen = false;
 
     }
 

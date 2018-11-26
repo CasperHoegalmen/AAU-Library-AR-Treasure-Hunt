@@ -110,7 +110,7 @@ public class ArcadeDefaultTrackableEventHandler : MonoBehaviour, ITrackableEvent
         foreach (var component in canvasComponents)
             component.enabled = true;
 
-        if (GameObject.Find("Chest").GetComponent<MiniGameChest>().isChestGameCompleted == true &&
+        if (GameObject.Find("Treasure").GetComponent<MiniGameChest>().isChestGameCompleted == true &&
             GameObject.Find("ImageTargetGinger").GetComponent<MiniGameGingerbread>().isGingerbreadMiniGameCompleted == true &&
             GameObject.Find("Zombie").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == true &&
             GameObject.Find("ArcadeMachine").GetComponent<MiniGameArcade>().isArcadeMiniGameCompleted == false)

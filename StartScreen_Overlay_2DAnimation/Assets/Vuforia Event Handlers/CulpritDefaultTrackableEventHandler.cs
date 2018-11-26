@@ -112,7 +112,7 @@ public class CulpritDefaultTrackableEventHandler : MonoBehaviour, ITrackableEven
             component.enabled = true;
 
 
-        if (GameObject.Find("Chest").GetComponent<MiniGameChest>().isChestGameCompleted == true &&
+        if (GameObject.Find("Treasure").GetComponent<MiniGameChest>().isChestGameCompleted == true &&
         GameObject.Find("ImageTargetGinger").GetComponent<MiniGameGingerbread>().isGingerbreadMiniGameCompleted == true &&
         GameObject.Find("Zombie").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == false &&
         GameObject.Find("ArcadeMachine").GetComponent<MiniGameArcade>().isArcadeMiniGameCompleted == false)

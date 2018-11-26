@@ -37,8 +37,8 @@ public class MiniGameArcade : MonoBehaviour
             GameObject.Find("BubbleButton").GetComponent<textBubble>().arkade[2].current == false &&
             GameObject.Find("BubbleButton").GetComponent<textBubble>().arkade[3].current == false &&
             GameObject.Find("BubbleButton").GetComponent<textBubble>().arkade[4].current == false &&
-            GameObject.Find("BubbleButton").GetComponent<textBubble>().arkade[5].current == false &&
-            GameObject.Find("BubbleButton").GetComponent<textBubble>().arkade[6].current == false &&
+            //GameObject.Find("BubbleButton").GetComponent<textBubble>().arkade[5].current == false &&
+            //GameObject.Find("BubbleButton").GetComponent<textBubble>().arkade[6].current == false &&
             GameObject.Find("ImageTargetArcade").GetComponent<ArcadeDefaultTrackableEventHandler>().startMinigameArcade == true &&  
             isButtonPressed == false && 
             isArcadeMiniGameCompleted == false)

@@ -113,7 +113,7 @@ public class GingerDefaultTrackableEventHandler : MonoBehaviour, ITrackableEvent
             component.enabled = true;
 
         if (//GameObject.Find("ImageTargetGinger").GetComponent<MiniGameGingerbread>().isGingerbreadMiniGamePartiallyCompleted == false &&
-            GameObject.Find("Chest").GetComponent<MiniGameChest>().isChestGameCompleted == true &&
+            GameObject.Find("Treasure").GetComponent<MiniGameChest>().isChestGameCompleted == true &&
             GameObject.Find("ImageTargetGinger").GetComponent<MiniGameGingerbread>().isGingerbreadMiniGameCompleted == false &&
             GameObject.Find("Zombie").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == false &&
             GameObject.Find("ArcadeMachine").GetComponent<MiniGameArcade>().isArcadeMiniGameCompleted == false)

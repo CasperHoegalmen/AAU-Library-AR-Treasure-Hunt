@@ -113,7 +113,7 @@ public class PotionChestDefaultTrackableEventHandler : MonoBehaviour, ITrackable
             component.enabled = true;
 
 
-        if (GameObject.Find("Chest").GetComponent<MiniGameChest>().isChestGameCompleted == false &&
+        if (GameObject.Find("Treasure").GetComponent<MiniGameChest>().isChestGameCompleted == false &&
             GameObject.Find("ImageTargetGinger").GetComponent<MiniGameGingerbread>().isGingerbreadMiniGameCompleted == false &&
             GameObject.Find("Zombie").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == false &&
             GameObject.Find("ArcadeMachine").GetComponent<MiniGameArcade>().isArcadeMiniGameCompleted == false)
@@ -123,7 +123,7 @@ public class PotionChestDefaultTrackableEventHandler : MonoBehaviour, ITrackable
          
 
             /*
-            if (GameObject.Find("Chest").GetComponent<MiniGameChest>().isChestGameCompleted == true &&
+            if (GameObject.Find("Treasure").GetComponent<MiniGameChest>().isChestGameCompleted == true &&
                 GameObject.Find("ImageTargetGinger").GetComponent<MiniGameGingerbread>().isGingerbreadMiniGameCompleted == true &&
                 GameObject.Find("Zombie").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == true &&
                 GameObject.Find("ArcadeMachine").GetComponent<MiniGameArcade>().isArcadeMiniGameCompleted == true)
@@ -133,7 +133,7 @@ public class PotionChestDefaultTrackableEventHandler : MonoBehaviour, ITrackable
             */
 
             /*
-            if (GameObject.Find("Chest").GetComponent<MiniGameChest>().isChestGameCompleted == true &&
+            if (GameObject.Find("Treasure").GetComponent<MiniGameChest>().isChestGameCompleted == true &&
                GameObject.Find("ImageTargetGinger").GetComponent<MiniGameGingerbread>().isGingerbreadMiniGameCompleted == true &&
                GameObject.Find("Zombie").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == true &&
                GameObject.Find("ArcadeMachine").GetComponent<MiniGameArcade>().isArcadeMiniGameCompleted == true)
