@@ -134,9 +134,9 @@ TextureImporter:
       length: 317.0405
       parentId: 0
     - name: r_pelvis
-      position: {x: 419.66977, y: 0.000060730625, z: 0}
-      rotation: {x: 0, y: 0, z: 0.70985675, w: 0.7043461}
-      length: 272.6814
+      position: {x: 419.66794, y: 0.000087460816, z: 0}
+      rotation: {x: 0, y: 0, z: 0.6972409, w: 0.7168369}
+      length: 266.25934
       parentId: 1
     - name: l_humerus
       position: {x: 332.20975, y: 0.00012656646, z: 2}
@@ -154,14 +154,14 @@ TextureImporter:
       length: 315.31116
       parentId: 4
     - name: l_pelvis
-      position: {x: -2.1674244, y: -0.45516908, z: 0}
-      rotation: {x: 0, y: 0, z: 0.9998845, w: 0.015197602}
-      length: 235.85014
+      position: {x: -2.1500967, y: -0.53351235, z: 0}
+      rotation: {x: 0, y: 0, z: -0.9999967, w: 0.0025547277}
+      length: 235.84995
       parentId: 5
     - name: r_thigh
-      position: {x: 269.60968, y: 0.06908108, z: 0}
-      rotation: {x: 0, y: 0, z: -0.73535526, w: 0.6776818}
-      length: 414.20847
+      position: {x: 266.2452, y: 1.1012278, z: 0}
+      rotation: {x: 0, y: 0, z: -0.7208243, w: 0.6931178}
+      length: 405.5433
       parentId: 5
     - name: l_elbow
       position: {x: 332.7634, y: 0.0000006884234, z: 1}
@@ -214,14 +214,14 @@ TextureImporter:
       length: 413.35715
       parentId: 8
     - name: l_thigh
-      position: {x: 235.85039, y: 0.0008754139, z: 0}
-      rotation: {x: 0, y: 0, z: 0.74563324, w: 0.66635656}
-      length: 417.34525
+      position: {x: 235.85056, y: 0.0012833452, z: 0}
+      rotation: {x: 0, y: 0, z: 0.7456337, w: 0.666356}
+      length: 417.34515
       parentId: 9
     - name: r_shin
-      position: {x: 414.20773, y: 0.00072995084, z: 0}
-      rotation: {x: 0, y: 0, z: -0.0033563788, w: 0.99999434}
-      length: 325.38217
+      position: {x: 405.54233, y: 0.00078709476, z: 0}
+      rotation: {x: 0, y: 0, z: -0.006857701, w: 0.99997646}
+      length: 325.38232
       parentId: 10
     - name: l_wrist
       position: {x: 403.7955, y: -0.00010240294, z: 2}
@@ -234,19 +234,19 @@ TextureImporter:
       length: 192.76546
       parentId: 20
     - name: l_shin
-      position: {x: 417.3455, y: -0.000087181805, z: 0}
+      position: {x: 417.34616, y: 0.00016737118, z: 0}
       rotation: {x: 0, y: 0, z: 0.0049645263, w: 0.99998766}
-      length: 364.62408
+      length: 364.6239
       parentId: 21
     - name: r_foot
-      position: {x: 420.52856, y: -92.83675, z: -1}
-      rotation: {x: 0, y: 0, z: 0.59177464, w: 0.80610347}
-      length: 282.11127
+      position: {x: 420.5387, y: -92.78996, z: -1}
+      rotation: {x: 0, y: 0, z: 0.59181976, w: 0.8060703}
+      length: 282.11166
       parentId: 22
     - name: l_foot
-      position: {x: 447.9132, y: 96.52395, z: -1}
-      rotation: {x: 0, y: 0, z: -0.6133206, w: 0.7898341}
-      length: 316.18942
+      position: {x: 447.91245, y: 96.52388, z: -1}
+      rotation: {x: 0, y: 0, z: -0.6133207, w: 0.78983396}
+      length: 316.1894
       parentId: 25
     spriteID: e8416ac482d7d7546acf1872dadb5994
     vertices:
