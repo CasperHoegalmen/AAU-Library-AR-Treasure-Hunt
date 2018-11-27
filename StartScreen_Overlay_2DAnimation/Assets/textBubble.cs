@@ -11,7 +11,7 @@ public class textBubble : MonoBehaviour
     public GameObject speechBubble1;    //Rawimage object
     public GameObject speechBubble2;    //Rawimage object
     public GameObject companion, happyCompanion, arcade_Machine, gingerbread, gingerbread_NoButton, detective;
-    public RawImage arcadeImage, GBImage, GB_NoButtonImage, detectiveImage;
+    public RawImage arcadeImage, GBImage, detectiveImage;
     public AudioSource introAud, introAud2, introAud3, introAud4, introAud5, introAud6, introAud7, introAud8,
         introAud9, introAud10;
     public AudioSource introContAud, introContAud2, introContAud3, introContAud4, introContAud5;
@@ -144,20 +144,37 @@ public class textBubble : MonoBehaviour
                     debugvar++;
                     Debug.Log(debugvar);
                 }
-            }
-            else
-                speechBubble2.SetActive(true);
-            talking2.text = inter.talk[pressCount];
-            if (inter.audFin[pressCount] == false)
-            {
-                inter.audArray[pressCount].Play();
-                inter.audFin[pressCount] = true;
-                if (pressCount > 0)
-                {
-                    inter.audArray[pressCount - 1].Stop();
-                }
 
+                if (outro.current == true)
+                {
+                    happyCompanion.SetActive(true);
+                    companion.SetActive(false);
+                    arcadeImage.gameObject.SetActive(false);
+                    GBImage.gameObject.SetActive(false);
+                    detectiveImage.gameObject.SetActive(false);
+                }
+                else
+                {
+                    companion.SetActive(true);
+                    happyCompanion.SetActive(false);
+                    arcadeImage.gameObject.SetActive(false);
+                    GBImage.gameObject.SetActive(false);
+                    detectiveImage.gameObject.SetActive(false);
+                }
             }
+            //else
+            //    speechBubble2.SetActive(true);
+            //talking2.text = inter.talk[pressCount];
+            //if (inter.audFin[pressCount] == false)
+            //{
+            //    inter.audArray[pressCount].Play();
+            //    inter.audFin[pressCount] = true;
+            //    if (pressCount > 0)
+            //    {
+            //        inter.audArray[pressCount - 1].Stop();
+            //    }
+
+            //}
         }
     }
 
@@ -173,6 +190,24 @@ public class textBubble : MonoBehaviour
                 {
                     speechBubble1.SetActive(true);
                     talking.text = interArray[i].talk[pressCount];
+                    
+                    if (zone2[1].current == true || crime2[1].current == true || arkade2[1].current == true)
+                    {
+                        happyCompanion.SetActive(true);
+                        companion.SetActive(false);
+                        arcadeImage.gameObject.SetActive(false);
+                        GBImage.gameObject.SetActive(false);
+                        detectiveImage.gameObject.SetActive(false);
+                    }
+                    else
+                    {
+                        companion.SetActive(true);
+                        happyCompanion.SetActive(false);
+                        arcadeImage.gameObject.SetActive(false);
+                        GBImage.gameObject.SetActive(false);
+                        detectiveImage.gameObject.SetActive(false);
+                    }
+
                     if (interArray[i].audFin[pressCount] == false)
                     {
                         interArray[i].audArray[pressCount].Play();
@@ -186,15 +221,43 @@ public class textBubble : MonoBehaviour
                     }
                 }
                 else
-                    speechBubble2.SetActive(true);
-                talking2.text = interArray[i].talk[pressCount];
-                if (interArray[i].audFin[pressCount] == false)
                 {
-                    interArray[i].audArray[pressCount].Play();
-                    interArray[i].audFin[pressCount] = true;
-                    if (pressCount > 0)
+                    speechBubble2.SetActive(true);
+                    talking2.text = interArray[i].talk[pressCount];
+
+                    if ((zone[1].current || zone[3].current || zone[5].current) == true || zone2[0].current == true)
                     {
-                        interArray[i].audArray[pressCount - 1].Stop();
+                        GBImage.gameObject.SetActive(true);
+                        companion.SetActive(false);
+                        happyCompanion.SetActive(false);
+                        arcadeImage.gameObject.SetActive(false);
+                        detectiveImage.gameObject.SetActive(false);
+                    }
+                    else if ((crime[1].current || crime[3].current || crime[5].current) == true || crime2[0].current == true)
+                    {
+                        detectiveImage.gameObject.SetActive(true);
+                        companion.SetActive(false);
+                        happyCompanion.SetActive(false);
+                        arcadeImage.gameObject.SetActive(false);
+                        GBImage.gameObject.SetActive(false);
+                    }
+                    else if ((arkade[1].current || arkade[3].current) == true || arkade2[0].current == true)
+                    {
+                        arcadeImage.gameObject.SetActive(true);
+                        companion.SetActive(false);
+                        happyCompanion.SetActive(false);
+                        GBImage.gameObject.SetActive(false);
+                        detectiveImage.gameObject.SetActive(false);
+                    }
+                    
+                    if (interArray[i].audFin[pressCount] == false)
+                    {
+                        interArray[i].audArray[pressCount].Play();
+                        interArray[i].audFin[pressCount] = true;
+                        if (pressCount > 0)
+                        {
+                            interArray[i].audArray[pressCount - 1].Stop();
+                        }
                     }
                 }
             }
