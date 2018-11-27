@@ -76,11 +76,14 @@ public class textBubble : MonoBehaviour
     public Button button;                                       //Button for progressing interaction
 
 
+    public GameObject startButton;
+
     // Use this for initialization
     void Start()
     {
         interactionSetup();                                     //Set up variables into different interactions
-        intro.current = true;
+
+        
         //speechBubble1.SetActive(true);
 
     }
@@ -88,6 +91,13 @@ public class textBubble : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (startButton.GetComponent<startScreen>().startTheGame == true)
+        {
+            intro.current = true;
+            startButton.GetComponent<startScreen>().startTheGame = false;
+        }
+
+
         allStopDisplay();
         allDisplayText();
         playCompAnimation(intro);
