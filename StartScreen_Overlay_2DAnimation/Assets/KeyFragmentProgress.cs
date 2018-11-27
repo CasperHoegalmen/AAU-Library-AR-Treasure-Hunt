@@ -11,10 +11,15 @@ public class KeyFragmentProgress : MonoBehaviour {
     public RawImage keyFragmentFour;
     public int keyFragmentCounter;
     public byte opaqueAlpha = 175;
+    public GameObject arrowKey;
+    public GameObject arrowChest;
+    int counter = 0;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         keyFragmentCounter = 0;
+        arrowKey.SetActive(false);
+        arrowChest.SetActive(false);
 	}
 	
 	// Update is called once per frame
@@ -24,6 +29,11 @@ public class KeyFragmentProgress : MonoBehaviour {
         {
             keyFragmentOne.gameObject.SetActive(true);
             keyFragmentOne.color += new Color(0, 0, 0, opaqueAlpha);
+
+            blink(arrowKey);
+
+            //InvokeRepeating("blink", 1, 1);
+            
         }
         
 
@@ -49,4 +59,31 @@ public class KeyFragmentProgress : MonoBehaviour {
         }
         
 	}
+
+    public void blink(GameObject toBlink)
+    {
+        counter = 0;
+
+        while (counter < 500000)
+        {
+            toBlink.SetActive(true);
+            counter++;
+            Debug.Log(counter);
+        }
+
+        if (counter >= 500000)
+        {
+            toBlink.SetActive(false);
+        }
+
+
+
+
+        
+        //toBlink.SetActive(false);
+
+        
+
+
+    }
 }

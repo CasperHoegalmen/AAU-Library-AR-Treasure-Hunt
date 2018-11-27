@@ -81,7 +81,7 @@ public class MiniGameCulprit : MonoBehaviour
         miniGameCulpritUIButton2.gameObject.SetActive(false);
         miniGameCulpritUIButton3.gameObject.SetActive(true);
 
-        miniGameCulpritUIButton3.GetComponent<RawImage>().color = Color.green;
+        miniGameCulpritUIButton3.GetComponent<Text>().color = Color.green;
 
         miniGameCulpritUIQuestionText.SetActive(false);
 
@@ -102,7 +102,7 @@ public class MiniGameCulprit : MonoBehaviour
         miniGameCulpritUIButton2.gameObject.SetActive(false);
         miniGameCulpritUIButton3.gameObject.SetActive(false);
 
-        miniGameCulpritUIButton1.GetComponent<RawImage>().color = Color.red;
+        miniGameCulpritUIButton1.GetComponent<Text>().color = Color.red;
 
         miniGameCulpritUIQuestionText.SetActive(false);
         miniGameCulpritUIWrongAnswerText.SetActive(true);
@@ -120,7 +120,7 @@ public class MiniGameCulprit : MonoBehaviour
         miniGameCulpritUIButton2.gameObject.SetActive(true);
         miniGameCulpritUIButton3.gameObject.SetActive(false);
 
-        miniGameCulpritUIButton2.GetComponent<RawImage>().color = Color.red;
+        miniGameCulpritUIButton2.GetComponent<Text>().color = Color.red;
 
         miniGameCulpritUIQuestionText.SetActive(false);
         miniGameCulpritUIWrongAnswerText.SetActive(true);
@@ -131,8 +131,8 @@ public class MiniGameCulprit : MonoBehaviour
 
     void restartGame()
     {
-        miniGameCulpritUIButton1.GetComponent<RawImage>().color = Color.white;
-        miniGameCulpritUIButton2.GetComponent<RawImage>().color = Color.white;
+        miniGameCulpritUIButton1.GetComponent<Text>().color = Color.white;
+        miniGameCulpritUIButton2.GetComponent<Text>().color = Color.white;
 
         miniGameCulpritUIButton1.gameObject.SetActive(true);
         miniGameCulpritUIButton2.gameObject.SetActive(true);

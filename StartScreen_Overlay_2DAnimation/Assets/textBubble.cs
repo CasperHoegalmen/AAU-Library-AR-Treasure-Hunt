@@ -649,7 +649,7 @@ public class textBubble : MonoBehaviour
         crime[3].audArray[3] = sherlocktwo4;
         crime[3].talk[0] = "Jeg havde en tidligere.";
         crime[3].talk[1] = "Indtil en af disse mistænkte stjal den!";
-        crime[3].talk[2] = "Jeg kan til gengæld ikke finde ham.";
+        crime[3].talk[2] = "Jeg kan til gengæld ikke finde ham. Han må være her et eller andet sted";
         crime[3].talk[3] = "Vil i hjælpe mig med at finde ud hvor han er?";
 
         crime[4].bubbleCount = 1;
