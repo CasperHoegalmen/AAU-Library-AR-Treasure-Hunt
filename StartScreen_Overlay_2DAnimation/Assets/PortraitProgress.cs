@@ -5,8 +5,7 @@ using UnityEngine.UI;
 
 public class PortraitProgress : MonoBehaviour {
 
-    public RawImage PortraitChest, PortraitGinger, PortraitCulprit, PortraitArcade;
-    public byte opaqueAlpha = 175;
+    public RawImage ProgressionImageChest, ProgressionImageGinger, ProgressionImageCulprit, ProgressionImageArcade;
 
     // Use this for initialization
     void Start () {
@@ -16,31 +15,27 @@ public class PortraitProgress : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (GameObject.Find("Chest").GetComponent<MiniGameChest>().isChestGameCompleted == true)
+        if (GameObject.Find("Treasure").GetComponent<MiniGameChest>().isChestGameCompleted == true)
         {
-            PortraitChest.gameObject.SetActive(true);
-            PortraitChest.color += new Color(0, 0, 0, opaqueAlpha);
+            ProgressionImageChest.GetComponent<RawImage>().color = Color.green;
         }
 
 
         if (GameObject.Find("ImageTargetGinger").GetComponent<MiniGameGingerbread>().isGingerbreadMiniGameCompleted == true)
         {
-            PortraitGinger.gameObject.SetActive(true);
-            PortraitGinger.color += new Color(0, 0, 0, opaqueAlpha);
+            ProgressionImageGinger.GetComponent<RawImage>().color = Color.green;
         }
 
 
-        if (GameObject.Find("Zombie").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == true)
+        if (GameObject.Find("Detective").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == true)
         {
-            PortraitCulprit.gameObject.SetActive(true);
-            PortraitCulprit.color += new Color(0, 0, 0, opaqueAlpha);
+            ProgressionImageCulprit.GetComponent<RawImage>().color = Color.green;
         }
 
 
         if (GameObject.Find("ArcadeMachine").GetComponent<MiniGameArcade>().isArcadeMiniGameCompleted == true)
         {
-            PortraitArcade.gameObject.SetActive(true);
-            PortraitArcade.color += new Color(0, 0, 0, opaqueAlpha);
+            ProgressionImageArcade.GetComponent<RawImage>().color = Color.green;
         }
 
     }
