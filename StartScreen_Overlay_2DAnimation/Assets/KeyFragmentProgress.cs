@@ -13,7 +13,7 @@ public class KeyFragmentProgress : MonoBehaviour {
     public byte opaqueAlpha = 175;
     public GameObject arrowKey;
     public GameObject arrowChest;
-    int counter = 0;
+    public float counter = 7;
 
     // Use this for initialization
     void Start () {
@@ -25,15 +25,28 @@ public class KeyFragmentProgress : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+        
+
         if (GameObject.Find("Treasure").GetComponent<MiniGameChest>().isChestGameCompleted == true)
         {
             keyFragmentOne.gameObject.SetActive(true);
             keyFragmentOne.color += new Color(0, 0, 0, opaqueAlpha);
 
-            blink(arrowKey);
 
-            //InvokeRepeating("blink", 1, 1);
-            
+           
+            if(counter >= 0 && (Mathf.RoundToInt(counter -= Time.deltaTime)) % 2 == 1)
+            {
+                arrowChest.SetActive(true);
+                arrowKey.SetActive(true);
+            }
+
+            if (counter >= 0 && (Mathf.RoundToInt(counter -= Time.deltaTime)) % 2 == 0)
+            {
+                arrowChest.SetActive(false);
+                arrowKey.SetActive(false);
+            }
+
+
         }
         
 
@@ -60,30 +73,4 @@ public class KeyFragmentProgress : MonoBehaviour {
         
 	}
 
-    public void blink(GameObject toBlink)
-    {
-        counter = 0;
-
-        while (counter < 500000)
-        {
-            toBlink.SetActive(true);
-            counter++;
-            Debug.Log(counter);
-        }
-
-        if (counter >= 500000)
-        {
-            toBlink.SetActive(false);
-        }
-
-
-
-
-        
-        //toBlink.SetActive(false);
-
-        
-
-
-    }
 }
