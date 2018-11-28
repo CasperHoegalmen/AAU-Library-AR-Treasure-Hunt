@@ -10,6 +10,7 @@ public class MiniGameCulprit : MonoBehaviour
     public Button miniGameCulpritUIButton1, miniGameCulpritUIButton2, miniGameCulpritUIButton3, restartCulpritGameUIButton;
     public GameObject miniGameCulpritUIQuestionText, miniGameCulpritUIWrongAnswerText, miniGameCulpritUIRightAnswerText, miniGameCulpritUIFinishedMessage;
     public Boolean isButtonPressed, isCulpritMiniGameCompleted;
+    public bool isSpeechBuubleActive = false, isGamePartiallyCompleted = false;
 
 
     // Use this for initialization
@@ -32,17 +33,34 @@ public class MiniGameCulprit : MonoBehaviour
     {
 
 
+
         if (GameObject.Find("BubbleButton").GetComponent<textBubble>().crime[0].current == false &&
             GameObject.Find("BubbleButton").GetComponent<textBubble>().crime[1].current == false &&
             GameObject.Find("BubbleButton").GetComponent<textBubble>().crime[2].current == false &&
             GameObject.Find("BubbleButton").GetComponent<textBubble>().crime[3].current == false &&
             GameObject.Find("BubbleButton").GetComponent<textBubble>().crime[4].current == false &&
             GameObject.Find("BubbleButton").GetComponent<textBubble>().crime[5].current == false &&
-            GameObject.Find("ImageTargetCulprit").GetComponent<CulpritDefaultTrackableEventHandler>().startMinigameCulprit == true && 
-            isButtonPressed == false && 
-            isCulpritMiniGameCompleted == false)
+            GameObject.Find("ImageTargetCulprit").GetComponent<CulpritDefaultTrackableEventHandler>().startMinigameCulprit == true &&
+            isButtonPressed == false &&
+            isCulpritMiniGameCompleted == false &&
+            isGamePartiallyCompleted == false)
         {
 
+            miniGameCulpritUIButton1.gameObject.SetActive(true);
+            miniGameCulpritUIButton2.gameObject.SetActive(true);
+            miniGameCulpritUIButton3.gameObject.SetActive(true);
+            miniGameCulpritUIQuestionText.SetActive(true);
+            isGamePartiallyCompleted = true;
+
+            miniGameCulpritUIButton1.onClick.AddListener(wrongButton1);
+            miniGameCulpritUIButton2.onClick.AddListener(wrongButton2);
+            miniGameCulpritUIButton3.onClick.AddListener(correctButton);
+
+        }
+
+        if(GameObject.Find("ImageTargetCulprit").GetComponent<CulpritDefaultTrackableEventHandler>().startMinigameCulprit == true &&
+            isGamePartiallyCompleted == true)
+        {
             miniGameCulpritUIButton1.gameObject.SetActive(true);
             miniGameCulpritUIButton2.gameObject.SetActive(true);
             miniGameCulpritUIButton3.gameObject.SetActive(true);
@@ -51,7 +69,6 @@ public class MiniGameCulprit : MonoBehaviour
             miniGameCulpritUIButton1.onClick.AddListener(wrongButton1);
             miniGameCulpritUIButton2.onClick.AddListener(wrongButton2);
             miniGameCulpritUIButton3.onClick.AddListener(correctButton);
-
         }
 
         if (GameObject.Find("ImageTargetCulprit").GetComponent<CulpritDefaultTrackableEventHandler>().startMinigameCulprit == true && isButtonPressed == false && isCulpritMiniGameCompleted == true)

@@ -115,12 +115,21 @@ public class CulpritDefaultTrackableEventHandler : MonoBehaviour, ITrackableEven
         if (GameObject.Find("Treasure").GetComponent<MiniGameChest>().isChestGameCompleted == true &&
         GameObject.Find("ImageTargetGinger").GetComponent<MiniGameGingerbread>().isGingerbreadMiniGameCompleted == true &&
         GameObject.Find("Detective").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == false &&
-        GameObject.Find("ArcadeMachine").GetComponent<MiniGameArcade>().isArcadeMiniGameCompleted == false)
+        GameObject.Find("ArcadeMachine").GetComponent<MiniGameArcade>().isArcadeMiniGameCompleted == false &&
+        GameObject.Find("BubbleButton").GetComponent<textBubble>().crime[1].current == false &&
+        GameObject.Find("BubbleButton").GetComponent<textBubble>().crime[2].current == false &&
+        GameObject.Find("BubbleButton").GetComponent<textBubble>().crime[3].current == false &&
+        GameObject.Find("BubbleButton").GetComponent<textBubble>().crime[4].current == false &&
+        GameObject.Find("BubbleButton").GetComponent<textBubble>().crime[5].current == false)
         {
             notTheCulpritPotion = true;
             startMinigameCulprit = true; //Starts the mini Game for the Culprit in MiniGameCulprit.cs
             GameObject.Find("BubbleButton").GetComponent<textBubble>().pressCount = 0;
-            GameObject.Find("BubbleButton").GetComponent<textBubble>().crime[1].current = true; //Maybe Set this based on previous condition
+            if(GameObject.Find("Detective").GetComponent<MiniGameCulprit>().isGamePartiallyCompleted == false)
+            {
+                GameObject.Find("BubbleButton").GetComponent<textBubble>().crime[1].current = true; //Maybe Set this based on previous condition
+            }
+            
         }
 
 

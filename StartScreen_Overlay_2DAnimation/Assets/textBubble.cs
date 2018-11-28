@@ -537,7 +537,7 @@ public class textBubble : MonoBehaviour
         arkade[2].audArray[1] = arcade2;
         arkade[2].audArray[2] = arcade3;
         arkade[2].audArray[3] = arcade4;
-        arkade[2].talk[0] = "Pixel min dreng!";
+        arkade[2].talk[0] = "Hejsa, Pixel min dreng!";
         arkade[2].talk[1] = "Nej, ikke idag.";
         arkade[2].talk[2] = "Vi er ude at lede efter nøgledelene.";
         arkade[2].talk[3] = "Har du stadig den jeg gav til dig?";
@@ -727,7 +727,7 @@ public class textBubble : MonoBehaviour
         zone[1].audArray = new AudioSource[1];
         zone[1].audArray[0] = kagemand;
         zone[1].audFin = new bool[1];
-        zone[1].talk[0] = "h-h-hvem er du?";
+        zone[1].talk[0] = "Hej, h-h-hvem er du?";
 
         zone[2].bubbleCount = 3;
         zone[2].talk = new string[3];
