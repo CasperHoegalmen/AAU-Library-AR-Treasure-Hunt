@@ -24,7 +24,5 @@ public class MiniGameChest : MonoBehaviour
             GameObject.Find("Startscreen").GetComponent<textBubble>().introContinued.current = true;
             isChestGameCompleted = true;
         }
-
-        
     }
 }

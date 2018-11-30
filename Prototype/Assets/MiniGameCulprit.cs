@@ -40,6 +40,7 @@ public class MiniGameCulprit : MonoBehaviour
             GameObject.Find("Startscreen").GetComponent<textBubble>().crime[3].current == false &&
             GameObject.Find("Startscreen").GetComponent<textBubble>().crime[4].current == false &&
             GameObject.Find("Startscreen").GetComponent<textBubble>().crime[5].current == false &&
+            GameObject.Find("Startscreen").GetComponent<textBubble>().crime[6].current == false &&
             GameObject.Find("ImageTargetCulprit").GetComponent<CulpritDefaultTrackableEventHandler>().startMinigameCulprit == true &&
             isButtonPressed == false &&
             isCulpritMiniGameCompleted == false &&

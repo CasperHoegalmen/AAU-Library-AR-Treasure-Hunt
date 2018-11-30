@@ -62,9 +62,9 @@ public class textBubble : MonoBehaviour
     public interaction introContinued;                          //Starting talk after first object scan
     public interaction[] arkade = new interaction[5];           //Arkade Grandmaster intro talk.
     public interaction[] arkade2 = new interaction[2];          //Arkade Grandmaster post-question talk
-    public interaction[] crime = new interaction[6];            //Crime Grandmaster intro talk.
+    public interaction[] crime = new interaction[7];            //Crime Grandmaster intro talk.
     public interaction[] crime2 = new interaction[2];           //Crime Grandmaster post-question talk
-    public interaction[] zone = new interaction[7];             //Zone Grandmaster intro talk.
+    public interaction[] zone = new interaction[9];             //Zone Grandmaster intro talk.
     public interaction[] zone2 = new interaction[2];            //Zone2 Grandmaster post-question talk
     public interaction outro;
 
@@ -381,7 +381,7 @@ public class textBubble : MonoBehaviour
             {
                 zone[i].current = stopDisplayText(zone[i]);
 
-                if (i == 6 && zone[6].current == false)
+                if (i == 8 && zone[8].current == false)
                 {
                     //zone2[0].current = true;
                     break;
@@ -420,7 +420,7 @@ public class textBubble : MonoBehaviour
             {
                 crime[i].current = stopDisplayText(crime[i]);
 
-                if (i == 5 && crime[5].current == false)
+                if (i == 6 && crime[6].current == false)
                 {
                     //crime2[0].current = true;
                     break;
@@ -615,73 +615,82 @@ public class textBubble : MonoBehaviour
         crime[0].talk[1] = "Jeg har selvfølgelig givet en nøgledel til Sherlock.";
         crime[0].talk[2] = "Til Gerningsstedet!";
 
-        crime[1].bubbleOwner = 1;
-        crime[1].bubbleCount = 2;
-        crime[1].talk = new string[2];
-        crime[1].animNum = new int[2] { 1, 1 };
-        crime[1].animFin = new bool[2];
-        crime[1].audArray = new AudioSource[2];
-        crime[1].audFin = new bool[2];
-        crime[1].audArray[0] = sherlock;
-        crime[1].audArray[1] = sherlock2;
-        crime[1].talk[0] = "Om det ikke minsandten er min ven Bib og hvem har du med der?";
-        crime[1].talk[1] = "Hvad kan jeg hjælpe jer med?";
+        crime[1].bubbleCount = 1;
+        crime[1].talk = new string[1];
+        crime[1].animNum = new int[1] { 1 };
+        crime[1].animFin = new bool[1];
+        crime[1].audFin = new bool[1];
+        crime[1].audArray = new AudioSource[1];
+        crime[1].audArray[0] = zoneHelpAud;                //Placeholder for crime potion 2
+        crime[1].talk[0] = "Gerningsstedet er lige herovre.";
 
-        crime[2].bubbleCount = 3;
-        crime[2].talk = new string[3];
-        crime[2].animNum = new int[3] { 1, 1, 1 };
-        crime[2].animFin = new bool[3];
-        crime[2].audFin = new bool[3];
-        crime[2].audArray = new AudioSource[3];
-        crime[2].audArray[0] = crimeAud;
-        crime[2].audArray[1] = crimeAud2;
-        crime[2].audArray[2] = crimeAud3;
-        crime[2].talk[0] = "En hjælper.";
-        crime[2].talk[1] = "Vi leder efter nøgledelene.";
-        crime[2].talk[2] = "Har du en?";
+        crime[2].bubbleOwner = 1;
+        crime[2].bubbleCount = 2;
+        crime[2].talk = new string[2];
+        crime[2].animNum = new int[2] { 1, 1 };
+        crime[2].animFin = new bool[2];
+        crime[2].audArray = new AudioSource[2];
+        crime[2].audFin = new bool[2];
+        crime[2].audArray[0] = sherlock;
+        crime[2].audArray[1] = sherlock2;
+        crime[2].talk[0] = "Om det ikke minsandten er min ven Bib og hvem har du med der?";
+        crime[2].talk[1] = "Hvad kan jeg hjælpe jer med?";
 
-        crime[3].bubbleOwner = 1;
-        crime[3].bubbleCount = 4;
-        crime[3].talk = new string[4];
-        crime[3].animNum = new int[4] { 1, 1, 1, 1 };
-        crime[3].animFin = new bool[4];
-        crime[3].audArray = new AudioSource[4];
-        crime[3].audFin = new bool[4];
-        crime[3].audArray[0] = sherlocktwo;
-        crime[3].audArray[1] = sherlocktwo2;
-        crime[3].audArray[2] = sherlocktwo3;
-        crime[3].audArray[3] = sherlocktwo4;
-        crime[3].talk[0] = "Jeg havde en tidligere.";
-        crime[3].talk[1] = "Indtil en eller anden stjal den!";
-        crime[3].talk[2] = "Jeg kan til gengæld ikke finde ham. Han må være her et eller andet sted";
-        crime[3].talk[3] = "Vil i hjælpe mig med at finde ud hvor han er?";
+        crime[3].bubbleCount = 3;
+        crime[3].talk = new string[3];
+        crime[3].animNum = new int[3] { 1, 1, 1 };
+        crime[3].animFin = new bool[3];
+        crime[3].audFin = new bool[3];
+        crime[3].audArray = new AudioSource[3];
+        crime[3].audArray[0] = crimeAud;
+        crime[3].audArray[1] = crimeAud2;
+        crime[3].audArray[2] = crimeAud3;
+        crime[3].talk[0] = "En hjælper.";
+        crime[3].talk[1] = "Vi leder efter nøgledelene.";
+        crime[3].talk[2] = "Har du en?";
 
-        crime[4].bubbleCount = 1;
-        crime[4].talk = new string[1];
-        crime[4].animNum = new int[1] { 1 };
-        crime[4].animFin = new bool[1];
-        crime[4].audFin = new bool[1];
-        crime[4].audArray = new AudioSource[1];
-        crime[4].audArray[0] = crimetwo;
-        crime[4].talk[0] = "Tjah der er vel ikke andet at gøre.";
+        crime[4].bubbleOwner = 1;
+        crime[4].bubbleCount = 4;
+        crime[4].talk = new string[4];
+        crime[4].animNum = new int[4] { 1, 1, 1, 1 };
+        crime[4].animFin = new bool[4];
+        crime[4].audArray = new AudioSource[4];
+        crime[4].audFin = new bool[4];
+        crime[4].audArray[0] = sherlocktwo;
+        crime[4].audArray[1] = sherlocktwo2;
+        crime[4].audArray[2] = sherlocktwo3;
+        crime[4].audArray[3] = sherlocktwo4;
+        crime[4].talk[0] = "Jeg havde en tidligere.";
+        crime[4].talk[1] = "Indtil en eller anden stjal den!";
+        crime[4].talk[2] = "Jeg kan til gengæld ikke finde ham. Han må være her et eller andet sted";
+        crime[4].talk[3] = "Vil i hjælpe mig med at finde ud hvor han er?";
 
-        crime[5].bubbleOwner = 1;
-        crime[5].bubbleCount = 5;
-        crime[5].talk = new string[5];
-        crime[5].animNum = new int[5] { 1, 1, 1, 1, 1 };
-        crime[5].animFin = new bool[5];
-        crime[5].audArray = new AudioSource[5];
-        crime[5].audFin = new bool[5];
-        crime[5].audArray[0] = sherlockthree;
-        crime[5].audArray[1] = sherlockthree2;
-        crime[5].audArray[2] = sherlockthree3;
-        crime[5].audArray[3] = sherlockthree4;
-        crime[5].audArray[4] = sherlockthree5;
-        crime[5].talk[0] = "Udemærket";
-        crime[5].talk[1] = "Jeg ved følgende om den mistænkte.";
-        crime[5].talk[2] = "Mistænkte kan lide at holde sin hånd på maven.";
-        crime[5].talk[3] = "Mistænkte kigger opad.";
-        crime[5].talk[4] = "Mistænkte har orange sko på.";
+        crime[5].bubbleCount = 1;
+        crime[5].talk = new string[1];
+        crime[5].animNum = new int[1] { 1 };
+        crime[5].animFin = new bool[1];
+        crime[5].audFin = new bool[1];
+        crime[5].audArray = new AudioSource[1];
+        crime[5].audArray[0] = crimetwo;
+        crime[5].talk[0] = "Tjah der er vel ikke andet at gøre.";
+
+        crime[6].bubbleOwner = 1;
+        crime[6].bubbleCount = 5;
+        crime[6].talk = new string[5];
+        crime[6].animNum = new int[5] { 1, 1, 1, 1, 1 };
+        crime[6].animFin = new bool[5];
+        crime[6].audArray = new AudioSource[5];
+        crime[6].audFin = new bool[5];
+        crime[6].audArray[0] = sherlockthree;
+        crime[6].audArray[1] = sherlockthree2;
+        crime[6].audArray[2] = sherlockthree3;
+        crime[6].audArray[3] = sherlockthree4;
+        crime[6].audArray[4] = sherlockthree5;
+        crime[6].talk[0] = "Udemærket";
+        crime[6].talk[1] = "Jeg ved følgende om den mistænkte.";
+        crime[6].talk[2] = "Mistænkte kan lide at holde sin hånd på maven.";
+        crime[6].talk[3] = "Mistænkte kigger opad.";
+        crime[6].talk[4] = "Mistænkte har orange sko på.";
 
         crime2[0].bubbleOwner = 1;
         crime2[0].bubbleCount = 3;
@@ -723,78 +732,96 @@ public class textBubble : MonoBehaviour
         zone[0].talk[2] = "Men jeg ved ikke hvem der er på skansen idag.";
         zone[0].talk[3] = "Skal vi ikke checke det ud?";
 
-        zone[1].bubbleOwner = 1;
         zone[1].bubbleCount = 1;
         zone[1].talk = new string[1];
         zone[1].animNum = new int[1] { 1 };
         zone[1].animFin = new bool[1];
-        zone[1].audArray = new AudioSource[1];
-        zone[1].audArray[0] = kagemand;
         zone[1].audFin = new bool[1];
-        zone[1].talk[0] = "Hej, h-h-hvem er du?";
+        zone[1].audArray = new AudioSource[1];
+        zone[1].audArray[0] = zoneHelpAud;                //Placeholder for zone potion 2
+        zone[1].talk[0] = "Zonen burde være lige forude.";
 
-        zone[2].bubbleCount = 3;
-        zone[2].talk = new string[3];
-        zone[2].animNum = new int[3] { 1, 1, 1 };
-        zone[2].animFin = new bool[3];
-        zone[2].audFin = new bool[3];
-        zone[2].audArray = new AudioSource[3];
-        zone[2].audArray[0] = zoneAud;
-        zone[2].audArray[1] = zoneAud2;
-        zone[2].audArray[2] = zoneAud3;
-        zone[2].talk[0] = "Nej, dig kender jeg ikke.";
-        zone[2].talk[1] = "Men mit navn er Bib.";
-        zone[2].talk[2] = "Har du set en nøgledel heromkring?";
+        zone[2].bubbleCount = 1;
+        zone[2].talk = new string[1];
+        zone[2].animNum = new int[1] { 1 };
+        zone[2].animFin = new bool[1];
+        zone[2].audFin = new bool[1];
+        zone[2].audArray = new AudioSource[1];
+        zone[2].audArray[0] = zoneHelpAud;                //Placeholder for zone potion 3
+        zone[2].talk[0] = "Vi er der snart.";
 
         zone[3].bubbleOwner = 1;
-        zone[3].bubbleCount = 3;
-        zone[3].talk = new string[3];
-        zone[3].animNum = new int[3] { 1, 1, 1 };
-        zone[3].animFin = new bool[3];
-        zone[3].audArray = new AudioSource[3];
-        zone[3].audFin = new bool[3];
-        zone[3].audArray[0] = kagemandtwo;
-        zone[3].audArray[1] = kagemandtwo2;
-        zone[3].audArray[2] = kagemandtwo3;
-        zone[3].talk[0] = "Mit navn er Kagemand.";
-        zone[3].talk[1] = "Je-je-jeg fandt en der lå og flød.";
-        zone[3].talk[2] = "Hvad rager det dig?";
+        zone[3].bubbleCount = 1;
+        zone[3].talk = new string[1];
+        zone[3].animNum = new int[1] { 1 };
+        zone[3].animFin = new bool[1];
+        zone[3].audArray = new AudioSource[1];
+        zone[3].audArray[0] = kagemand;
+        zone[3].audFin = new bool[1];
+        zone[3].talk[0] = "Hej, h-h-hvem er du?";
 
-        zone[4].bubbleCount = 2;
-        zone[4].talk = new string[2];
-        zone[4].animNum = new int[2] { 1, 1 };
-        zone[4].animFin = new bool[2];
-        zone[4].audFin = new bool[2];
-        zone[4].audArray = new AudioSource[2];
-        zone[4].audArray[0] = zonetwo;
-        zone[4].audArray[1] = zonetwo2;
-        zone[4].talk[0] = "Vi skal bruge den til at åbne min kiste.";
-        zone[4].talk[1] = "Må vi få den?";
+        zone[4].bubbleCount = 3;
+        zone[4].talk = new string[3];
+        zone[4].animNum = new int[3] { 1, 1, 1 };
+        zone[4].animFin = new bool[3];
+        zone[4].audFin = new bool[3];
+        zone[4].audArray = new AudioSource[3];
+        zone[4].audArray[0] = zoneAud;
+        zone[4].audArray[1] = zoneAud2;
+        zone[4].audArray[2] = zoneAud3;
+        zone[4].talk[0] = "Nej, dig kender jeg ikke.";
+        zone[4].talk[1] = "Men mit navn er Bib.";
+        zone[4].talk[2] = "Har du set en nøgledel heromkring?";
 
         zone[5].bubbleOwner = 1;
-        zone[5].bubbleCount = 4;
-        zone[5].talk = new string[4];
-        zone[5].animNum = new int[4] { 1, 1, 1, 1 };
-        zone[5].animFin = new bool[4];
-        zone[5].audArray = new AudioSource[4];
-        zone[5].audFin = new bool[4];
-        zone[5].audArray[0] = kagemandthree;
-        zone[5].audArray[1] = kagemandthree2;
-        zone[5].audArray[2] = kagemandthree3;
-        zone[5].audArray[3] = kagemandthree4;
-        zone[5].talk[0] = "Må-må-måske...";
-        zone[5].talk[1] = "Jeg er på vej hen til julemanden men på vejen tabte jeg en af mine knapper.";
-        zone[5].talk[2] = "Den trillede ned ad trapperne og jeg tør ikke gå derned.";
-        zone[5].talk[3] = "Hvis i hjælper mig med at finde den må i få jeres del.";
+        zone[5].bubbleCount = 3;
+        zone[5].talk = new string[3];
+        zone[5].animNum = new int[3] { 1, 1, 1 };
+        zone[5].animFin = new bool[3];
+        zone[5].audArray = new AudioSource[3];
+        zone[5].audFin = new bool[3];
+        zone[5].audArray[0] = kagemandtwo;
+        zone[5].audArray[1] = kagemandtwo2;
+        zone[5].audArray[2] = kagemandtwo3;
+        zone[5].talk[0] = "Mit navn er Kagemand.";
+        zone[5].talk[1] = "Je-je-jeg fandt en der lå og flød.";
+        zone[5].talk[2] = "Hvad rager det dig?";
 
-        zone[6].bubbleCount = 1;
-        zone[6].talk = new string[1];
-        zone[6].animNum = new int[1] { 1 };
-        zone[6].animFin = new bool[1];
-        zone[6].audFin = new bool[1];
-        zone[6].audArray = new AudioSource[1];
-        zone[6].audArray[0] = zonethree;
-        zone[6].talk[0] = "Tjah, der er vist ikke andet at gøre.";
+        zone[6].bubbleCount = 2;
+        zone[6].talk = new string[2];
+        zone[6].animNum = new int[2] { 1, 1 };
+        zone[6].animFin = new bool[2];
+        zone[6].audFin = new bool[2];
+        zone[6].audArray = new AudioSource[2];
+        zone[6].audArray[0] = zonetwo;
+        zone[6].audArray[1] = zonetwo2;
+        zone[6].talk[0] = "Vi skal bruge den til at åbne min kiste.";
+        zone[6].talk[1] = "Må vi få den?";
+
+        zone[7].bubbleOwner = 1;
+        zone[7].bubbleCount = 4;
+        zone[7].talk = new string[4];
+        zone[7].animNum = new int[4] { 1, 1, 1, 1 };
+        zone[7].animFin = new bool[4];
+        zone[7].audArray = new AudioSource[4];
+        zone[7].audFin = new bool[4];
+        zone[7].audArray[0] = kagemandthree;
+        zone[7].audArray[1] = kagemandthree2;
+        zone[7].audArray[2] = kagemandthree3;
+        zone[7].audArray[3] = kagemandthree4;
+        zone[7].talk[0] = "Må-må-måske...";
+        zone[7].talk[1] = "Jeg er på vej hen til julemanden men på vejen tabte jeg en af mine knapper.";
+        zone[7].talk[2] = "Den trillede ned ad trapperne og jeg tør ikke gå derned.";
+        zone[7].talk[3] = "Hvis i hjælper mig med at finde den må i få jeres del.";
+
+        zone[8].bubbleCount = 1;
+        zone[8].talk = new string[1];
+        zone[8].animNum = new int[1] { 1 };
+        zone[8].animFin = new bool[1];
+        zone[8].audFin = new bool[1];
+        zone[8].audArray = new AudioSource[1];
+        zone[8].audArray[0] = zonethree;
+        zone[8].talk[0] = "Tjah, der er vist ikke andet at gøre.";
 
         zone2[0].bubbleOwner = 1;
         zone2[0].bubbleCount = 1;
@@ -1021,7 +1048,7 @@ public class textBubble : MonoBehaviour
                     {
                         if (interArray[i].animFin[pressCount] == false && interArray[i].animNum[pressCount] == 1)
                         {
-                            if (interArray[i].current == zone[0].current)
+                            if (interArray[i].current == zone[0].current || interArray[i].current == zone[1].current || interArray[i].current == zone[2].current)
                             {
                                 if (pressCount == 0)
                                 {
@@ -1038,14 +1065,14 @@ public class textBubble : MonoBehaviour
                                 }
                             }
 
-                            if (interArray[i].current == zone[2].current || interArray[i].current == zone[4].current || interArray[i].current == zone[6].current)
+                            if (interArray[i].current == zone[4].current || interArray[i].current == zone[6].current || interArray[i].current == zone[8].current)
                             {
                                 companion.GetComponent<Animator>().SetFloat("companionSpeed", 1.0f);
                                 companion.GetComponent<Animator>().Play("Talking_Animation", -1, 0f);
                                 companion.GetComponent<Animator>().SetBool("isCompanionTalking", true);
                             }
 
-                            if (interArray[i].current == zone[1].current || interArray[i].current == zone[3].current || interArray[i].current == zone[5].current)
+                            if (interArray[i].current == zone[3].current || interArray[i].current == zone[5].current || interArray[i].current == zone[7].current)
                             {
                                 gingerbread_NoButton.GetComponent<Animator>().Play("CookieIdle", -1, 0f);
                                 gingerbread_NoButton.GetComponent<Animator>().SetFloat("cookieSpeed", 0.8f);
@@ -1116,7 +1143,7 @@ public class textBubble : MonoBehaviour
                     {
                         if (interArray[i].animFin[pressCount] == false && interArray[i].animNum[pressCount] == 1)
                         {
-                            if (interArray[i].current == crime[0].current)
+                            if (interArray[i].current == crime[0].current || interArray[i].current == crime[1].current)
                             {
                                 if (pressCount == 0)
                                 {
@@ -1133,21 +1160,21 @@ public class textBubble : MonoBehaviour
                                 }
                             }
 
-                            if (interArray[i].current == crime[1].current)
+                            if (interArray[i].current == crime[2].current)
                             {
                                 detective.GetComponent<Animator>().Play("detectiveIdleTalk", -1, 0f);
                                 detective.GetComponent<Animator>().SetFloat("detectiveSpeed", 0.6f);
                                 detective.GetComponent<Animator>().SetBool("detective_talkToIdle", true);
                             }
 
-                            if (interArray[i].current == crime[2].current || interArray[i].current == crime[4].current)
+                            if (interArray[i].current == crime[3].current || interArray[i].current == crime[5].current)
                             {
                                 companion.GetComponent<Animator>().SetFloat("companionSpeed", 1.0f);
                                 companion.GetComponent<Animator>().Play("Talking_Animation", -1, 0f);
                                 companion.GetComponent<Animator>().SetBool("isCompanionTalking", true);
                             }
 
-                            if (interArray[i].current == crime[3].current)
+                            if (interArray[i].current == crime[4].current)
                             {
                                 if (pressCount == 0)
                                 {
@@ -1164,7 +1191,7 @@ public class textBubble : MonoBehaviour
                                 }
                             }
 
-                            if (interArray[i].current == crime[5].current)
+                            if (interArray[i].current == crime[6].current)
                             {
                                 if (pressCount == 0)
                                 {

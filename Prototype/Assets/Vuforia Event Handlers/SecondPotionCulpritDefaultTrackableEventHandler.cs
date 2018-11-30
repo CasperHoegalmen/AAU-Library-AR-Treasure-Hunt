@@ -17,7 +17,8 @@ using Vuforia;
 /// Changes made to this file could be overwritten when upgrading the Vuforia version. 
 /// When implementing custom event handler behavior, consider inheriting from this class instead.
 /// </summary>
-public class CulpritDefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandler
+
+public class SecondPotionCulpritDefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandler
 {
     #region PROTECTED_MEMBER_VARIABLES
 
@@ -28,8 +29,8 @@ public class CulpritDefaultTrackableEventHandler : MonoBehaviour, ITrackableEven
 
     public static DefaultTrackableEventHandler main;
 
-    public bool startMinigameCulprit = false;
-    public bool notTheCulpritPotion = false;
+
+
 
 
     // public UnityEngine.UI.Image overlayIconeOne;
@@ -112,25 +113,29 @@ public class CulpritDefaultTrackableEventHandler : MonoBehaviour, ITrackableEven
             component.enabled = true;
 
 
+
+
         if (GameObject.Find("Treasure").GetComponent<MiniGameChest>().isChestGameCompleted == true &&
         GameObject.Find("ImageTargetGinger").GetComponent<MiniGameGingerbread>().isGingerbreadMiniGameCompleted == true &&
         GameObject.Find("Detective").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == false &&
-        GameObject.Find("ArcadeMachine").GetComponent<MiniGameArcade>().isArcadeMiniGameCompleted == false &&
-        GameObject.Find("Startscreen").GetComponent<textBubble>().crime[1].current == false &&
-        GameObject.Find("Startscreen").GetComponent<textBubble>().crime[2].current == false &&
-        GameObject.Find("Startscreen").GetComponent<textBubble>().crime[3].current == false &&
-        GameObject.Find("Startscreen").GetComponent<textBubble>().crime[4].current == false &&
-        GameObject.Find("Startscreen").GetComponent<textBubble>().crime[5].current == false)
+        GameObject.Find("ArcadeMachine").GetComponent<MiniGameArcade>().isArcadeMiniGameCompleted == false)
         {
-            notTheCulpritPotion = true;
-            startMinigameCulprit = true; //Starts the mini Game for the Culprit in MiniGameCulprit.cs
             GameObject.Find("Startscreen").GetComponent<textBubble>().pressCount = 0;
-            if(GameObject.Find("Detective").GetComponent<MiniGameCulprit>().isGamePartiallyCompleted == false)
-            {
-                GameObject.Find("Startscreen").GetComponent<textBubble>().crime[2].current = true; //Maybe Set this based on previous condition
-            }
-            
+            GameObject.Find("Startscreen").GetComponent<textBubble>().crime[1].current = true;
         }
+
+        /*
+        if (GameObject.Find("Treasure").GetComponent<MiniGameChest>().isChestGameCompleted == true &&
+           GameObject.Find("ImageTargetGinger").GetComponent<MiniGameGingerbread>().isGingerbreadMiniGameCompleted == true &&
+           GameObject.Find("Detective").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == true &&
+           GameObject.Find("ArcadeMachine").GetComponent<MiniGameArcade>().isArcadeMiniGameCompleted == true)
+        {
+            startMinigameEnding = true; //Starts the ending sequence (Animation + Text) in MiniGameEnding.cs
+            GameObject.Find("BubbleButton").GetComponent<textBubble>().pressCount = 0;
+            GameObject.Find("BubbleButton").GetComponent<textBubble>().outro.current = true; //Maybe Set this based on previous condition
+        }
+        */
+
 
 
     }
@@ -172,11 +177,6 @@ public class CulpritDefaultTrackableEventHandler : MonoBehaviour, ITrackableEven
 
       */
         //navigationArrow.SetActive(false);
-
-        
-        startMinigameCulprit = false;
-        notTheCulpritPotion = false;
-        
 
     }
 
