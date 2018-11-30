@@ -20,14 +20,12 @@ public class EndScreen : MonoBehaviour {
            GameObject.Find("Detective").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == true &&
            GameObject.Find("ImageTargetGinger").GetComponent<MiniGameGingerbread>().isGingerbreadMiniGameCompleted == true &&
            GameObject.Find("Treasure").GetComponent<MiniGameEnding>().isGameCompleted == true &&
-           GameObject.Find("BubbleButton").GetComponent<textBubble>().outro.current == false)
+           GameObject.Find("Startscreen").GetComponent<textBubble>().outro.current == false)
         {
             if ((Mathf.RoundToInt(counter -= Time.deltaTime)) == 0)
             {
                 endScreen.SetActive(true);
             }
         }
-
-
     }
 }
