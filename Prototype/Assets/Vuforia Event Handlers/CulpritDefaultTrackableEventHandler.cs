@@ -176,7 +176,12 @@ public class CulpritDefaultTrackableEventHandler : MonoBehaviour, ITrackableEven
         
         startMinigameCulprit = false;
         notTheCulpritPotion = false;
-        GameObject.Find("Detective").GetComponent<MiniGameCulprit>().isGamePartiallyCompleted = true;
+
+        if (GameObject.Find("Detective").GetComponent<MiniGameCulprit>().finishedItOnce == true)
+        {
+            GameObject.Find("Detective").GetComponent<MiniGameCulprit>().isGamePartiallyCompleted = true;
+        }
+        
 
 
 
