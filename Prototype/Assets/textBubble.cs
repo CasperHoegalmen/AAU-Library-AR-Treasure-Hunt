@@ -41,6 +41,7 @@ public class textBubble : MonoBehaviour
     public AudioSource zonethree;
     public AudioSource zonefour, zonefour2, zonefour3, zonefour4;
     public AudioSource zoneHelpAud, zoneHelpAud2, zoneHelpAud3, zoneHelpAud4;
+    public AudioSource arkHelp2, arkHelp3, gerningsstedHelp;
 
     public int debugvar = 0;
 
@@ -619,9 +620,9 @@ public class textBubble : MonoBehaviour
         crime[1].talk = new string[1];
         crime[1].animNum = new int[1] { 1 };
         crime[1].animFin = new bool[1];
-        crime[1].audFin = new bool[1];
         crime[1].audArray = new AudioSource[1];
-        crime[1].audArray[0] = zoneHelpAud;                //Placeholder for crime potion 2
+        crime[1].audFin = new bool[1];
+        crime[1].audArray[0] = gerningsstedHelp;                //Placeholder for crime potion 2
         crime[1].talk[0] = "Gerningsstedet er lige herovre.";
 
         crime[2].bubbleOwner = 1;
@@ -736,18 +737,18 @@ public class textBubble : MonoBehaviour
         zone[1].talk = new string[1];
         zone[1].animNum = new int[1] { 1 };
         zone[1].animFin = new bool[1];
-        zone[1].audFin = new bool[1];
         zone[1].audArray = new AudioSource[1];
-        zone[1].audArray[0] = zoneHelpAud;                //Placeholder for zone potion 2
+        zone[1].audFin = new bool[1];
+        zone[1].audArray[0] = arkHelp2;                //Placeholder for zone potion 2
         zone[1].talk[0] = "Zonen burde være lige forude.";
 
         zone[2].bubbleCount = 1;
         zone[2].talk = new string[1];
         zone[2].animNum = new int[1] { 1 };
         zone[2].animFin = new bool[1];
-        zone[2].audFin = new bool[1];
         zone[2].audArray = new AudioSource[1];
-        zone[2].audArray[0] = zoneHelpAud;                //Placeholder for zone potion 3
+        zone[2].audFin = new bool[1];
+        zone[2].audArray[0] = arkHelp3;                //Placeholder for zone potion 3
         zone[2].talk[0] = "Vi er der snart.";
 
         zone[3].bubbleOwner = 1;
@@ -884,7 +885,7 @@ public class textBubble : MonoBehaviour
                 {
                     if (inter.animNum[pressCount] == 1)                 //If this talk's animation number is equal to 1, play the talking animation.
                     {
-                        companion.GetComponent<Animator>().SetFloat("companionSpeed", 1.0f);
+                        companion.GetComponent<Animator>().SetFloat("companionSpeed", 1.2f);
                         companion.GetComponent<Animator>().Play("Talking_Animation", -1, 0f);
                         companion.GetComponent<Animator>().SetBool("isCompanionTalking", true);
 
@@ -935,7 +936,7 @@ public class textBubble : MonoBehaviour
                                 }
                                 else
                                 {
-                                    companion.GetComponent<Animator>().SetFloat("companionSpeed", 1.0f);
+                                    companion.GetComponent<Animator>().SetFloat("companionSpeed", 1.2f);
                                     companion.GetComponent<Animator>().Play("Talking_Animation", -1, 0f);
                                     companion.GetComponent<Animator>().SetBool("isCompanionTalking", true);
                                 }
@@ -943,7 +944,7 @@ public class textBubble : MonoBehaviour
 
                             if (interArray[i].current == arkade[2].current)
                             {
-                                companion.GetComponent<Animator>().SetFloat("companionSpeed", 1.0f);
+                                companion.GetComponent<Animator>().SetFloat("companionSpeed", 1.2f);
                                 companion.GetComponent<Animator>().Play("Talking_Animation", -1, 0f);
                                 companion.GetComponent<Animator>().SetBool("isCompanionTalking", true);
 
@@ -960,7 +961,7 @@ public class textBubble : MonoBehaviour
                                 }
                                 else
                                 {
-                                    companion.GetComponent<Animator>().SetFloat("companionSpeed", 1.0f);
+                                    companion.GetComponent<Animator>().SetFloat("companionSpeed", 1.2f);
                                     companion.GetComponent<Animator>().Play("Talking_Animation", -1, 0f);
                                     companion.GetComponent<Animator>().SetBool("isCompanionTalking", true);
                                 }
@@ -1059,7 +1060,7 @@ public class textBubble : MonoBehaviour
                                 }
                                 else
                                 {
-                                    companion.GetComponent<Animator>().SetFloat("companionSpeed", 1.0f);
+                                    companion.GetComponent<Animator>().SetFloat("companionSpeed", 1.2f);
                                     companion.GetComponent<Animator>().Play("Talking_Animation", -1, 0f);
                                     companion.GetComponent<Animator>().SetBool("isCompanionTalking", true);
                                 }
@@ -1067,7 +1068,7 @@ public class textBubble : MonoBehaviour
 
                             if (interArray[i].current == zone[4].current || interArray[i].current == zone[6].current || interArray[i].current == zone[8].current)
                             {
-                                companion.GetComponent<Animator>().SetFloat("companionSpeed", 1.0f);
+                                companion.GetComponent<Animator>().SetFloat("companionSpeed", 1.2f);
                                 companion.GetComponent<Animator>().Play("Talking_Animation", -1, 0f);
                                 companion.GetComponent<Animator>().SetBool("isCompanionTalking", true);
                             }
@@ -1154,7 +1155,7 @@ public class textBubble : MonoBehaviour
                                 }
                                 else
                                 {
-                                    companion.GetComponent<Animator>().SetFloat("companionSpeed", 1.0f);
+                                    companion.GetComponent<Animator>().SetFloat("companionSpeed", 1.2f);
                                     companion.GetComponent<Animator>().Play("Talking_Animation", -1, 0f);
                                     companion.GetComponent<Animator>().SetBool("isCompanionTalking", true);
                                 }
@@ -1169,7 +1170,7 @@ public class textBubble : MonoBehaviour
 
                             if (interArray[i].current == crime[3].current || interArray[i].current == crime[5].current)
                             {
-                                companion.GetComponent<Animator>().SetFloat("companionSpeed", 1.0f);
+                                companion.GetComponent<Animator>().SetFloat("companionSpeed", 1.2f);
                                 companion.GetComponent<Animator>().Play("Talking_Animation", -1, 0f);
                                 companion.GetComponent<Animator>().SetBool("isCompanionTalking", true);
                             }

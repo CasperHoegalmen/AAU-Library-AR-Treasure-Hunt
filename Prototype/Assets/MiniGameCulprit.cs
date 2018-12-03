@@ -51,7 +51,7 @@ public class MiniGameCulprit : MonoBehaviour
             miniGameCulpritUIButton2.gameObject.SetActive(true);
             miniGameCulpritUIButton3.gameObject.SetActive(true);
             miniGameCulpritUIQuestionText.SetActive(true);
-            isGamePartiallyCompleted = true;
+            
 
             miniGameCulpritUIButton1.onClick.AddListener(wrongButton1);
             miniGameCulpritUIButton2.onClick.AddListener(wrongButton2);
@@ -60,7 +60,7 @@ public class MiniGameCulprit : MonoBehaviour
         }
 
         if(GameObject.Find("ImageTargetCulprit").GetComponent<CulpritDefaultTrackableEventHandler>().startMinigameCulprit == true &&
-            isGamePartiallyCompleted == true)
+            isGamePartiallyCompleted == true )
         {
             miniGameCulpritUIButton1.gameObject.SetActive(true);
             miniGameCulpritUIButton2.gameObject.SetActive(true);
