@@ -239,7 +239,7 @@ public class textBubble : MonoBehaviour
                     button.gameObject.SetActive(true);
                     talking2.text = interArray[i].talk[pressCount];
 
-                    if ((zone[1].current || zone[3].current || zone[5].current) == true || zone2[0].current == true)
+                    if ((zone[3].current || zone[5].current || zone[7].current) == true || zone2[0].current == true)
                     {
                         GBImage.gameObject.SetActive(true);
                         companion.SetActive(false);
@@ -247,7 +247,7 @@ public class textBubble : MonoBehaviour
                         arcadeImage.gameObject.SetActive(false);
                         detectiveImage.gameObject.SetActive(false);
                     }
-                    else if ((crime[1].current || crime[3].current || crime[5].current) == true || crime2[0].current == true)
+                    else if ((crime[2].current || crime[4].current || crime[6].current) == true || crime2[0].current == true)
                     {
                         detectiveImage.gameObject.SetActive(true);
                         companion.SetActive(false);
