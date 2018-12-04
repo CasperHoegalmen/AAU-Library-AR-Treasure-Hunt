@@ -14,6 +14,7 @@ public class textBubble : MonoBehaviour
     public AudioSource introAud, introAud2, introAud3, introAud4, introAud5, introAud6, introAud7, introAud8,
         introAud9, introAud10;
     public AudioSource introContAud, introContAud2, introContAud3, introContAud4, introContAud5;
+    public AudioSource introContChest, introContChest2, introContChest3, introContChest4, introContChest5, introContChest6, introContChest7;
     public AudioSource outroAud, outroAud2, outroAud3, outroAud4;
     public AudioSource pixel, pixel2, pixel3;
     public AudioSource pixeltwo, pixeltwo2, pixeltwo3, pixeltwo4;
@@ -21,7 +22,7 @@ public class textBubble : MonoBehaviour
     public AudioSource sherlock, sherlock2;
     public AudioSource sherlocktwo, sherlocktwo2, sherlocktwo3, sherlocktwo4;
     public AudioSource sherlockthree, sherlockthree2, sherlockthree3, sherlockthree4, sherlockthree5;
-    public AudioSource sherlockfail, sherlockfail2;
+    //public AudioSource sherlockfail, sherlockfail2;
     public AudioSource sherlockfour, sherlockfour2, sherlockfour3;
     public AudioSource kagemand;
     public AudioSource kagemandtwo, kagemandtwo2, kagemandtwo3;
@@ -40,6 +41,7 @@ public class textBubble : MonoBehaviour
     public AudioSource zonethree;
     public AudioSource zonefour, zonefour2, zonefour3, zonefour4;
     public AudioSource zoneHelpAud, zoneHelpAud2, zoneHelpAud3, zoneHelpAud4;
+    public AudioSource zoneButton, zoneButton2;
     public AudioSource arkHelp2, arkHelp3, gerningsstedHelp;
 
     public int debugvar = 0;
@@ -471,13 +473,13 @@ public class textBubble : MonoBehaviour
         introContinued2.animFin = new bool[7];
         introContinued2.audFin = new bool[7];
         introContinued2.audArray = new AudioSource[7];
-        introContinued2.audArray[0] = introContAud;
-        introContinued2.audArray[1] = introContAud2;
-        introContinued2.audArray[2] = introContAud3;
-        introContinued2.audArray[3] = introContAud4;
-        introContinued2.audArray[4] = introContAud5;
-        introContinued2.audArray[5] = introContAud4;
-        introContinued2.audArray[6] = introContAud5;
+        introContinued2.audArray[0] = introContChest;
+        introContinued2.audArray[1] = introContChest2;
+        introContinued2.audArray[2] = introContChest3;
+        introContinued2.audArray[3] = introContChest4;
+        introContinued2.audArray[4] = introContChest5;
+        introContinued2.audArray[5] = introContChest6;
+        introContinued2.audArray[6] = introContChest7;
         introContinued2.talk[0] = "Nååå ja.";
         introContinued2.talk[1] = "Det er selvfølgelig med en nøgle.";
         introContinued2.talk[2] = "Min nøgle er til gengæld gået i stykker...";
@@ -497,7 +499,7 @@ public class textBubble : MonoBehaviour
         arkade[0].animFin = new bool[3];
         arkade[0].talk[0] = "Der var den!";
         arkade[0].talk[1] = "Jeg gav en af nøgledelene til min ven Pixel";
-        arkade[0].talk[2] = "Vi kan finde ham nede i arkaden.";
+        arkade[0].talk[2] = "Vi kan finde ham over i spillezonen.";
 
         arkade[1].bubbleOwner = 1;
         arkade[1].bubbleCount = 3;
@@ -579,7 +581,7 @@ public class textBubble : MonoBehaviour
         arkade2[1].audArray[1] = zonefour2;
         arkade2[1].audArray[2] = zonefour3;
         arkade2[1].audArray[3] = zonefour4;
-        arkade2[1].talk[0] = "Fantastisk!";
+        arkade2[1].talk[0] = "Jamen det er jo fantastisk!!";
         arkade2[1].talk[1] = "Vi har fundet alle nøgledelene!";
         arkade2[1].talk[2] = "Lad os gå tilbage til kisten.";
         arkade2[1].talk[3] = "Det er tid til vores beløning";
@@ -825,8 +827,8 @@ public class textBubble : MonoBehaviour
         zone2[1].audArray[1] = arcadethree2;
         zone2[1].audArray[2] = arcadethree3;
         zone2[1].talk[0] = "Jamen det er jo fantastisk!";
-        zone2[1].talk[1] = "Lad os hoppe tilbage den vej vi kom fra.";
-        zone2[1].talk[2] = "Måske vi finder en trylledrik på vejen som kan lede os videre.";
+        zone2[1].talk[1] = "Lad os kigge lidt rundt her i området.";
+        zone2[1].talk[2] = "Måske vi finder en trylledrik som kan lede os videre.";
 
         zone3.bubbleCount = 2;
         zone3.talk = new string[2];
@@ -834,8 +836,8 @@ public class textBubble : MonoBehaviour
         zone3.animFin = new bool[2];
         zone3.audFin = new bool[2];
         zone3.audArray = new AudioSource[2];
-        zone3.audArray[0] = zonefour;
-        zone3.audArray[1] = arcadethree2;
+        zone3.audArray[0] = zoneButton;
+        zone3.audArray[1] = zoneButton2;
         zone3.talk[0] = "Super!";
         zone3.talk[1] = "Lad os gå tilbage til kagemand for at få vores del.";
 
