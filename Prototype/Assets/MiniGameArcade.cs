@@ -9,7 +9,7 @@ public class MiniGameArcade : MonoBehaviour
 
     public Button miniGameUIButton1, miniGameUIButton2, miniGameUIButton3, restartGameUIButton;
     public GameObject miniGameUIQuestionText, miniGameUIWrongAnswerText, miniGameUIRightAnswerText, miniGameUIFinishedMessage;
-    public Boolean isButtonPressed, isArcadeMiniGameCompleted;
+    public Boolean isButtonPressed, isArcadeMiniGameCompleted, isGamePartiallyComplete = false, finishedItOnce = false;
 
 
     // Use this for initialization
@@ -47,12 +47,30 @@ public class MiniGameArcade : MonoBehaviour
             miniGameUIButton2.gameObject.SetActive(true);
             miniGameUIButton3.gameObject.SetActive(true);
             miniGameUIQuestionText.SetActive(true);
+            finishedItOnce = true;
 
             miniGameUIButton1.onClick.AddListener(wrongButton1);
             miniGameUIButton2.onClick.AddListener(wrongButton2);
             miniGameUIButton3.onClick.AddListener(correctButton);
 
         }
+
+        if(GameObject.Find("ImageTargetArcade").GetComponent<ArcadeDefaultTrackableEventHandler>().startMinigameArcade == true &&
+            isGamePartiallyComplete == true &&
+            isButtonPressed == false &&
+            isArcadeMiniGameCompleted == false)
+        {
+            miniGameUIButton1.gameObject.SetActive(true);
+            miniGameUIButton2.gameObject.SetActive(true);
+            miniGameUIButton3.gameObject.SetActive(true);
+            miniGameUIQuestionText.SetActive(true);
+
+            miniGameUIButton1.onClick.AddListener(wrongButton1);
+            miniGameUIButton2.onClick.AddListener(wrongButton2);
+            miniGameUIButton3.onClick.AddListener(correctButton);
+        }
+
+
 
         if (GameObject.Find("ImageTargetArcade").GetComponent<ArcadeDefaultTrackableEventHandler>().startMinigameArcade == true && isButtonPressed == false && isArcadeMiniGameCompleted == true)
         {

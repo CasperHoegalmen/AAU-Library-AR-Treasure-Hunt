@@ -116,9 +116,13 @@ public class ArcadeDefaultTrackableEventHandler : MonoBehaviour, ITrackableEvent
             GameObject.Find("ArcadeMachine").GetComponent<MiniGameArcade>().isArcadeMiniGameCompleted == false)
         {
             notTheArcadePotion = true;
-            startMinigameArcade = true; //Starts the mini Game for the Arcade in MiniGameArcade.cs
-            GameObject.Find("Startscreen").GetComponent<textBubble>().pressCount = 0;
-            GameObject.Find("Startscreen").GetComponent<textBubble>().arkade[1].current = true; //Maybe Set this based on previous condition
+            startMinigameArcade = true;
+            GameObject.Find("Startscreen").GetComponent<textBubble>().pressCount = 0; //Starts the mini Game for the Arcade in MiniGameArcade.cs
+            if (GameObject.Find("ArcadeMachine").GetComponent<MiniGameArcade>().isGamePartiallyComplete == false)
+            {
+                GameObject.Find("Startscreen").GetComponent<textBubble>().arkade[1].current = true; //Maybe Set this based on previous condition
+            }
+           
         }
 
     }
@@ -162,6 +166,12 @@ public class ArcadeDefaultTrackableEventHandler : MonoBehaviour, ITrackableEvent
         //navigationArrow.SetActive(false);
 
         startMinigameArcade = false;
+        notTheArcadePotion = false;
+
+        if (GameObject.Find("ArcadeMachine").GetComponent<MiniGameArcade>().finishedItOnce == true)
+        {
+            GameObject.Find("ArcadeMachine").GetComponent<MiniGameArcade>().isGamePartiallyComplete = true;
+        }
 
     }
 
