@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
+    <ImageTarget name="Culprit3" size="150.000000 306.315796" />
+    <ImageTarget name="Culprit2" size="150.000000 350.649353" />
+    <ImageTarget name="Culprit1" size="150.000000 352.325592" />
     <ImageTarget name="button" size="150.000000 125.006027" />
     <ImageTarget name="jul" size="150.000000 150.000000" />
     <ImageTarget name="treasure" size="150.000000 150.000000" />

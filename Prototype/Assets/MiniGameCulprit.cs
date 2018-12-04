@@ -53,6 +53,7 @@ public class MiniGameCulprit : MonoBehaviour
             miniGameCulpritUIButton3.gameObject.SetActive(true);
             miniGameCulpritUIQuestionText.SetActive(true);
             finishedItOnce = true;
+            Debug.Log("IN HERE!");
             
 
             miniGameCulpritUIButton1.onClick.AddListener(wrongButton1);
@@ -61,13 +62,17 @@ public class MiniGameCulprit : MonoBehaviour
 
         }
 
-        if(GameObject.Find("ImageTargetCulprit").GetComponent<CulpritDefaultTrackableEventHandler>().startMinigameCulprit == true &&
-            isGamePartiallyCompleted == true)
+        if (GameObject.Find("ImageTargetCulprit").GetComponent<CulpritDefaultTrackableEventHandler>().startMinigameCulprit == true &&
+            isGamePartiallyCompleted == true &&
+            isButtonPressed == false &&
+            isCulpritMiniGameCompleted == false)
         {
             miniGameCulpritUIButton1.gameObject.SetActive(true);
             miniGameCulpritUIButton2.gameObject.SetActive(true);
             miniGameCulpritUIButton3.gameObject.SetActive(true);
             miniGameCulpritUIQuestionText.SetActive(true);
+
+            Debug.Log("In THERE!");
 
             miniGameCulpritUIButton1.onClick.AddListener(wrongButton1);
             miniGameCulpritUIButton2.onClick.AddListener(wrongButton2);
