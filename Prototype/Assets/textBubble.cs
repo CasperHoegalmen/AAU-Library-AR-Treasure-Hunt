@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class textBubble : MonoBehaviour
 {
-
     public Text talking;                //Text object for bibliothecary
     public Text talking2;               //Text object for other characters
     public GameObject speechBubble1;    //Rawimage object
@@ -60,20 +59,21 @@ public class textBubble : MonoBehaviour
     }
 
     public interaction intro;                                   //Starting talk
-    public interaction introContinued;                          //Starting talk after first object scan
+    public interaction introContinued, introContinued2;        //Starting talk after first object scan
     public interaction[] arkade = new interaction[5];           //Arkade Grandmaster intro talk.
     public interaction[] arkade2 = new interaction[2];          //Arkade Grandmaster post-question talk
     public interaction[] crime = new interaction[7];            //Crime Grandmaster intro talk.
     public interaction[] crime2 = new interaction[2];           //Crime Grandmaster post-question talk
     public interaction[] zone = new interaction[9];             //Zone Grandmaster intro talk.
     public interaction[] zone2 = new interaction[2];            //Zone2 Grandmaster post-question talk
+    public interaction zone3;
     public interaction outro;
 
     public interaction arkadeHelp;                              //Arkade help poster talk
     public interaction crimeHelp;                               //Crime help poster talk
     public interaction zoneHelp;                                //Zone help poster talk
 
-    public int pressCount = 0;                                         //Number of times button has been pressed in current interaction
+    public int pressCount = 0;                                  //Number of times button has been pressed in current interaction
     public Button button;                                       //Button for progressing interaction
 
 
@@ -83,10 +83,6 @@ public class textBubble : MonoBehaviour
     void Start()
     {
         interactionSetup();                                     //Set up variables into different interactions
-
-        
-        //speechBubble1.SetActive(true);
-
     }
 
     // Update is called once per frame
@@ -98,22 +94,20 @@ public class textBubble : MonoBehaviour
             startButton.GetComponent<startScreen>().startTheGame = false;
         }
 
-
         allStopDisplay();
         allDisplayText();
         playCompAnimation(intro);
         playCompAnimation(introContinued);
+        playCompAnimation(introContinued2);
         playCompAnimation(arkade);
         playCompAnimation(arkade2);
         zoneSectionAnimation(zone);
         zoneSectionAnimation(zone2);
+        playCompAnimation(zone3);
         crimeSectionAnimation(crime);
         crimeSectionAnimation(crime2);
         gameOver(outro);
     }
-
-
-
 
 
     //Run displayText on each interaction in the program.
@@ -121,15 +115,14 @@ public class textBubble : MonoBehaviour
     {
         displayText(intro);
         displayText(introContinued);
+        displayText(introContinued2);
         displayText(arkade);
         displayText(arkade2);
         displayText(crime);
         displayText(crime2);
         displayText(zone);
         displayText(zone2);
-        //  displayText(arkadeHelp);
-        //  displayText(crimeHelp);
-        //  displayText(zoneHelp);
+        displayText(zone3);
         displayText(outro);
     }
 
@@ -174,19 +167,6 @@ public class textBubble : MonoBehaviour
                     detectiveImage.gameObject.SetActive(false);
                 }
             }
-            //else
-            //    speechBubble2.SetActive(true);
-            //talking2.text = inter.talk[pressCount];
-            //if (inter.audFin[pressCount] == false)
-            //{
-            //    inter.audArray[pressCount].Play();
-            //    inter.audFin[pressCount] = true;
-            //    if (pressCount > 0)
-            //    {
-            //        inter.audArray[pressCount - 1].Stop();
-            //    }
-
-            //}
         }
     }
 
@@ -300,41 +280,27 @@ public class textBubble : MonoBehaviour
         if (intro.current == true)
         {
             intro.current = stopDisplayText(intro);
-            //if (intro.current == false)
-            //{
-            //    introContinued.current = true;
-            //};
         }
 
         if (introContinued.current == true)
         {
             introContinued.current = stopDisplayText(introContinued);
-            //if (introContinued.current == false)
-            //{
-            //    arkade[0].current = true;
-            //}
+        }
+
+        if(introContinued2.current == true)
+        {
+            introContinued2.current = stopDisplayText(introContinued2);
+        }
+
+        if(zone3.current == true)
+        {
+            zone3.current = stopDisplayText(zone3);
         }
 
         if (outro.current == true)
         {
             outro.current = stopDisplayText(outro);
         }
-
-        //if (arkadeHelp.current == true)
-        //{
-        //    arkadeHelp.current = stopDisplayText(arkadeHelp);
-        //}
-
-        //if (crimeHelp.current == true)
-        //{
-        //    crimeHelp.current = stopDisplayText(crimeHelp);
-        //}
-
-        //if(zoneHelp.current == true)
-        //{
-        //    zoneHelp.current = stopDisplayText(zoneHelp);
-        //}
-
 
         for (int i = 0; i < arkade.Length; i++)
         {
@@ -344,7 +310,6 @@ public class textBubble : MonoBehaviour
 
                 if (i == 4 && arkade[4].current == false)
                 {
-                    //arkade2[0].current = true;
                     break;
                 }
 
@@ -365,7 +330,6 @@ public class textBubble : MonoBehaviour
 
                 if (i == 1 && arkade2[1].current == false)
                 {
-                    //zone[0].current = true;
                     break;
                 }
 
@@ -384,7 +348,6 @@ public class textBubble : MonoBehaviour
 
                 if (i == 8 && zone[8].current == false)
                 {
-                    //zone2[0].current = true;
                     break;
                 }
 
@@ -404,7 +367,6 @@ public class textBubble : MonoBehaviour
 
                 if (i == 1 && zone2[1].current == false)
                 {
-                    //crime[0].current = true;
                     break;
                 }
 
@@ -423,7 +385,6 @@ public class textBubble : MonoBehaviour
 
                 if (i == 6 && crime[6].current == false)
                 {
-                    //crime2[0].current = true;
                     break;
                 }
 
@@ -443,7 +404,6 @@ public class textBubble : MonoBehaviour
 
                 if (i == 1 && crime2[1].current == false)
                 {
-                    //outro.current = true;
                     break;
                 }
 
@@ -480,13 +440,13 @@ public class textBubble : MonoBehaviour
         intro.talk[0] = "Jamen halli-hallo";
         intro.talk[1] = "Mit navn er Bib";
         intro.talk[2] = "Bibliotekar";
-        intro.talk[3] = "Kan du se den kiste bag mig?";
-        intro.talk[4] = "I den ligger min mest værdifulde ejendel";
+        intro.talk[3] = "Idag er en stor dag.";
+        intro.talk[4] = "Det er dagen hvor jeg gør et eller andet.";
         intro.talk[5] = "Hvad det nu end er...";
         intro.talk[6] = "Det kan jeg ikke huske.";
-        intro.talk[7] = "Men for at åbne kisten skal vi bruge en nøgle.";
-        intro.talk[8] = "Den kan jeg heller ikke huske hvad jeg har gjort ved.";
-        intro.talk[9] = "Hvis du har lyst til at hjælpe, så sigt dit kamera op mod den blå trylledrik";
+        intro.talk[7] = "Kan du ikke lige hjælpe mig?";
+        intro.talk[8] = "Sigt dit kamera op mod den trylledrik der.";
+        intro.talk[9] = "Det vil hjælpe mig med at huske.";
 
         introContinued.bubbleCount = 5;
         introContinued.talk = new string[5];
@@ -500,10 +460,31 @@ public class textBubble : MonoBehaviour
         introContinued.audArray[3] = introContAud4;
         introContinued.audArray[4] = introContAud5;
         introContinued.talk[0] = "Fantastisk!";
-        introContinued.talk[1] = "Disse trylledrikke hjælper mig med at huske";
-        introContinued.talk[2] = "Jeg kan nu huske at jeg delte nøglen op og gav delene til nogle venner";
-        introContinued.talk[3] = "Jeg kan til gengæld ikke huske hvem.";
-        introContinued.talk[4] = "Lad os finde en trylledrik mere";
+        introContinued.talk[1] = "Som jeg sagde så hjælper disse trylledrikke mig med at huske.";
+        introContinued.talk[2] = "Jeg kan nu huske at jeg skulle åbne min kiste idag.";
+        introContinued.talk[3] = "Øøøh. Hvordan er det nu man åbner en kiste?";
+        introContinued.talk[4] = "Sigt dit kamera op mod kisten så husker jeg måske.";
+
+        introContinued2.bubbleCount = 7;
+        introContinued2.talk = new string[7];
+        introContinued2.animNum = new int[7] { 1, 1, 1, 1, 1, 1, 1 };
+        introContinued2.animFin = new bool[7];
+        introContinued2.audFin = new bool[7];
+        introContinued2.audArray = new AudioSource[7];
+        introContinued2.audArray[0] = introContAud;
+        introContinued2.audArray[1] = introContAud2;
+        introContinued2.audArray[2] = introContAud3;
+        introContinued2.audArray[3] = introContAud4;
+        introContinued2.audArray[4] = introContAud5;
+        introContinued2.audArray[5] = introContAud4;
+        introContinued2.audArray[6] = introContAud5;
+        introContinued2.talk[0] = "Nååå ja.";
+        introContinued2.talk[1] = "Det er selvfølgelig med en nøgle.";
+        introContinued2.talk[2] = "Min nøgle er til gengæld gået i stykker...";
+        introContinued2.talk[3] = "Og jeg gav nøgledelene til nogle venner.";
+        introContinued2.talk[4] = "Jeg kan til gengæld ikke huske hvor de alle er henne.";
+        introContinued2.talk[5] = "Lad os gå ud af børnesektionen og finde flere trylledrikke.";
+        introContinued2.talk[6] = "De vil sikkert hjælpe mig med at huske hvor mine venner er blevet af.";
 
         arkade[0].bubbleCount = 3;
         arkade[0].audFin = new bool[3];
@@ -622,7 +603,7 @@ public class textBubble : MonoBehaviour
         crime[1].animFin = new bool[1];
         crime[1].audArray = new AudioSource[1];
         crime[1].audFin = new bool[1];
-        crime[1].audArray[0] = gerningsstedHelp;                //Placeholder for crime potion 2
+        crime[1].audArray[0] = gerningsstedHelp;
         crime[1].talk[0] = "Gerningsstedet er lige herovre.";
 
         crime[2].bubbleOwner = 1;
@@ -739,7 +720,7 @@ public class textBubble : MonoBehaviour
         zone[1].animFin = new bool[1];
         zone[1].audArray = new AudioSource[1];
         zone[1].audFin = new bool[1];
-        zone[1].audArray[0] = arkHelp2;                //Placeholder for zone potion 2
+        zone[1].audArray[0] = arkHelp2;
         zone[1].talk[0] = "Zonen burde være lige forude.";
 
         zone[2].bubbleCount = 1;
@@ -748,7 +729,7 @@ public class textBubble : MonoBehaviour
         zone[2].animFin = new bool[1];
         zone[2].audArray = new AudioSource[1];
         zone[2].audFin = new bool[1];
-        zone[2].audArray[0] = arkHelp3;                //Placeholder for zone potion 3
+        zone[2].audArray[0] = arkHelp3;
         zone[2].talk[0] = "Vi er der snart.";
 
         zone[3].bubbleOwner = 1;
@@ -847,6 +828,17 @@ public class textBubble : MonoBehaviour
         zone2[1].talk[1] = "Lad os hoppe tilbage den vej vi kom fra.";
         zone2[1].talk[2] = "Måske vi finder en trylledrik på vejen som kan lede os videre.";
 
+        zone3.bubbleCount = 2;
+        zone3.talk = new string[2];
+        zone3.animNum = new int[2] { 1, 1, };
+        zone3.animFin = new bool[2];
+        zone3.audFin = new bool[2];
+        zone3.audArray = new AudioSource[2];
+        zone3.audArray[0] = zonefour;
+        zone3.audArray[1] = arcadethree2;
+        zone3.talk[0] = "Super!";
+        zone3.talk[1] = "Lad os gå tilbage til kagemand for at få vores del.";
+
         outro.bubbleCount = 4;
         outro.talk = new string[4];
         outro.animNum = new int[4] { 1, 1, 1, 1 };
@@ -897,7 +889,7 @@ public class textBubble : MonoBehaviour
                         }
 
                         //Thinking animation once the first potion is scanned
-                        if (inter.current == introContinued.current && pressCount == 0)
+                        if ((inter.current == introContinued.current || inter.current == introContinued2.current) && pressCount == 0)
                         {
                             companion.GetComponent<Animator>().Play("Thinking_Animation");
                             companion.GetComponent<Animator>().SetFloat("companionSpeed", 0.7f);
@@ -908,7 +900,6 @@ public class textBubble : MonoBehaviour
                     }
                 }
             }
-            //companion.SetActive(false);
         }
     }
 
@@ -990,8 +981,6 @@ public class textBubble : MonoBehaviour
         {
             for (int i = 0; i < interArray.Length; i++)
             {
-                //for (int j = 0; j < interArray[1].talk.Length; j++)
-                //{
                 foreach (string str in interArray[i].talk)
                 {
                     if (interArray[i].current == true)
@@ -1031,7 +1020,6 @@ public class textBubble : MonoBehaviour
                         }
                     }
                 }
-                //}
             }
         }
     }
@@ -1289,4 +1277,3 @@ public class textBubble : MonoBehaviour
         }
     }
 }
-

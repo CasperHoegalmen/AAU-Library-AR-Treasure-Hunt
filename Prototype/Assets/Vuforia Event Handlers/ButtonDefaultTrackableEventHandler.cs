@@ -113,6 +113,7 @@ public class ButtonDefaultTrackableEventHandler : MonoBehaviour, ITrackableEvent
         {
             GameObject.Find("Startscreen").GetComponent<textBubble>().pressCount = 0;
             GameObject.Find("ImageTargetGinger").GetComponent<MiniGameGingerbread>().gingerbreadButtonFound = true;
+            GameObject.Find("Startscreen").GetComponent<textBubble>().zone3.current = true;
         }
 
 

@@ -30,8 +30,6 @@ public class MiniGameArcade : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
         if (GameObject.Find("Startscreen").GetComponent<textBubble>().arkade[0].current == false &&
             GameObject.Find("Startscreen").GetComponent<textBubble>().arkade[1].current == false &&
             GameObject.Find("Startscreen").GetComponent<textBubble>().arkade[2].current == false &&

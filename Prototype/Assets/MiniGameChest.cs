@@ -21,7 +21,7 @@ public class MiniGameChest : MonoBehaviour
         {
             GameObject.Find("Treasure").GetComponent<ChestAnimationController>().idleToShake = true;
             GameObject.Find("Startscreen").GetComponent<textBubble>().pressCount = 0;
-            GameObject.Find("Startscreen").GetComponent<textBubble>().introContinued.current = true;
+            GameObject.Find("Startscreen").GetComponent<textBubble>().introContinued2.current = true;
             isChestGameCompleted = true;
         }
     }

@@ -28,8 +28,6 @@ public class PotionChestDefaultTrackableEventHandler : MonoBehaviour, ITrackable
 
     public static DefaultTrackableEventHandler main;
 
-    public bool startMinigameChest = false;
-    public bool startMinigameEnding = false;
     
 
 
@@ -118,35 +116,9 @@ public class PotionChestDefaultTrackableEventHandler : MonoBehaviour, ITrackable
             GameObject.Find("Detective").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == false &&
             GameObject.Find("ArcadeMachine").GetComponent<MiniGameArcade>().isArcadeMiniGameCompleted == false)
         {
-            //MISSING TEXT!
+            GameObject.Find("Startscreen").GetComponent<textBubble>().introContinued.current = true;
         }
-         
-
-            /*
-            if (GameObject.Find("Treasure").GetComponent<MiniGameChest>().isChestGameCompleted == true &&
-                GameObject.Find("ImageTargetGinger").GetComponent<MiniGameGingerbread>().isGingerbreadMiniGameCompleted == true &&
-                GameObject.Find("Detective").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == true &&
-                GameObject.Find("ArcadeMachine").GetComponent<MiniGameArcade>().isArcadeMiniGameCompleted == true)
-            {
-                startMinigameEnding = true;
-            }
-            */
-
-            /*
-            if (GameObject.Find("Treasure").GetComponent<MiniGameChest>().isChestGameCompleted == true &&
-               GameObject.Find("ImageTargetGinger").GetComponent<MiniGameGingerbread>().isGingerbreadMiniGameCompleted == true &&
-               GameObject.Find("Detective").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == true &&
-               GameObject.Find("ArcadeMachine").GetComponent<MiniGameArcade>().isArcadeMiniGameCompleted == true)
-            {
-                startMinigameEnding = true; //Starts the ending sequence (Animation + Text) in MiniGameEnding.cs
-                GameObject.Find("BubbleButton").GetComponent<textBubble>().pressCount = 0;
-                GameObject.Find("BubbleButton").GetComponent<textBubble>().outro.current = true; //Maybe Set this based on previous condition
-            }
-            */
-
-
-
-        }
+    }
 
 
     protected virtual void OnTrackingLost()
@@ -166,28 +138,6 @@ public class PotionChestDefaultTrackableEventHandler : MonoBehaviour, ITrackable
         // Disable canvas':
         foreach (var component in canvasComponents)
             component.enabled = false;
-
-        // overlayIconeOne = GetComponent<UnityEngine.UI.Image>();
-        // var tempColor = overlayIconeOne.color;
-        // tempColor.a = 1f;
-
-
-        /*  if (isFound)
-          {
-              overlayIconOneOpaque.gameObject.SetActive(true);
-              overlayIconeOneTransparent.gameObject.SetActive(false);
-
-              companion.SetActive(true);
-              companionDifferent.SetActive(false);
-
-              // overlayIconeOne.color = tempColor;
-          }
-
-      */
-        //navigationArrow.SetActive(false);
-
-        startMinigameChest = false;
-
     }
 
 
