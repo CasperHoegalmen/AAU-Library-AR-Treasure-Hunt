@@ -13823,7 +13823,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Find gerningsmanden og tryk p\xE5 det rigtige nummer"
+  m_Text: "Mist\xE6nkte er her i omr\xE5det, pr\xF8v at kigge dig omkring.\nKom tilbage
+    n\xE5r du tror, du har fundet den rigtige."
 --- !u!222 &1057617690
 CanvasRenderer:
   m_ObjectHideFlags: 0

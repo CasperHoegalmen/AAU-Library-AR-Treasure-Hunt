@@ -465,7 +465,7 @@ public class textBubble : MonoBehaviour
         introContinued.talk[1] = "Som jeg sagde så hjælper disse trylledrikke mig med at huske.";
         introContinued.talk[2] = "Jeg kan nu huske at jeg skulle åbne min kiste idag.";
         introContinued.talk[3] = "Øøøh. Hvordan er det nu man åbner en kiste?";
-        introContinued.talk[4] = "Sigt dit kamera op mod kisten så husker jeg måske.";
+        introContinued.talk[4] = "Sigt dit kamera op mod kisten så husker jeg det måske.";
 
         introContinued2.bubbleCount = 7;
         introContinued2.talk = new string[7];
@@ -647,7 +647,7 @@ public class textBubble : MonoBehaviour
         crime[4].talk[0] = "Jeg havde en tidligere.";
         crime[4].talk[1] = "Indtil en eller anden stjal den!";
         crime[4].talk[2] = "Jeg kan til gengæld ikke finde ham. Han må være her et eller andet sted";
-        crime[4].talk[3] = "Vil i hjælpe mig med at finde ud hvor han er?";
+        crime[4].talk[3] = "Vil I hjælpe mig med at finde ud af hvor han er?";
 
         crime[5].bubbleCount = 1;
         crime[5].talk = new string[1];
@@ -670,7 +670,7 @@ public class textBubble : MonoBehaviour
         crime[6].audArray[2] = sherlockthree3;
         crime[6].audArray[3] = sherlockthree4;
         crime[6].audArray[4] = sherlockthree5;
-        crime[6].talk[0] = "Udemærket";
+        crime[6].talk[0] = "Udmærket";
         crime[6].talk[1] = "Jeg ved følgende om den mistænkte.";
         crime[6].talk[2] = "Mistænkte kan lide at holde sin hånd på maven.";
         crime[6].talk[3] = "Mistænkte kigger opad.";
