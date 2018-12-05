@@ -126,7 +126,7 @@ public class ChestDefaultTrackableEventHandler : MonoBehaviour, ITrackableEventH
             GameObject.Find("Detective").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == true &&
             GameObject.Find("ArcadeMachine").GetComponent<MiniGameArcade>().isArcadeMiniGameCompleted == true)
         {
-            GameObject.Find("Startscreen").GetComponent<textBubble>().pressCount = 0;
+            //GameObject.Find("Startscreen").GetComponent<textBubble>().pressCount = 0;
             GameObject.Find("Startscreen").GetComponent<textBubble>().outro.current = true;
             startMinigameEnding = true;
         }

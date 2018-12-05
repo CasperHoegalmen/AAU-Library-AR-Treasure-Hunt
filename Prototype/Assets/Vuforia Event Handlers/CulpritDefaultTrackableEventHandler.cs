@@ -124,7 +124,7 @@ public class CulpritDefaultTrackableEventHandler : MonoBehaviour, ITrackableEven
         {
             notTheCulpritPotion = true;
             startMinigameCulprit = true; //Starts the mini Game for the Culprit in MiniGameCulprit.cs
-            GameObject.Find("Startscreen").GetComponent<textBubble>().pressCount = 0;
+            //GameObject.Find("Startscreen").GetComponent<textBubble>().pressCount = 0;
             if(GameObject.Find("Detective").GetComponent<MiniGameCulprit>().isGamePartiallyCompleted == false)
             {
                 GameObject.Find("Startscreen").GetComponent<textBubble>().crime[2].current = true; //Maybe Set this based on previous condition

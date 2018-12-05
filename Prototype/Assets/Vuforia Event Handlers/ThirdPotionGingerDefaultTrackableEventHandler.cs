@@ -114,7 +114,7 @@ public class ThirdPotionGingerDefaultTrackableEventHandler : MonoBehaviour, ITra
             GameObject.Find("Detective").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == false &&
             GameObject.Find("ArcadeMachine").GetComponent<MiniGameArcade>().isArcadeMiniGameCompleted == false)
         {
-            GameObject.Find("Startscreen").GetComponent<textBubble>().pressCount = 0;
+            //GameObject.Find("Startscreen").GetComponent<textBubble>().pressCount = 0;
             GameObject.Find("Startscreen").GetComponent<textBubble>().zone[2].current = true;
         }
     }

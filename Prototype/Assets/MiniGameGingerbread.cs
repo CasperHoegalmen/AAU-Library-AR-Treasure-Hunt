@@ -5,7 +5,7 @@ using UnityEngine;
 public class MiniGameGingerbread : MonoBehaviour {
 
     public bool isGingerbreadMiniGameCompleted = false;
-    public bool isGingerbreadMiniGamePartiallyCompleted = false;
+    //public bool isGingerbreadMiniGamePartiallyCompleted = false;
     public GameObject GingerbreadWithButton;
     public GameObject GingerbreadWithoutButton;
     public bool gingerbreadButtonFound = false;
@@ -19,20 +19,17 @@ public class MiniGameGingerbread : MonoBehaviour {
 	void Update () {
 
         if(GameObject.Find("ImageTargetGinger").GetComponent<GingerDefaultTrackableEventHandler>().startMinigameGingerbread == true &&
-            isGingerbreadMiniGamePartiallyCompleted == false)
+            isGingerbreadMiniGameCompleted == false)
         {
             GingerbreadWithButton.SetActive(false);
             GingerbreadWithoutButton.SetActive(true);
-            isGingerbreadMiniGamePartiallyCompleted = true;
         }
 
         
         if (GameObject.Find("ImageTargetGinger").GetComponent<GingerDefaultTrackableEventHandler>().startMinigameGingerbread == true &&
-            isGingerbreadMiniGamePartiallyCompleted == true &&
             gingerbreadButtonFound == true &&
             isGingerbreadMiniGameCompleted == false)
         {
-            GameObject.Find("Startscreen").GetComponent<textBubble>().zone2[0].current = true;
             GingerbreadWithButton.SetActive(true);
             GingerbreadWithoutButton.SetActive(false);
             isGingerbreadMiniGameCompleted = true;

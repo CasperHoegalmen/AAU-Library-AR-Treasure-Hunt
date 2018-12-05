@@ -119,7 +119,7 @@ public class PotionCulpritDefaultTrackableEventHandler : MonoBehaviour, ITrackab
         GameObject.Find("Detective").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == false &&
         GameObject.Find("ArcadeMachine").GetComponent<MiniGameArcade>().isArcadeMiniGameCompleted == false)
         {
-            GameObject.Find("Startscreen").GetComponent<textBubble>().pressCount = 0;
+            //GameObject.Find("Startscreen").GetComponent<textBubble>().pressCount = 0;
             GameObject.Find("Startscreen").GetComponent<textBubble>().crime[0].current = true;
         }
 

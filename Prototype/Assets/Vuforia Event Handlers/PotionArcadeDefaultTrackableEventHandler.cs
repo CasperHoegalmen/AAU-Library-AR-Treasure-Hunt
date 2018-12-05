@@ -114,7 +114,7 @@ public class PotionArcadeDefaultTrackableEventHandler : MonoBehaviour, ITrackabl
             GameObject.Find("Detective").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == true &&
             GameObject.Find("ArcadeMachine").GetComponent<MiniGameArcade>().isArcadeMiniGameCompleted == false)
         {
-            GameObject.Find("Startscreen").GetComponent<textBubble>().pressCount = 0;
+            //GameObject.Find("Startscreen").GetComponent<textBubble>().pressCount = 0;
             GameObject.Find("Startscreen").GetComponent<textBubble>().arkade[0].current = true;
         }
 

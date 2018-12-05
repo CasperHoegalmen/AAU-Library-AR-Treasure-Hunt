@@ -120,7 +120,7 @@ public class SecondPotionCulpritDefaultTrackableEventHandler : MonoBehaviour, IT
         GameObject.Find("Detective").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == false &&
         GameObject.Find("ArcadeMachine").GetComponent<MiniGameArcade>().isArcadeMiniGameCompleted == false)
         {
-            GameObject.Find("Startscreen").GetComponent<textBubble>().pressCount = 0;
+            //GameObject.Find("Startscreen").GetComponent<textBubble>().pressCount = 0;
             GameObject.Find("Startscreen").GetComponent<textBubble>().crime[1].current = true;
         }
 

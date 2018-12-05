@@ -115,20 +115,27 @@ public class GingerDefaultTrackableEventHandler : MonoBehaviour, ITrackableEvent
         if (//GameObject.Find("ImageTargetGinger").GetComponent<MiniGameGingerbread>().isGingerbreadMiniGamePartiallyCompleted == false &&
             GameObject.Find("Treasure").GetComponent<MiniGameChest>().isChestGameCompleted == true &&
             GameObject.Find("ImageTargetGinger").GetComponent<MiniGameGingerbread>().isGingerbreadMiniGameCompleted == false &&
+            GameObject.Find("ImageTargetGinger").GetComponent<MiniGameGingerbread>().gingerbreadButtonFound == false &&
             GameObject.Find("Detective").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == false &&
             GameObject.Find("ArcadeMachine").GetComponent<MiniGameArcade>().isArcadeMiniGameCompleted == false)
         {
             notTheGingerPotion = true;
             startMinigameGingerbread = true; //Starts the mini Game for the Gingerbread in MiniGameGingerbread.cs
-            if(GameObject.Find("ImageTargetGinger").GetComponent<MiniGameGingerbread>().isGingerbreadMiniGamePartiallyCompleted == false)
-            {
-                GameObject.Find("Startscreen").GetComponent<textBubble>().pressCount = 0;
-                GameObject.Find("Startscreen").GetComponent<textBubble>().zone[3].current = true;
-            } 
+           
+            
+            GameObject.Find("Startscreen").GetComponent<textBubble>().zone[3].current = true;
+            GameObject.Find("Startscreen").GetComponent<textBubble>().speechBubble1.SetActive(false);
         }
 
-
-
+        if (GameObject.Find("Treasure").GetComponent<MiniGameChest>().isChestGameCompleted == true &&
+            GameObject.Find("ImageTargetGinger").GetComponent<MiniGameGingerbread>().isGingerbreadMiniGameCompleted == false &&
+            GameObject.Find("ImageTargetGinger").GetComponent<MiniGameGingerbread>().gingerbreadButtonFound == true &&
+            GameObject.Find("Detective").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == false &&
+            GameObject.Find("ArcadeMachine").GetComponent<MiniGameArcade>().isArcadeMiniGameCompleted == false)
+        {
+            startMinigameGingerbread = true;
+            GameObject.Find("Startscreen").GetComponent<textBubble>().zone2[0].current = true;
+        }
     }
 
 
@@ -150,28 +157,20 @@ public class GingerDefaultTrackableEventHandler : MonoBehaviour, ITrackableEvent
         foreach (var component in canvasComponents)
             component.enabled = false;
 
-        // overlayIconeOne = GetComponent<UnityEngine.UI.Image>();
-        // var tempColor = overlayIconeOne.color;
-        // tempColor.a = 1f;
-
-
-        /*  if (isFound)
-          {
-              overlayIconOneOpaque.gameObject.SetActive(true);
-              overlayIconeOneTransparent.gameObject.SetActive(false);
-
-              companion.SetActive(true);
-              companionDifferent.SetActive(false);
-
-              // overlayIconeOne.color = tempColor;
-          }
-
-      */
-        //navigationArrow.SetActive(false);
-
         startMinigameGingerbread = false;
         notTheGingerPotion = false;
 
+        for (int i = 0; i < GameObject.Find("Startscreen").GetComponent<textBubble>().zone.Length; i++)
+        {
+            if (GameObject.Find("Treasure").GetComponent<MiniGameChest>().isChestGameCompleted == true)
+            {        
+                GameObject.Find("Startscreen").GetComponent<textBubble>().speechBubble1.SetActive(false);
+                GameObject.Find("Startscreen").GetComponent<textBubble>().speechBubble2.SetActive(false);
+                GameObject.Find("Startscreen").GetComponent<textBubble>().button.gameObject.SetActive(false);
+                GameObject.Find("Startscreen").GetComponent<textBubble>().GBImage.gameObject.SetActive(false);
+                GameObject.Find("Startscreen").GetComponent<textBubble>().zone[i].current = false;
+            }
+        }
     }
 
 
