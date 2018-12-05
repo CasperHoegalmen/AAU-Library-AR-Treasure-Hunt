@@ -13812,10 +13812,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: d50a65e7d9d541543941d2ff1fb32664, type: 3}
-    m_FontSize: 39
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 3
     m_MaxSize: 41
     m_Alignment: 1
     m_AlignByGeometry: 0
@@ -19894,15 +19894,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 16081a8f4744dbc45a9cf34285da7db0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.03
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 16081a8f4744dbc45a9cf34285da7db0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.191
+      value: 0.16
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 16081a8f4744dbc45a9cf34285da7db0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 16081a8f4744dbc45a9cf34285da7db0, type: 3}
       propertyPath: m_LocalRotation.x
@@ -19990,15 +19990,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 16081a8f4744dbc45a9cf34285da7db0, type: 3}
       propertyPath: m_LocalScale.x
-      value: 15.842355
+      value: 10.871024
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 16081a8f4744dbc45a9cf34285da7db0, type: 3}
       propertyPath: m_LocalScale.y
-      value: 15.842355
+      value: 10.871024
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 16081a8f4744dbc45a9cf34285da7db0, type: 3}
       propertyPath: m_LocalScale.z
-      value: 15.842355
+      value: 10.871024
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 16081a8f4744dbc45a9cf34285da7db0, type: 3}
       propertyPath: m_Name
