@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="Marker6" size="100.000000 85.314682" />
+    <ImageTarget name="Marker5" size="100.000000 83.499290" />
+    <ImageTarget name="Marker4" size="100.000000 83.499290" />
+    <ImageTarget name="Marker3" size="100.000000 90.088493" />
+    <ImageTarget name="Marker2" size="100.000000 95.398232" />
+    <ImageTarget name="Marker1" size="100.000000 90.243904" />
+    <ImageTarget name="Gamify" size="100.000000 102.366867" />
+    <ImageTarget name="Magnifying" size="100.000000 65.965767" />
+    <ImageTarget name="Chestpotion" size="100.000000 94.350281" />
+    <ImageTarget name="Magnifyingglass2" size="100.000000 100.000000" />
+    <ImageTarget name="GamifyPotion" size="150.000000 139.264984" />
+    <ImageTarget name="ZonePotion" size="150.000000 139.264984" />
+    <ImageTarget name="MagnifyingPotion" size="150.000000 139.264984" />
+  </Tracking>
+</QCARConfig>
