@@ -476,7 +476,7 @@ public class textBubble : MonoBehaviour
         introContinued.animFin = new bool[1];
         introContinued.audFin = new bool[1];
         introContinued.audArray = new AudioSource[1];
-        introContinued.audArray[0] = introContAud;                          //Placeholder for introContinued riddle
+        introContinued.audArray[0] = introContAud;                         
         introContinued.talk[0] = "";
 
 
@@ -504,7 +504,7 @@ public class textBubble : MonoBehaviour
         arkade[0].bubbleCount = 1;
         arkade[0].audFin = new bool[1];
         arkade[0].audArray = new AudioSource[1];
-        arkade[0].audArray[0] = arcadeHelp;                                 //Placeholder for arcade riddle 1        
+        arkade[0].audArray[0] = arcadeHelp;                                        
         arkade[0].animNum = new int[1] { 1 };
         arkade[0].animFin = new bool[1];
         arkade[0].talk = new string[1];
@@ -598,7 +598,7 @@ public class textBubble : MonoBehaviour
         crime[0].bubbleCount = 1;    
         crime[0].audFin = new bool[1];
         crime[0].audArray = new AudioSource[1];
-        crime[0].audArray[0] = crimeHelpAud;                                //Placeholder for crime riddle 1
+        crime[0].audArray[0] = crimeHelpAud;                                
         crime[0].animNum = new int[1] { 1 };
         crime[0].animFin = new bool[1];
         crime[0].talk = new string[1];
@@ -607,7 +607,7 @@ public class textBubble : MonoBehaviour
         crime[1].bubbleCount = 1;
         crime[1].audArray = new AudioSource[1];
         crime[1].audFin = new bool[1];
-        crime[1].audArray[0] = gerningsstedHelp;                          //Placeholder for crime riddle 2
+        crime[1].audArray[0] = gerningsstedHelp;                          
         crime[1].animNum = new int[1] { 1 };
         crime[1].animFin = new bool[1];
         crime[1].talk = new string[1];
@@ -709,7 +709,7 @@ public class textBubble : MonoBehaviour
         zone[0].bubbleCount = 1;  
         zone[0].audFin = new bool[1];
         zone[0].audArray = new AudioSource[1];
-        zone[0].audArray[0] = zoneHelpAud;                              //Placeholder for GB riddle 1
+        zone[0].audArray[0] = zoneHelpAud;                              
         zone[0].animNum = new int[1] { 1 };
         zone[0].animFin = new bool[1];
         zone[0].talk = new string[1];
@@ -718,7 +718,7 @@ public class textBubble : MonoBehaviour
         zone[1].bubbleCount = 1;      
         zone[1].audArray = new AudioSource[1];
         zone[1].audFin = new bool[1];
-        zone[1].audArray[0] = arkHelp2;                               //Placeholder for GB riddle 2
+        zone[1].audArray[0] = arkHelp2;                               
         zone[1].animNum = new int[1] { 1 };
         zone[1].animFin = new bool[1];
         zone[1].talk = new string[1];
@@ -727,7 +727,7 @@ public class textBubble : MonoBehaviour
         zone[2].bubbleCount = 1;    
         zone[2].audArray = new AudioSource[1];
         zone[2].audFin = new bool[1];
-        zone[2].audArray[0] = arkHelp3;                              //Placeholder for GB riddle 3
+        zone[2].audArray[0] = arkHelp3;                              
         zone[2].animNum = new int[1] { 1 };
         zone[2].animFin = new bool[1];
         zone[2].talk = new string[1];
@@ -874,11 +874,12 @@ public class textBubble : MonoBehaviour
         {
             if (inter.current == true)                                  //But only if the interaction is the current one.
             {
-                if (inter.animFin[pressCount] == false)                 //If this talk's animation hasn't already played
+                if (inter.animFin[pressCount] == false)                 //If the animation of the talk hasn't already played
                 {
-                    if (inter.animNum[pressCount] == 1)                 //If this talk's animation number is equal to 1, play the talking animation.
+                    if (inter.animNum[pressCount] == 1)                 //If animation number of the current talk is equal to 1, play the talking animation.
                     {
-                        //Pointing at treasure animation
+                        //Pointing at treasure animation is triggered once the next button has been pressed three times
+                        //Animation for the conversation of the introduction instance of the struct
                         if (inter.current == intro.current) {
                             if (pressCount == 3)
                             {
@@ -893,6 +894,7 @@ public class textBubble : MonoBehaviour
                             }                      
                         } 
                         //Thinking animation once the first potion is scanned
+                        //Animation for the conversation of the tutorial instance of the struct
                         if (inter.current == introContinued2.current) 
                         {
                             if (pressCount == 0)
@@ -915,43 +917,31 @@ public class textBubble : MonoBehaviour
         }
     }
 
+    //Function that plays animation for the in-game characters at the arcade section
     public void playCompAnimation(interaction[] interArray)
     {
         //Animation for the pre minigame conversation in the arcade section
         if (interArray == arkade)
         {
+            //For loop that goes through each dialogue that the conversation consists of
             for (int i = 0; i < interArray.Length; i++)
             {
+                //For each loop that goes through each line in the dialogue
                 foreach (string str in interArray[i].talk)
                 {
+                    //Check whether the conversation instance has been triggered from scanning its respective marker
                     if (interArray[i].current == true)
                     {
+                        //Check if no animation has been played yet
                         if (interArray[i].animFin[pressCount] == false && interArray[i].animNum[pressCount] == 1)
                         {
-                            //if (interArray[i].current == arkade[0].current)
-                            //{
-                            //    if (pressCount == 0)
-                            //    {
-                            //        companion.GetComponent<Animator>().Play("Thinking_Animation", -1, 0f);
-                            //        companion.GetComponent<Animator>().SetFloat("companionSpeed", 0.7f);
-                            //        companion.GetComponent<Animator>().SetBool("thinkToTalk", true);
-                            //        companion.GetComponent<Animator>().SetBool("isCompanionThinking", false);
-                            //    }
-                            //    else
-                            //    {
-                            //        companion.GetComponent<Animator>().SetFloat("companionSpeed", 1.2f);
-                            //        companion.GetComponent<Animator>().Play("Talking_Animation", -1, 0f);
-                            //        companion.GetComponent<Animator>().SetBool("isCompanionTalking", true);
-                            //    }
-                            //}
-
+                            //Play an animation for the comapnion at a specific dialogue line
                             if (interArray[i].current == arkade[2].current)
                             {
+                                //Determines what animation state to play, its speed, and transition
                                 companion.GetComponent<Animator>().SetFloat("companionSpeed", 1.2f);
                                 companion.GetComponent<Animator>().Play("Talking_Animation", -1, 0f);
                                 companion.GetComponent<Animator>().SetBool("isCompanionTalking", true);
-
-                                Debug.Log("This is arcade point number " + i);
                             }
 
                             if (interArray[i].current == arkade[4].current)
@@ -972,6 +962,7 @@ public class textBubble : MonoBehaviour
                                 Debug.Log("This is arcade point number " + i);
                             }
 
+                            //Play an animation for the arcade machine at a specific dialogue line
                             if (interArray[i].current == arkade[1].current || interArray[i].current == arkade[3].current)
                             {
                                 arcade_Machine.GetComponent<Animator>().SetFloat("arcadeAnimationSpeed", 0.7f);
@@ -981,6 +972,7 @@ public class textBubble : MonoBehaviour
                                 Debug.Log("This is arcade point number " + i);
                             }
 
+                            //Set the animation index to true, to ensure that it is not played again
                             interArray[i].animFin[pressCount] = true;
                         }
                     }
@@ -988,7 +980,8 @@ public class textBubble : MonoBehaviour
             }
         }
 
-        //Animation the post minigame conversation in the arcade section
+        //Animation the post minigame conversation in the arcade section. 
+        //The procedure of when and how the animation is triggered is the same as the code from line 923-981
         if (interArray == arkade2)
         {
             for (int i = 0; i < interArray.Length; i++)
@@ -1036,9 +1029,11 @@ public class textBubble : MonoBehaviour
         }
     }
 
+    //Function that plays animation for the in-game characters at the zone section
     public void zoneSectionAnimation(interaction[] interArray)
     {
-        //Animation the pre- minigame conversation in the zone section
+        //Animation the pre minigame conversation in the zone section
+        //The procedure of when and how the animation is triggered is the same as the code from line 923-981
         if (interArray == zone)
         {
             for (int i = 0; i < interArray.Length; i++)
@@ -1049,23 +1044,6 @@ public class textBubble : MonoBehaviour
                     {
                         if (interArray[i].animFin[pressCount] == false && interArray[i].animNum[pressCount] == 1)
                         {
-                            //if (interArray[i].current == zone[0].current || interArray[i].current == zone[1].current || interArray[i].current == zone[2].current)
-                            //{
-                            //    if (pressCount == 0)
-                            //    {
-                            //        companion.GetComponent<Animator>().Play("Thinking_Animation", -1, 0f);
-                            //        companion.GetComponent<Animator>().SetFloat("companionSpeed", 0.7f);
-                            //        companion.GetComponent<Animator>().SetBool("thinkToTalk", true);
-                            //        companion.GetComponent<Animator>().SetBool("isCompanionThinking", false);
-                            //    }
-                            //    else
-                            //    {
-                            //        companion.GetComponent<Animator>().SetFloat("companionSpeed", 1.2f);
-                            //        companion.GetComponent<Animator>().Play("Talking_Animation", -1, 0f);
-                            //        companion.GetComponent<Animator>().SetBool("isCompanionTalking", true);
-                            //    }
-                            //}
-
                             if (interArray[i].current == zone[4].current || interArray[i].current == zone[6].current || interArray[i].current == zone[8].current)
                             {
                                 companion.GetComponent<Animator>().SetFloat("companionSpeed", 1.2f);
@@ -1087,6 +1065,7 @@ public class textBubble : MonoBehaviour
         }
 
         //Animation the post minigame conversation in the zone section
+        //The procedure of when and how the animation is triggered is the same as the code from line 923-981
         if (interArray == zone2)
         {
             for (int i = 0; i < interArray.Length; i++)
@@ -1132,8 +1111,11 @@ public class textBubble : MonoBehaviour
         }
     }
 
+    //Function that plays animation for the in-game characters at the crime section
     public void crimeSectionAnimation(interaction[] interArray)
     {
+        //Animation for the pre minigame conversation in the crime section
+        //The procedure of when and how the animation is triggered is the same as the code from line 923-981
         if (interArray == crime)
         {
             for (int i = 0; i < interArray.Length; i++)
@@ -1144,23 +1126,6 @@ public class textBubble : MonoBehaviour
                     {
                         if (interArray[i].animFin[pressCount] == false && interArray[i].animNum[pressCount] == 1)
                         {
-                            //if (interArray[i].current == crime[0].current || interArray[i].current == crime[1].current)
-                            //{
-                            //    if (pressCount == 0)
-                            //    {
-                            //        companion.GetComponent<Animator>().Play("Thinking_Animation", -1, 0f);
-                            //        companion.GetComponent<Animator>().SetFloat("companionSpeed", 0.7f);
-                            //        companion.GetComponent<Animator>().SetBool("thinkToTalk", true);
-                            //        companion.GetComponent<Animator>().SetBool("isCompanionThinking", false);
-                            //    }
-                            //    else
-                            //    {
-                            //        companion.GetComponent<Animator>().SetFloat("companionSpeed", 1.2f);
-                            //        companion.GetComponent<Animator>().Play("Talking_Animation", -1, 0f);
-                            //        companion.GetComponent<Animator>().SetBool("isCompanionTalking", true);
-                            //    }
-                            //}
-
                             if (interArray[i].current == crime[2].current)
                             {
                                 detective.GetComponent<Animator>().Play("detectiveIdleTalk", -1, 0f);
@@ -1215,6 +1180,8 @@ public class textBubble : MonoBehaviour
             }
         }
 
+        //Animation for the post minigame conversation in the crime section
+        //The procedure of when and how the animation is triggered is the same as the code from line 923-981
         if (interArray == crime2)
         {
             for (int i = 0; i < interArray.Length; i++)
@@ -1264,8 +1231,10 @@ public class textBubble : MonoBehaviour
         }
     }
 
+    //Function that plays animation for the in-game characters once all key fragments have been collected
     public void gameOver(interaction inter)
     {
+        //The procedure of when and how the animation is triggered is the same as the code from line 923-981
         for (int i = 0; i < inter.talk.Length; i++)
         {
             if (inter.current == true)
