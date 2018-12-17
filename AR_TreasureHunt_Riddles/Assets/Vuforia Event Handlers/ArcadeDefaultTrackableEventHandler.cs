@@ -21,10 +21,6 @@ public class ArcadeDefaultTrackableEventHandler : MonoBehaviour, ITrackableEvent
 {
     #region PROTECTED_MEMBER_VARIABLES
 
-    //public Transform overlayIconOneOpaque;
-    //public Transform overlayIconeOneTransparent;
-    //public GameObject companion, companionDifferent;
-    //public GameObject navigationArrow;
 
     public static DefaultTrackableEventHandler main;
     public bool startMinigameArcade = false;
@@ -117,10 +113,10 @@ public class ArcadeDefaultTrackableEventHandler : MonoBehaviour, ITrackableEvent
         {
             notTheArcadePotion = true;
             startMinigameArcade = true;
-            //GameObject.Find("Startscreen").GetComponent<textBubble>().pressCount = 0; //Starts the mini Game for the Arcade in MiniGameArcade.cs
+           
             if (GameObject.Find("ArcadeMachine").GetComponent<MiniGameArcade>().isGamePartiallyComplete == false)
             {
-                GameObject.Find("Startscreen").GetComponent<textBubble>().arkade[1].current = true; //Maybe Set this based on previous condition
+                GameObject.Find("Startscreen").GetComponent<textBubble>().arkade[1].current = true; 
             }
            
         }
@@ -145,25 +141,6 @@ public class ArcadeDefaultTrackableEventHandler : MonoBehaviour, ITrackableEvent
         // Disable canvas':
         foreach (var component in canvasComponents)
             component.enabled = false;
-
-        // overlayIconeOne = GetComponent<UnityEngine.UI.Image>();
-        // var tempColor = overlayIconeOne.color;
-        // tempColor.a = 1f;
-
-
-        /*  if (isFound)
-          {
-              overlayIconOneOpaque.gameObject.SetActive(true);
-              overlayIconeOneTransparent.gameObject.SetActive(false);
-
-              companion.SetActive(true);
-              companionDifferent.SetActive(false);
-
-              // overlayIconeOne.color = tempColor;
-          }
-
-      */
-        //navigationArrow.SetActive(false);
 
         startMinigameArcade = false;
         notTheArcadePotion = false;

@@ -33,7 +33,6 @@ public class MiniGameCulprit : MonoBehaviour
     {
 
 
-
         if (GameObject.Find("Startscreen").GetComponent<textBubble>().crime[0].current == false &&
             GameObject.Find("Startscreen").GetComponent<textBubble>().crime[1].current == false &&
             GameObject.Find("Startscreen").GetComponent<textBubble>().crime[2].current == false &&
@@ -53,8 +52,7 @@ public class MiniGameCulprit : MonoBehaviour
             miniGameCulpritUIButton3.gameObject.SetActive(true);
             miniGameCulpritUIQuestionText.SetActive(true);
             finishedItOnce = true;
-            Debug.Log("IN HERE!");
-            
+           
 
             miniGameCulpritUIButton1.onClick.AddListener(wrongButton1);
             miniGameCulpritUIButton2.onClick.AddListener(wrongButton2);
@@ -71,8 +69,6 @@ public class MiniGameCulprit : MonoBehaviour
             miniGameCulpritUIButton2.gameObject.SetActive(true);
             miniGameCulpritUIButton3.gameObject.SetActive(true);
             miniGameCulpritUIQuestionText.SetActive(true);
-
-            Debug.Log("In THERE!");
 
             miniGameCulpritUIButton1.onClick.AddListener(wrongButton1);
             miniGameCulpritUIButton2.onClick.AddListener(wrongButton2);
@@ -116,11 +112,6 @@ public class MiniGameCulprit : MonoBehaviour
 
     void wrongButton1()
     {
-        //Deactivate the Two Answers you didn't choose
-        //Show the chosen Button in Red
-        //"Press On the Screen to try again"
-        //Restart Game
-
         isButtonPressed = true;
 
         miniGameCulpritUIButton1.gameObject.SetActive(true);

@@ -21,11 +21,6 @@ public class CulpritDefaultTrackableEventHandler : MonoBehaviour, ITrackableEven
 {
     #region PROTECTED_MEMBER_VARIABLES
 
-    //public Transform overlayIconOneOpaque;
-    //public Transform overlayIconeOneTransparent;
-    //public GameObject companion, companionDifferent;
-    //public GameObject navigationArrow;
-
     public static DefaultTrackableEventHandler main;
 
     public bool startMinigameCulprit = false;
@@ -123,11 +118,11 @@ public class CulpritDefaultTrackableEventHandler : MonoBehaviour, ITrackableEven
         GameObject.Find("Startscreen").GetComponent<textBubble>().crime[5].current == false)
         {
             notTheCulpritPotion = true;
-            startMinigameCulprit = true; //Starts the mini Game for the Culprit in MiniGameCulprit.cs
-            //GameObject.Find("Startscreen").GetComponent<textBubble>().pressCount = 0;
+            startMinigameCulprit = true; 
+            
             if(GameObject.Find("Detective").GetComponent<MiniGameCulprit>().isGamePartiallyCompleted == false)
             {
-                GameObject.Find("Startscreen").GetComponent<textBubble>().crime[2].current = true; //Maybe Set this based on previous condition
+                GameObject.Find("Startscreen").GetComponent<textBubble>().crime[2].current = true; 
             }
             
         }
@@ -154,25 +149,6 @@ public class CulpritDefaultTrackableEventHandler : MonoBehaviour, ITrackableEven
         foreach (var component in canvasComponents)
             component.enabled = false;
 
-        // overlayIconeOne = GetComponent<UnityEngine.UI.Image>();
-        // var tempColor = overlayIconeOne.color;
-        // tempColor.a = 1f;
-
-
-        /*  if (isFound)
-          {
-              overlayIconOneOpaque.gameObject.SetActive(true);
-              overlayIconeOneTransparent.gameObject.SetActive(false);
-
-              companion.SetActive(true);
-              companionDifferent.SetActive(false);
-
-              // overlayIconeOne.color = tempColor;
-          }
-
-      */
-        //navigationArrow.SetActive(false);
-
         
         startMinigameCulprit = false;
         notTheCulpritPotion = false;
@@ -186,7 +162,6 @@ public class CulpritDefaultTrackableEventHandler : MonoBehaviour, ITrackableEven
 
 
     }
-
 
     #endregion // PROTECTED_METHODS
 }

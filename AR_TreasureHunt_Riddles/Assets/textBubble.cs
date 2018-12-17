@@ -3,16 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// The purpose of the script is to handle the monologue of the 2D companion, the dialogue between the companion and the 3D characters
+// and also the appearing of the visual feedback in the form of speech bubbles that appear and disappear according to current conversation.
+// Furthermore, the script plays audiofiles that correspond to the ongoing conversation, to provide audible feedback to the player.
+
 public class textBubble : MonoBehaviour
 {
-    public Text talking;                //Text object for bibliothecary
-    public Text talking2;               //Text object for other characters
-    public GameObject speechBubble1;    //Rawimage object
-    public GameObject speechBubble2;    //Rawimage object
+    // public Text, GameObject, RawImage and AudioSource variables are declared at the start of the script.
+    // They are defined in the inspector window of Unity.
+
+    public Text talking;                
+    public Text talking2;               
+    public GameObject speechBubble1;    
+    public GameObject speechBubble2;    
     public GameObject companion, happyCompanion, arcade_Machine, gingerbread, gingerbread_NoButton, detective;
     public RawImage arcadeImage, GBImage, detectiveImage;
     public AudioSource introAud, introAud2, introAud3, introAud4, introAud5, introAud6, introAud7, introAud8,
-        introAud9, introAud10;
+                       introAud9, introAud10;
     public AudioSource introContAud, introContAud2, introContAud3, introContAud4, introContAud5;
     public AudioSource introContChest, introContChest2, introContChest3, introContChest4, introContChest5, introContChest6, introContChest7;
     public AudioSource outroAud, outroAud2, outroAud3, outroAud4;
@@ -22,7 +29,6 @@ public class textBubble : MonoBehaviour
     public AudioSource sherlock, sherlock2;
     public AudioSource sherlocktwo, sherlocktwo2, sherlocktwo3, sherlocktwo4;
     public AudioSource sherlockthree, sherlockthree2, sherlockthree3, sherlockthree4, sherlockthree5;
-    //public AudioSource sherlockfail, sherlockfail2;
     public AudioSource sherlockfour, sherlockfour2, sherlockfour3;
     public AudioSource kagemand;
     public AudioSource kagemandtwo, kagemandtwo2, kagemandtwo3;
@@ -47,7 +53,7 @@ public class textBubble : MonoBehaviour
     public int debugvar = 0;
 
 
-    //Struct with all info for each interaction
+    // This struct contains everything that is neccessary for a conversation in the game.
     public struct interaction
     {
         public bool current;            //Is this the current interaction? Functions will largely only run on object if this is set to TRUE.
@@ -90,12 +96,16 @@ public class textBubble : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // The condition for the if-statement checks, whether the player has pressed the button to play the game
+        // If the button has been pressed, the conversation struct containing the intro is set active, by setting the Boolean "current" inside the struct to true.
         if (startButton.GetComponent<startScreen>().startTheGame == true)
         {
             intro.current = true;
             startButton.GetComponent<startScreen>().startTheGame = false;
         }
 
+        // These are all the available conversations that are encountered throughout the game.
+        // Whenever the "current" Boolean inside one of these structs are is set to true, the conversation is started.
         allStopDisplay();
         allDisplayText();
         playCompAnimation(intro);
@@ -109,12 +119,10 @@ public class textBubble : MonoBehaviour
         crimeSectionAnimation(crime2);
         playCompAnimation(arkade);
         gameOver(outro);
-
-        Debug.Log("PRESS COUNT VALUE IS " + pressCount);
     }
 
 
-    //Run displayText on each interaction in the program.
+    // Run displayText on each interaction in the program.
     public void allDisplayText()
     {
         displayText(intro);
@@ -131,7 +139,9 @@ public class textBubble : MonoBehaviour
     }
 
 
-    //DisplayText overload for single interactions
+    // DisplayText overload for single interactions
+    // This function runs through every line of text, if the "current" Boolean of one of the structs for the conversations is set to true.
+    // While displaying all text the text in a struct, this function also plays the audio files in the conversation.
     public void displayText(interaction inter)
     {
         if (inter.current == true)
@@ -175,7 +185,9 @@ public class textBubble : MonoBehaviour
     }
 
 
-    //Display text in the owner's corresponding textbubble   
+    // Display text in the owner's corresponding textbubble
+    // This function provides the same functionality as the prior function.
+    // Instead of taking a single interaction struct as an argument, this function takes an interaction-array struct as argument.
     public void displayText(interaction[] interArray)
     {
         for (int i = 0; i < interArray.Length; i++)
@@ -262,7 +274,8 @@ public class textBubble : MonoBehaviour
         }
     }
 
-    //Check if pressCount is above the number of speechbubbles in the interaction and if 'TRUE' set that interaction.current to false and both speechbubbles to inactive.
+    // Check if pressCount is above the number of speechbubbles in the interaction and if 'TRUE' set that interaction.current to false and both speechbubbles to inactive.
+    // This will function will make the speechbubbles disappear, when a conversation is over.
     public bool stopDisplayText(interaction inter)
     {
         if (pressCount >= inter.bubbleCount && inter.current == true)
@@ -283,7 +296,8 @@ public class textBubble : MonoBehaviour
         return true;
     }
 
-    //Run stopDisplayText on all interactions whose current is equals to TRUE.
+    // This function sets all the current Booleans inside the individual interaction struct variables to false, if they are true.
+    // This ensures that only a single conversation is played.
     public void allStopDisplay()
     {
         if (intro.current == true)
@@ -325,7 +339,6 @@ public class textBubble : MonoBehaviour
                 if (GameObject.Find("ImageTargetArcade").GetComponent<ArcadeDefaultTrackableEventHandler>().notTheArcadePotion == true &&
                     arkade.Length > i && arkade[i].current == false)
                 {
-                    //Debug.Log("The number i is........................... " + i + " and its value is " + arkade[i + 1].current);
                     arkade[i + 1].current = true;
                 }
             }
@@ -424,7 +437,7 @@ public class textBubble : MonoBehaviour
         }
     }
 
-    //Function for inputting each interaction struct with its relevant information. All struct set-up should happen here.
+    // This function initalizes the individual variables for each struct, that are declared at the start of this script.
     public void interactionSetup()
     {
         speechBubble1.SetActive(false);

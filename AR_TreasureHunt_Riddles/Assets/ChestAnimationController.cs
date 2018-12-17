@@ -17,6 +17,7 @@ public class ChestAnimationController : MonoBehaviour
     void Update()
     {
 
+        // Boolean variables that are set in the Unity Animation controller.
         if (idleToShake == true)
         {
             chest.GetComponent<Animator>().SetBool("isIdle", true);

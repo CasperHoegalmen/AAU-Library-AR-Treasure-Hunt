@@ -21,11 +21,6 @@ public class ThirdPotionGingerDefaultTrackableEventHandler : MonoBehaviour, ITra
 {
     #region PROTECTED_MEMBER_VARIABLES
 
-    //public Transform overlayIconOneOpaque;
-    //public Transform overlayIconeOneTransparent;
-    //public GameObject companion, companionDifferent;
-    //public GameObject navigationArrow;
-
     public static DefaultTrackableEventHandler main;
 
     // public UnityEngine.UI.Image overlayIconeOne;
@@ -108,8 +103,7 @@ public class ThirdPotionGingerDefaultTrackableEventHandler : MonoBehaviour, ITra
             component.enabled = true;
 
 
-        if (//GameObject.Find("ImageTargetGinger").GetComponent<MiniGameGingerbread>().isGingerbreadMiniGamePartiallyCompleted == false &&
-            GameObject.Find("Treasure").GetComponent<MiniGameChest>().isChestGameCompleted == true &&
+        if (GameObject.Find("Treasure").GetComponent<MiniGameChest>().isChestGameCompleted == true &&
             GameObject.Find("ImageTargetGinger").GetComponent<MiniGameGingerbread>().isGingerbreadMiniGameCompleted == false &&
             GameObject.Find("Detective").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == false &&
             GameObject.Find("ArcadeMachine").GetComponent<MiniGameArcade>().isArcadeMiniGameCompleted == false)

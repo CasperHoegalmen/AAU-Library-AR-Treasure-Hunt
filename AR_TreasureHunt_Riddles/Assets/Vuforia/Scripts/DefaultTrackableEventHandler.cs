@@ -21,11 +21,6 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
 {
     #region PROTECTED_MEMBER_VARIABLES
 
-    //public Transform overlayIconOneOpaque;
-    //public Transform overlayIconeOneTransparent;
-    //public GameObject companion, companionDifferent;
-    //public GameObject navigationArrow;
-
     public static DefaultTrackableEventHandler main;
     
 
@@ -129,26 +124,7 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         foreach (var component in canvasComponents)
             component.enabled = false;
 
-        // overlayIconeOne = GetComponent<UnityEngine.UI.Image>();
-        // var tempColor = overlayIconeOne.color;
-        // tempColor.a = 1f;
-
-
-        /*  if (isFound)
-          {
-              overlayIconOneOpaque.gameObject.SetActive(true);
-              overlayIconeOneTransparent.gameObject.SetActive(false);
-
-              companion.SetActive(true);
-              companionDifferent.SetActive(false);
-
-              // overlayIconeOne.color = tempColor;
-          }
-
-      */
-        //navigationArrow.SetActive(false);
     }
-
 
     #endregion // PROTECTED_METHODS
 }

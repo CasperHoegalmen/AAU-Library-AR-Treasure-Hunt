@@ -21,11 +21,6 @@ public class GingerDefaultTrackableEventHandler : MonoBehaviour, ITrackableEvent
 {
     #region PROTECTED_MEMBER_VARIABLES
 
-    //public Transform overlayIconOneOpaque;
-    //public Transform overlayIconeOneTransparent;
-    //public GameObject companion, companionDifferent;
-    //public GameObject navigationArrow;
-
     public static DefaultTrackableEventHandler main;
 
     public bool startMinigameGingerbread = false;
@@ -112,15 +107,14 @@ public class GingerDefaultTrackableEventHandler : MonoBehaviour, ITrackableEvent
         foreach (var component in canvasComponents)
             component.enabled = true;
 
-        if (//GameObject.Find("ImageTargetGinger").GetComponent<MiniGameGingerbread>().isGingerbreadMiniGamePartiallyCompleted == false &&
-            GameObject.Find("Treasure").GetComponent<MiniGameChest>().isChestGameCompleted == true &&
+        if (GameObject.Find("Treasure").GetComponent<MiniGameChest>().isChestGameCompleted == true &&
             GameObject.Find("ImageTargetGinger").GetComponent<MiniGameGingerbread>().isGingerbreadMiniGameCompleted == false &&
             GameObject.Find("ImageTargetGinger").GetComponent<MiniGameGingerbread>().gingerbreadButtonFound == false &&
             GameObject.Find("Detective").GetComponent<MiniGameCulprit>().isCulpritMiniGameCompleted == false &&
             GameObject.Find("ArcadeMachine").GetComponent<MiniGameArcade>().isArcadeMiniGameCompleted == false)
         {
             notTheGingerPotion = true;
-            startMinigameGingerbread = true; //Starts the mini Game for the Gingerbread in MiniGameGingerbread.cs
+            startMinigameGingerbread = true;
            
             
             GameObject.Find("Startscreen").GetComponent<textBubble>().zone[3].current = true;

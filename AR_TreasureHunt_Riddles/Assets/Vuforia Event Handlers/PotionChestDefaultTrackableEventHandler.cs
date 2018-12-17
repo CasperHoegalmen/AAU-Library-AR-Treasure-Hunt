@@ -21,15 +21,7 @@ public class PotionChestDefaultTrackableEventHandler : MonoBehaviour, ITrackable
 {
     #region PROTECTED_MEMBER_VARIABLES
 
-    //public Transform overlayIconOneOpaque;
-    //public Transform overlayIconeOneTransparent;
-    //public GameObject companion, companionDifferent;
-    //public GameObject navigationArrow;
-
     public static DefaultTrackableEventHandler main;
-
-    
-
 
     // public UnityEngine.UI.Image overlayIconeOne;
     public bool isFound;
@@ -141,7 +133,6 @@ public class PotionChestDefaultTrackableEventHandler : MonoBehaviour, ITrackable
         foreach (var component in canvasComponents)
             component.enabled = false;
     }
-
 
     #endregion // PROTECTED_METHODS
 }
