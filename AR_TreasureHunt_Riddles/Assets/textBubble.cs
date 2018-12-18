@@ -12,14 +12,16 @@ public class textBubble : MonoBehaviour
     // public Text, GameObject, RawImage and AudioSource variables are declared at the start of the script.
     // They are defined in the inspector window of Unity.
 
-    public Text talking;                
-    public Text talking2;               
-    public GameObject speechBubble1;    
-    public GameObject speechBubble2;    
-    public GameObject companion, happyCompanion, arcade_Machine, gingerbread, gingerbread_NoButton, detective;
-    public RawImage arcadeImage, GBImage, detectiveImage;
+    public Text talking; //Text object for bibliothecary's displayed text.  
+    public Text talking2; //Text object for other characters' displayed text.
+    public GameObject speechBubble1; //RawImage object containing bibliothecary's speechbubble picture.
+    public GameObject speechBubble2; //RawImage object containing other characters' speechbubble picture.
+    public GameObject companion, happyCompanion, arcade_Machine, gingerbread, gingerbread_NoButton, detective; //RawImage objects containing character portraits
+    public RawImage arcadeImage, GBImage, detectiveImage; //Image targets
+
+    //Initialization of audio file variables.
     public AudioSource introAud, introAud2, introAud3, introAud4, introAud5, introAud6, introAud7, introAud8,
-                       introAud9, introAud10;
+                       introAud9, introAud10; 
     public AudioSource introContAud, introContAud2, introContAud3, introContAud4, introContAud5;
     public AudioSource introContChest, introContChest2, introContChest3, introContChest4, introContChest5, introContChest6, introContChest7;
     public AudioSource outroAud, outroAud2, outroAud3, outroAud4;
@@ -50,22 +52,25 @@ public class textBubble : MonoBehaviour
     public AudioSource zoneButton, zoneButton2;
     public AudioSource arkHelp2, arkHelp3, gerningsstedHelp;
 
-    public int debugvar = 0;
 
 
-    // This struct contains everything that is neccessary for a conversation in the game.
+    //Struct containing everything neccessary for a conversation in game.
     public struct interaction
     {
-        public bool current;            //Is this the current interaction? Functions will largely only run on object if this is set to TRUE.
-        public string[] talk;           // What does each bubble say
-        public int[] animNum;           //Corresponding animation to the talk (array length should always be equal to talk.length)
-        public bool[] animFin;          //Has the animation already been played? If FALSE: No, if TRUE: Yes. Animations will only play once.
-        public int bubbleCount;         //How many bubbles are in this interaction
-        public int bubbleOwner;         //Who is speaking in this interaction? 0 = Companion.
-        public AudioSource[] audArray;
-        public bool[] audFin;
+        public bool current;            //Determines whether this interaction is the current one.
+
+        public int bubbleCount;         //Number of talks in an interaction
+        public int bubbleOwner;         //Determines who the interaction belongs to.
+        
+        //Arrays for storing each talk element's variables
+        public string[] talk;           //Determines what is written
+        public int[] animNum;           //Corresponding animation to the talk 
+        public bool[] animFin;          //Determines if animation has been played
+        public AudioSource[] audArray;  //Stores each talk's audio file
+        public bool[] audFin;           //Determines if audio file has already played
     }
 
+    //Instancing of interaction Arrays and structs.
     public interaction intro;                                   //Starting talk
     public interaction introContinued, introContinued2;        //Starting talk after first object scan
     public interaction[] arkade = new interaction[5];           //Arkade Grandmaster intro talk.
@@ -73,9 +78,9 @@ public class textBubble : MonoBehaviour
     public interaction[] crime = new interaction[7];            //Crime Grandmaster intro talk.
     public interaction[] crime2 = new interaction[2];           //Crime Grandmaster post-question talk
     public interaction[] zone = new interaction[9];             //Zone Grandmaster intro talk.
-    public interaction[] zone2 = new interaction[2];            //Zone2 Grandmaster post-question talk
-    public interaction zone3;
-    public interaction outro;
+    public interaction[] zone2 = new interaction[2];            //Zone Grandmaster post-question talk
+    public interaction zone3;                                   //Zone Post-grandmaster companion talk
+    public interaction outro;                                   //Outro talk
 
     public interaction arkadeHelp;                              //Arkade help poster talk
     public interaction crimeHelp;                               //Crime help poster talk
@@ -87,7 +92,7 @@ public class textBubble : MonoBehaviour
 
     public GameObject startButton;
 
-    // Use this for initialization
+    //Function that runs once upon start
     void Start()
     {
         interactionSetup();                                     //Set up variables into different interactions
